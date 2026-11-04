@@ -79,8 +79,8 @@ button{cursor:pointer;background:none;border:0;padding:0;text-align:inherit}
 .radio.w{border-color:#fff}.radio.w.on::after{background:var(--paper)}
 
 .dock{position:absolute;inset:auto 0 0 0;padding:28px 16px 40px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 32%);display:flex;flex-direction:column;align-items:center;gap:12px;z-index:7}
-.earn{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:var(--mute2)}
-.earn .ic{width:20px;height:20px;color:var(--mute2)}
+.earn{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:#6b4e00;background:linear-gradient(135deg,#fff8e4,#f6e3a8);border-radius:30px;padding:5px 12px 5px 14px}
+.earn .ic{width:18px;height:18px;color:#c9961a}
 
 .tabbar{position:absolute;inset:auto 0 0 0;height:106px;padding:13px 24px 0;display:flex;gap:16px;direction:ltr;z-index:9;pointer-events:none}
 .tabbar>*{pointer-events:auto}
@@ -706,6 +706,65 @@ button{cursor:pointer;background:none;border:0;padding:0;text-align:inherit}
 .tile .badge{background:var(--ink)}
 .htitle{font-weight:500}
 
+/* v7 */
+.banner{height:150px}
+.bn-cold .img{left:0;top:-34px;width:172px;height:214px;object-fit:cover;mix-blend-mode:multiply}
+.banner h3{font-size:18px;font-weight:700;line-height:27px}
+.banner .bt{width:184px;padding:16px 16px 14px 0;justify-content:space-between}
+.code b{height:28px;padding:2px}.code b i{height:24px;padding:0 14px;border:1.5px dashed rgba(255,255,255,.75);font-size:13px}
+.mood2 h2{flex-direction:column;align-items:flex-start;gap:2px}
+.mood2 h2 .sub{font-size:13px;font-weight:400;color:var(--mute)}
+.mgrid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mt2{height:104px;border-radius:20px;background:var(--mbg);position:relative;overflow:hidden;display:block;text-align:right}
+.mt2 img{position:absolute;left:-8%;top:0;width:60%;height:100%;object-fit:cover;object-position:80% center;-webkit-mask-image:linear-gradient(to left,transparent 0,#000 30%);mask-image:linear-gradient(to left,transparent 0,#000 30%)}
+.mt2 .mtx{position:absolute;right:14px;top:14px;display:flex;flex-direction:column;gap:2px;max-width:48%}
+.mt2 .mtx b{font-size:15px;font-weight:700;color:var(--mink);line-height:22px}
+.mt2 .mtx span{font-size:11.5px;color:#6a6a6a}
+.mt2 .go{position:absolute;right:12px;bottom:12px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.85);display:grid;place-items:center}
+.mt2 .go .ic{width:14px;height:14px}
+.mtop{position:sticky;top:0;z-index:6;background:var(--paper)}
+.mtop .mhdr{position:static}
+.mtop .chips{position:static}
+.mtop .chips.cx{max-height:0;padding-top:0;padding-bottom:0;overflow:hidden;opacity:0;transition:max-height .2s,opacity .2s,padding .2s}
+.mtop.sc .chips.cx{max-height:64px;padding-top:4px;padding-bottom:10px;opacity:1;box-shadow:0 6px 10px -10px rgba(0,0,0,.25)}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tcard{border:1.5px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;text-align:right;min-height:68px;justify-content:center}
+.tcard b{font-size:14.5px;font-weight:600}.tcard span{font-size:12.5px;color:var(--mute)}
+.tcard.on{border-color:var(--ink);background:var(--ink);color:#fff}.tcard.on span{color:rgba(255,255,255,.75)}
+.ctbox{margin-top:10px;background:var(--soft2);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper);border-radius:14px;padding:8px 8px 8px 14px;font-size:14px;font-weight:500}
+.trow input{font:600 17px system-ui,-apple-system,sans-serif;border:0;background:var(--soft);border-radius:10px;height:40px;padding:0 12px;min-width:110px;color:var(--ink);text-align:center}
+.tgl.rep{background:var(--paper)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.days button{min-width:0;padding:0;height:38px;border-radius:12px;background:var(--paper);border:1px solid var(--line);font-size:14px;font-weight:500}
+.days button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hint{margin:0;font-size:12.5px;color:var(--mute);line-height:1.8}
+.okart{width:200px;height:182px}
+.repok{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:#e8f6ee;color:#13804b;border-radius:30px;padding:6px 12px;font-size:12.5px;font-weight:500}.repok .ic{width:16px;height:16px}
+.stats{grid-template-columns:1fr 1fr!important;gap:10px!important}
+.sc2{border-radius:22px;padding:14px;display:flex;flex-direction:column;gap:6px;text-align:right;min-height:128px;justify-content:space-between}
+.sc2 .hd{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:400}.sc2 .hd .ic{width:17px;height:17px}
+.sc2 .val{font-size:21px;font-weight:500;line-height:1.2;display:flex;align-items:baseline;gap:4px;white-space:nowrap}.sc2 .val small{font-size:11.5px;font-weight:400;opacity:.75}
+.sc2.w{background:var(--dark);color:#fff}
+.sc2.w .act{align-self:flex-start;height:30px;border-radius:30px;background:rgba(255,255,255,.14);color:#fff;padding:0 12px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:4px}.sc2.w .act .ic{width:15px;height:15px}
+.sc2.p{background:linear-gradient(135deg,#fff8e4 0%,#f6e3a8 100%);color:#3d2f05;border:1px solid #efd9a0}
+.sc2.p .hd .ic{color:#c9961a}
+.sc2 .pb{display:flex;flex-direction:column;gap:4px}
+.sc2 .bar{height:6px;border-radius:6px;background:rgba(160,115,0,.15);overflow:hidden}.sc2 .bar i{display:block;height:100%;background:linear-gradient(90deg,#e0b23c,#c9961a);border-radius:6px}
+.sc2 em{font-style:normal;font-size:11px;color:#6b5310}
+.rinfo{display:flex;gap:10px;background:var(--soft2);border-radius:16px;padding:12px 14px;font-size:13px;color:var(--ink2);line-height:1.8}.rinfo .ic{width:20px;height:20px;flex:none;margin-top:3px}
+.rcard{border:1px solid var(--line);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.rcard.off{opacity:.65}
+.rcard .h{display:flex;justify-content:space-between;align-items:center}
+.rcard .tm{display:flex;flex-direction:column}.rcard .tm b{font-size:24px;font-weight:600;line-height:1.2}.rcard .tm span{font-size:12.5px;color:var(--mute)}
+.rcard .its{display:flex;gap:10px;align-items:center}.rcard .its p{margin:0;font-size:13.5px;line-height:1.7}
+.rcard .ths{display:flex}.rcard .ths span{width:40px;height:40px;border-radius:12px;background:var(--soft);display:grid;place-items:center;border:2px solid #fff;margin-left:-10px}.rcard .ths img{width:32px;height:32px;object-fit:contain}
+.rcard .nx{display:flex;align-items:center;gap:6px;background:var(--soft2);border-radius:12px;padding:8px 10px;font-size:12.5px}.rcard .nx .ic{width:16px;height:16px}.rcard .nx span{flex:1}
+.rcard .nx button{font-size:12.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.rcard .nx.off{color:var(--mute)}
+.rcard .ft{display:flex;gap:8px}.rcard .ft button{flex:1;height:38px;border-radius:12px;background:var(--soft);font-size:13px;font-weight:500}.rcard .ft .del{flex:none;padding:0 16px;color:#c62f29;background:#fdeceb}
+.ths2{display:flex}.ths2 img{width:34px;height:34px;object-fit:contain;background:var(--soft);border-radius:10px;margin-left:-8px;border:2px solid #fff}
+
 /* ===== real-device mode ===== */
 html,body{background:#fff!important;height:100%;overscroll-behavior:none}
 body{padding:0!important;margin:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
@@ -734,7 +793,7 @@ body{padding:0!important;margin:0;-webkit-tap-highlight-color:transparent;-webki
   <aside class="side">
     <div>
       <h1>کافه لئو از فیگما</h1>
-      <p style="margin-top:6px">نسخه‌ی ششم: وکتور ورود، «همون همیشگی» افقی، پیشنهاددهنده‌ی «الان چی می‌چسبه»، ثبت خودرو با برگه، پروفایل طلایی.</p>
+      <p style="margin-top:6px">نسخه‌ی هفتم: بنرها مثل طراحی، «الان چی می‌چسبه» هم‌زبان با بنرها، منوی بدون کیبورد خودکار، زمان آماده بودن مرتب، سفارش خودکار روزانه.</p>
     </div>
     <div class="chg" id="chg"></div>
     <div class="idxw" id="idx"></div>
@@ -775,6 +834,7 @@ const P={
 };
 const CATS=[['قهوه تلخ','c_7b07','hot'],['شکلات داغ','c_06fb','hot'],['قهوه با شیر','c_1447','hot'],['بستنی','c_cf6f','cake'],['دمنوش','c_b926','hot'],['قهوه سرد','c_69b1','cold'],['میلک شیک','c_648d','cold'],['اسموتی','c_d919','cold'],['موکیتل','c_31c2','cold'],['دسر و کوکی','c_5f41','cake']];
 const MOODS=[['مغزم خاموشه','m_coffee','#7a4810',['m6','m3','m7'],'left:6px;top:39px'],['یه چیز خنک','m_cool','#075a94',['m1','m2','m4'],'left:16px;top:39px'],['یه چیز شیرین','m_sweet','#b8222c',['m5','m10','m9','m4'],'left:12px;top:46px'],['یه طعم<br>متفاوت','m_dice','#b8560d',['m8','m2','m10'],'left:11px;top:34px;text-align:right']];
+const MBG=['#f8ebdc','#e3eef8','#fbe5e8','#fbeadb'];
 const ADDONS=[['سیروپ نارگیل',20000],['سیروپ کارامل',20000],['شات اضافه اسپرسو',30000],['خامه اضافه',15000]];
 const BR={eel:{n:'شعبه ائل‌گلی',a:'تبریز، محدوده ائل‌گلی',full:'ائل‌گلی، خیابان پاسداران، کافه لئو',open:true,prep:'۱۵'},
           vali:{n:'شعبه ولیعصر',a:'تبریز، محدوده ولیعصر',full:'ولیعصر، خیابان کریم‌خان، نبش کوچه گلستان، کافه لئو',open:false,prep:'۲۰'}};
@@ -787,7 +847,8 @@ const S={busy:true,scr:'login',stack:[],auth:false,returnTo:null,phone:'',otp:''
  code:'',codeOn:null,codeOpen:false,codeErr:'',time:0,pay:'wallet',method:'store',
  cars:[],carDef:0,carForm:null,
  order:null,history:[{id:23288,date:'دیروز، ۱۸:۲۰',branch:'eel',lines:[{id:'m1',q:1,add:[]},{id:'m5',q:1,add:[0]}],total:498000},{id:23140,date:'۳ آبان، ۱۰:۰۵',branch:'eel',lines:[{id:'m6',q:2,add:[]},{id:'m9',q:1,add:[]}],total:750000}],
- fund:500000,fundCustom:'',codesTab:0,faq:0,sheet:null,sd:null,toast:null,toastAct:null,
+ fund:500000,fundCustom:'',codesTab:0,faq:0,ctime:'',rep:false,rdays:[0,1,2,3,4,5,6],
+ routines:[{time:'08:00',days:[0,1,2,3,4],lines:[{id:'m6',q:1,add:[]}],method:'store',branch:'eel',on:true,skip:false}],sheet:null,sd:null,toast:null,toastAct:null,
  txs:[['in',1000000,'۱۴:۱۰','۵ مهر ۱۴۰۵','درگاه آنلاین'],['out',498000,'۱۸:۲۰','دیروز','کیف پول'],['in',1000000,'۱۵:۳۴','۳ مهر ۱۴۰۵','درگاه آنلاین'],['out',289000,'۱۱:۱۰','۳ مهر ۱۴۰۵','کیف پول']]};
 const ph=document.getElementById('phone');
 
@@ -801,7 +862,13 @@ const subtotal=()=>lines().reduce((a,l)=>a+l.t,0);
 const disc=()=>{if(!S.codeOn)return 0;const c=CODES[S.codeOn];return subtotal()>=c.min?Math.round(subtotal()*c.p/1000)*1000:0};
 const payable=()=>subtotal()-disc();
 const earn=()=>Math.round(payable()/1000);
-const TIMES=[['هرچه زودتر','حدود ۱۵ دقیقه'],['۳۰ دقیقه دیگه',''],['۴۵ دقیقه دیگه',''],['ساعت ۱۹:۰۰','']];
+const TIMES=[['هرچه زودتر',10],['۲۰ دقیقه دیگه',20],['۳۰ دقیقه دیگه',30],['ساعت دلخواه',null]];
+const DAYS=['ش','ی','د','س','چ','پ','ج'],DAYN=['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه'];
+const hm=d=>fd(String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0'));
+const ft=t=>fd(String(t).replace(/^0/,''));
+const atMin=m=>hm(new Date(Date.now()+m*60000));
+const tLabel=k=>k===3?(S.ctime?'ساعت '+ft(S.ctime):'ساعت دلخواه'):TIMES[k][0];
+const daysTxt=d=>d.length===7?'هر روز':d.join()==='0,1,2,3,4'?'شنبه تا چهارشنبه':d.join()==='0,1,2,3,4,5'?'شنبه تا پنجشنبه':d.map(x=>DAYN[x]).join('، ');
 function addLine(id,add,q=1){const k=key(id,add);S.cart[k]=(S.cart[k]||0)+q;S._bump=1;buzz()}
 function decId(id){const ls=lines().filter(l=>l.id===id);if(!ls.length)return;const l=ls[ls.length-1];S.cart[l.k]--;if(S.cart[l.k]<=0){delete S.cart[l.k];undoable(l)}}
 function undoable(l){S._undo=l;toast(`«${P[l.id].n}» از سبد حذف شد`,'بازگردانی')}
@@ -882,14 +949,14 @@ V.home=()=>`${sbar()}<div class="scr">
   ${S.auth?`<div class="wstrip"><button class="wl" data-go="wallet"><span class="wbox">${i('walletBold')}</span><span class="wtxt"><span>موجودی کیف پول</span><em><b class="tn">${money(S.wallet)}</b>تومان</em></span></button><button class="charge" data-go="addfund">شارژ${i('add')}</button></div>`
    :`<div class="wstrip"><span class="wl"><span class="wbox">${i('walletBold')}</span><span class="wtxt" style="font-size:13px;color:var(--ink2)">عضو شو، از هر خرید<br>امتیاز بگیر</span></span><button class="charge" data-gologin>ورود</button></div>`}
   ${orderCard()}
-  <div class="slider" id="sl">${[`<button class="banner" style="background:#faebe4" data-catgo="cold"><img class="img" src="${IMG.iced}" alt=""><span class="bt"><span><h3>خنک بنوش<br>بیشتر کیف کن!</h3><p>قهوه‌های سرد با تخفیف ویژه</p></span><span class="code"><span style="color:#7d3418">کد تخفیف</span><b style="background:#852d00"><i>LEO20</i></b></span></span></button>`,`<button class="banner" data-catgo="cold" style="background:url(${IMG.protein}) center/cover"><span class="bt" style="color:#114123"><span><h3>پـروتئینه ها</h3><p style="color:#000">بعد تمرین خوشمزه ترن</p></span><span class="code"><span style="color:#114123">کد تخفیف</span><b style="background:#114123"><i>Liu10</i></b></span></span></button>`].join('')}</div>
+  <div class="slider" id="sl">${[`<button class="banner bn-pro" data-catgo="cold" style="background:#dfe8d8 url(${IMG.protein}) left center/cover"><span class="bt" style="color:#114123"><span><h3>پروتئینه ها</h3><p style="color:#000">بعد تمرین خوشمزه ترن</p></span><span class="code"><span style="color:#114123">کد تخفیف</span><b style="background:#114123"><i>Liu10</i></b></span></span></button>`,`<button class="banner bn-cold" style="background:#faebe4" data-catgo="cold"><img class="img" src="${IMG.iced}" alt=""><span class="bt"><span><h3>خنک بنوش<br>بیشتر کیف کن!</h3><p>قهوه‌های سرد با تخفیف ویژه</p></span><span class="code"><span style="color:#b0521f">کد تخفیف</span><b style="background:#852d00"><i>Liu20</i></b></span></span></button>`].join('')}</div>
   <div class="dots" aria-hidden="true"><i class="on"></i><i></i></div>
   <div class="cats">${CATS.map(([n,k,c])=>`<button class="cat" data-catgo="${c}"><span class="cb"><img src="${IMG[k]}" alt=""></span>${n}</button>`).join('')}</div>
   <div class="sec"><h2>همون همیشگی<button data-tab="menu">همه</button></h2>
    ${S.auth&&S.history[0]&&!(S.order&&S.order.step<3)?`<div class="again2"><span>سفارش قبلی: ${S.history[0].lines.map(l=>P[l.id].n).join('، ')}</span><button data-reorder="0">تکرار</button></div>`:''}
    <div class="hs" style="gap:10px">${['m5','m1','m3','m2','m6','m4'].map(mini).join('')}</div></div>
-  <div class="mood"><img class="masc" src="${IMG.mascot}" alt=""><h3><span>الان</span> چـی می چسبه ؟</h3><p>حالت رو بگو، پیشنهادش با ما</p>
-   <div class="mgrid">${MOODS.map(([t,k,c,ids,pos],n)=>`<button class="mt" data-mood="${n}"><img src="${IMG[k]}" alt=""><b style="color:${c};${pos}">${t}</b></button>`).join('')}</div></div>
+  <div class="sec mood2"><h2>الان چی می‌چسبه؟<span class="sub">حالت رو بگو، پیشنهاد با ما</span></h2>
+   <div class="mgrid2">${MOODS.map(([t,k,c,ids],n)=>`<button class="mt2" data-mood="${n}" style="--mbg:${MBG[n]};--mink:${c}"><img src="${IMG[k]}" alt=""><span class="mtx"><b>${t.replace('<br>',' ')}</b><span class="tn">${fd(ids.length)} پیشنهاد</span></span></button>`).join('')}</div></div>
   <div class="sec"><h2>پک های این هفته</h2><div class="hs" style="gap:16px">${['m9','m10'].map(packCard).join('')}</div></div>
  </div></div>${tabbar('home')}`;
 function mini(id){const p=P[id];return `<div class="mini">${pimg(id).replace('class="pimg','class="pimg sm')}<span class="nm">${p.n}</span><span class="desc">${p.d}</span><span class="pr tn">${T(p.p)}</span></div>`}
@@ -900,18 +967,18 @@ function dcard(id){const p=P[id];return `<div class="pc dpc">${pimg(id)}<span cl
 
 V.menu=()=>{const q=norm(S.q);const all=S.showCats&&!q;
  const list=Object.keys(P).filter(id=>q?norm(P[id].n+' '+P[id].tags).includes(q):(all||P[id].cat===S.cat));
- return `${sbar()}<div class="scr"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label>${backBtn.replace('data-back','data-tab="home"')}</div>
+ return `${sbar()}<div class="scr"><div class="mtop${all?'':' sc'}"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label>${backBtn.replace('data-back','data-tab="home"')}</div>
+ ${q?'':`<div class="chips${all?' cx':''}"><button class="chip${all?' on':''}" data-cat="all">همه</button>${[['hot','نوشیدنی گرم'],['cold','نوشیدنی سرد'],['cake','کیک و دسر']].map(([k,t])=>`<button class="chip${!all&&S.cat===k?' on':''}" data-cat="${k}">${t}</button>`).join('')}</div>`}</div>
  ${all?`<div class="cgrid cats">${CATS.map(([n,k,c])=>`<button class="cat" data-cat="${c}"><span class="cb"><img src="${IMG[k]}" alt=""></span>${n}</button>`).join('')}</div>
 `:''}
- ${q?`<div class="px" style="padding-top:12px;font-size:13px;color:var(--mute)">${fd(list.length)} نتیجه برای «${S.q}»</div>`:`<div class="chips"><button class="chip${all?' on':''}" data-cat="all">همه</button>${[['hot','نوشیدنی گرم'],['cold','نوشیدنی سرد'],['cake','کیک و دسر']].map(([k,t])=>`<button class="chip${!all&&S.cat===k?' on':''}" data-cat="${k}">${t}</button>`).join('')}</div>`}
+ ${q?`<div class="px" style="padding-top:12px;font-size:13px;color:var(--mute)">${fd(list.length)} نتیجه برای «${S.q}»</div>`:''}
  <div class="grid2">${list.length?list.map(gcard).join(''):`<div class="empty" style="grid-column:1/-1"><span class="eb">${i('search')}</span><b>نتیجه‌ای پیدا نشد</b><p>یه اسم دیگه امتحان کن، مثلاً «قهوه» یا «شیک».</p></div>`}</div></div>${cartbar()}${tabbar('menu')}`};
 function gcard(id){const p=P[id];return `<div class="gc">${pimg(id)}<span class="nm">${p.n}</span><span class="desc">${p.d}</span><span class="pp tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old" style="font-size:12px">${money(p.old)}</span>`:''}</span></div>`}
 
 V.cart=()=>{const L=lines();
  return `${sbar()}<div class="scr">${hdr('سبد خرید',{left:L.length?`<button class="hbtn" data-sheet="confirmClear" aria-label="خالی کردن سبد" style="color:#c62f29">${i('trash')}</button>`:'',right:backBtn})}
  <div class="px" style="display:flex;flex-direction:column;gap:22px;padding-top:12px;padding-bottom:200px">
- ${L.length?`<button class="pick" data-go="branch"><span class="ib">${i('location')}</span><span class="m"><b>از ${BR[S.branch].n}</b><span>حدود ${BR[S.branch].prep} دقیقه آماده‌سازی</span></span><span class="ch">تغییر</span></button>
- <div class="items">${L.map(l=>{const p=P[l.id];const ad=l.add.map(k=>ADDONS[k][0]).join('، ');return `<div class="ci"><span class="th"><img src="${IMG[p.img]}" alt=""></span><span class="m"><b>${p.n}</b>${P[l.id].addons?`<button class="adl" data-edadd="${l.k}">${ad?'+ '+ad+' · تغییر':'افزودنی؟'}</button>`:''}<span class="pz tn"><b>${money(l.t)}</b> تومان</span></span><span class="qty"><button class="${l.q===1?'del':''}" data-ldec="${l.k}" aria-label="${l.q===1?'حذف':'یکی کمتر'}">${l.q===1?i('trash'):i('minus')}</button><span class="tn">${fd(l.q)}</span><button data-linc="${l.k}" aria-label="یکی بیشتر">${i('add')}</button></span></div>`}).join('')}</div>
+ ${L.length?`<div class="items">${L.map(l=>{const p=P[l.id];const ad=l.add.map(k=>ADDONS[k][0]).join('، ');return `<div class="ci"><span class="th"><img src="${IMG[p.img]}" alt=""></span><span class="m"><b>${p.n}</b>${P[l.id].addons?`<button class="adl" data-edadd="${l.k}">${ad?'+ '+ad+' · تغییر':'افزودنی؟'}</button>`:''}<span class="pz tn"><b>${money(l.t)}</b> تومان</span></span><span class="qty"><button class="${l.q===1?'del':''}" data-ldec="${l.k}" aria-label="${l.q===1?'حذف':'یکی کمتر'}">${l.q===1?i('trash'):i('minus')}</button><span class="tn">${fd(l.q)}</span><button data-linc="${l.k}" aria-label="یکی بیشتر">${i('add')}</button></span></div>`}).join('')}</div>
  <label class="note"><span class="lbl">یادداشت برای باریستا <span style="font-weight:400">(اختیاری)</span></span><textarea id="noteIn" maxlength="80" placeholder="مثلاً شکر کم، بدون نی">${S.note||''}</textarea></label>
  <button class="tgl" data-tab="menu" style="background:var(--soft2)"><span class="t"><b style="font-size:14px">افزودن آیتم دیگر</b><span>سبدت حفظ می‌شه</span></span>${i('plusFill')}</button>
  ${S.codeOn?`<div class="dcode ok"><span class="r"><span style="color:#13804b">${i('tag')}</span><span><b>کد <span class="lat">${S.codeOn}</span> اعمال شد</b><span>${disc()?'−'+T(disc()):`از ${T(CODES[S.codeOn].min)} به بالا فعال می‌شه`}</span></span></span><button class="pl" data-coderm aria-label="حذف کد">${i('x')}</button></div>`
@@ -929,8 +996,7 @@ function carFormHTML(inline){const f=S.carForm;return `
 V.checkout=()=>{const ps=payState();const needCar=S.method==='car'&&!S.cars.length;
  const btnTxt=needCar?'ابتدا خودرو رو اضافه کن':S.pay==='wallet'?(ps.enough?'پرداخت با کیف پول':`شارژ ${money(Math.ceil(ps.sh/10000)*10000)} و پرداخت`):'پرداخت آنلاین';
  return `${sbar()}<div class="scr">${hdr('تکمیل سفارش')}<div class="px" style="display:flex;flex-direction:column;gap:22px;padding-top:12px;padding-bottom:210px">
- <button class="pick" data-go="branch"><span class="ib">${i('location')}</span><span class="m"><b>از ${BR[S.branch].n}</b><span>${BR[S.branch].full}</span></span><span class="ch">تغییر</span></button>
- ${S.prefs&&!S.editPrefs&&!needCar?`<div class="recap"><span class="m"><span>طبق سفارش قبلی</span><b>${S.method==='car'?'کنار خودرو'+(S.cars[S.carDef]?' ('+S.cars[S.carDef].m+')':''):'دریافت حضوری'} · ${TIMES[S.time][0]} · ${S.pay==='wallet'?'کیف پول':'کارت بانکی'}</b></span><button data-editprefs>تغییر</button></div>
+ ${S.prefs&&!S.editPrefs&&!needCar?`<div class="recap"><span class="m"><span>طبق سفارش قبلی</span><b>${S.method==='car'?'کنار خودرو'+(S.cars[S.carDef]?' ('+S.cars[S.carDef].m+')':''):'دریافت حضوری'} · ${tLabel(S.time)} · ${S.pay==='wallet'?'کیف پول':'کارت بانکی'}</b></span><button data-editprefs>تغییر</button></div>
  ${S.pay==='wallet'&&!ps.enough?`<div class="short tn">کیف پولت <b>${T(ps.sh)}</b> کم داره. با دکمه‌ی پایین کسری رو شارژ کن، سفارشت همون لحظه ثبت می‌شه.</div>`:''}
  ${S.busy?`<div class="busy">${i('clock')}شعبه الان شلوغه؛ آماده‌سازی حدود ۲۵ دقیقه طول می‌کشه.</div>`:''}`:`
  ${S.busy?`<div class="busy">${i('clock')}شعبه الان شلوغه؛ آماده‌سازی حدود ۲۵ دقیقه طول می‌کشه.</div>`:''}
@@ -942,7 +1008,10 @@ V.checkout=()=>{const ps=payState();const needCar=S.method==='car'&&!S.cars.leng
    :`<button class="carrow addcar" data-sheet="car">${i('plusFill')}<span class="m"><b>افزودن خودرو</b><span>فقط یک بار؛ برای تحویل کنار خودرو</span></span>${i('chev')}</button>`}</div>`
   :`<button class="opt" data-method="car">${i('car')}<span class="grow">تحویل کنار خودرو<span class="sub">جلوی کافه، داخل خودرو تحویل بگیر</span></span><span class="radio"></span></button>`}
  </div>
- <div class="fld"><span class="lbl">زمان آماده بودن</span><div class="chips2">${TIMES.map(([t,s],k)=>`<button class="${S.time===k?'on':''}" data-time="${k}">${t}${s&&k===0?` <span style="font-weight:400;opacity:.85">(${S.busy?'حدود ۲۵ دقیقه':s})</span>`:''}</button>`).join('')}</div></div>
+ <div class="fld"><span class="lbl">زمان آماده بودن</span><div class="tgrid">${TIMES.map(([t,m],k)=>`<button class="tcard${S.time===k?' on':''}" data-time="${k}"><b>${t}</b><span class="tn">${k===0?(S.busy?'حدود ۲۵ دقیقه':'حدود ۱۰ دقیقه'):m?'حدود ساعت '+atMin(m):(S.ctime?'ساعت '+ft(S.ctime)+(S.rep?' · هر روز':''):'امروز یا هر روز')}</span></button>`).join('')}</div>
+ ${S.time===3?`<div class="ctbox"><label class="trow"><span>ساعت آماده بودن</span><input type="time" id="ctime" value="${S.ctime||'08:00'}" step="900" aria-label="ساعت آماده بودن"></label>
+  <button class="tgl rep" data-rep><span class="sw2${S.rep?' on':''}"><i></i></span><span class="t"><b>هر روز همین ساعت تکرار شه</b><span>سفارش خودکار؛ هر بار از کیف پول پرداخت می‌شه</span></span></button>
+  ${S.rep?`<div class="days">${DAYS.map((d,k)=>`<button class="${S.rdays.includes(k)?'on':''}" data-rday="${k}" aria-label="${DAYN[k]}">${d}</button>`).join('')}</div><p class="hint">${daysTxt(S.rdays.slice().sort())}، ساعت ${ft(S.ctime||'08:00')}. ۳۰ دقیقه قبلش یادآوری می‌گیری و می‌تونی همون روز رو رد کنی. از پروفایل، «سفارش‌های خودکار» قابل تغییره.</p>`:''}</div>`:''}</div>
  <div class="fld"><span class="lbl">روش پرداخت</span>
   <button class="opt${S.pay==='wallet'?' on':''}" data-pay="wallet">${i('wallet')}<span class="grow">کیف پول<span class="bal"><span>موجودی:</span><b class="tn">${money(S.wallet)}</b><span>تومان</span></span></span><span class="radio${S.pay==='wallet'?' on':''}"></span></button>
   ${S.pay==='wallet'&&!ps.enough?`<div class="short tn">کیف پولت <b>${T(ps.sh)}</b> کم داره. با دکمه‌ی پایین کسری رو شارژ کن، سفارشت همون لحظه ثبت می‌شه.</div>`:''}
@@ -954,9 +1023,9 @@ const wchip=()=>`<button class="wchip" data-go="wallet">${i('wallet')}<b class="
 function rcptHTML(o){return `<div class="rcpt"><div class="row"><span>شماره سفارش</span><span class="tn">#${fd(o.id)}</span></div><hr>
  ${o.lines.map(l=>`<div class="it"><span class="r"><span class="th"><img src="${IMG[P[l.id].img]}" alt=""></span><span><b>${P[l.id].n}</b><span>${(l.add||[]).map(k=>'+ '+ADDONS[k][0]).join('، ')||P[l.id].desc||''}</span></span></span><span class="l tn">${fd(l.q)} تا<b>${T(l.t)}</b></span></div>`).join('')}
  ${o.note?`<hr><div class="row"><span>یادداشت</span><span>${o.note}</span></div>`:''}<hr>${o.disc?`<div class="row" style="color:#0d7a12"><span>تخفیف</span><span class="tn">−${T(o.disc)}</span></div>`:''}<div class="row"><span>پرداخت شد (${o.pay==='wallet'?'کیف پول':'کارت'})</span><span class="tn" style="font-size:16px;font-weight:600">${T(o.total)}</span></div><hr>
- <div class="prep"><span class="tb">${i('truck')}</span><span><em>${o.method==='car'?'کنار خودرو':'حضوری'} · ${BR[o.branch].n}</em><b>${o.time===0?'حدود '+fd(o.eta)+' دقیقه دیگه':TIMES[o.time][0]}</b></span></div></div>`}
+ <div class="prep"><span class="tb">${i('truck')}</span><span><em>${o.method==='car'?'کنار خودرو':'حضوری'} · ${BR[o.branch].n}</em><b>${o.time===0?'حدود '+fd(o.eta)+' دقیقه دیگه':o.time===3?'ساعت '+ft(o.ct||'08:00')+(o.rep?' · هر روز':''):TIMES[o.time][0]}</b></span></div></div>`}
 V.success=()=>`${sbar()}<div class="scr">${hdr('',{left:wchip(),right:'<span class="logo" style="padding-right:8px">کافه لئو</span>'})}
- <div class="okc"><span class="ring"><img src="${IMG.hand}" alt=""></span><div><h2>سفارشت ثبت شد</h2><p>آماده‌سازی شروع شد.<br>بعد از آماده شدن خبرت می‌کنیم.</p></div></div>
+ <div class="okc"><svg viewBox="0 0 220 200" class="okart" role="img" aria-label="سفارش ثبت شد"><circle cx="110" cy="104" r="84" fill="#f5f5f5"/><circle cx="34" cy="40" r="6" fill="#ffb300"/><circle cx="192" cy="58" r="4" fill="#e26a00"/><circle cx="186" cy="150" r="7" fill="#ececec"/><circle cx="30" cy="150" r="4" fill="#ffb300"/><path d="M58 30l4 8M168 24l-6 8M196 104l-9 1" stroke="#d6d6d6" stroke-width="3" stroke-linecap="round"/><path d="M80 66h60l-6 92a10 10 0 0 1-10 9h-28a10 10 0 0 1-10-9z" fill="#fff" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round"/><rect x="72" y="52" width="76" height="16" rx="8" fill="#1b1b1b"/><rect x="82" y="44" width="56" height="12" rx="6" fill="#1b1b1b"/><path d="M83 96h54l-2.4 30H85.4z" fill="#ffb300"/><path d="M98 34c-3-5 3-8 0-13M110 32c-3-5 3-8 0-13M122 34c-3-5 3-8 0-13" stroke="#cfcfcf" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="152" cy="146" r="24" fill="#13a35a"/><path d="m141 146 8 8 15-16" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h2>سفارشت ثبت شد</h2><p>${S.order.time===3?'سفارشت ساعت '+ft(S.order.ct||'08:00')+' آماده می‌شه.':'آماده‌سازی شروع شد.'}<br>بعد از آماده شدن خبرت می‌کنیم.</p>${S.order.rep?`<span class="repok">${i('clock')}از این به بعد هر روز ساعت ${ft(S.order.ct||'08:00')} خودکار ثبت می‌شه</span>`:''}</div></div>
  <div class="px" style="margin-top:20px;padding-bottom:40px;display:flex;flex-direction:column;gap:12px">${rcptHTML(S.order)}<div style="height:6px"></div>
  <button class="btn" data-go="status">پیگیری سفارش</button><button class="btn out" data-tab="home">بازگشت به خانه</button></div></div>`;
 V.status=()=>{const o=S.order;return `${sbar()}<div class="scr">${hdr('پیگیری سفارش',{left:wchip()})}
@@ -978,17 +1047,26 @@ V.orders=()=>{const act=S.order&&S.order.step<3;return `${sbar()}<div class="scr
 V.profile=()=>{const pct=Math.min(100,S.points/1000*100);const live=S.order&&S.order.step<3;
  return `${sbar()}<div class="scr">${hdr('پروفایل',{left:`<button class="hbtn" data-sheet="notif" aria-label="اعلان‌ها">${BELL}<span class="badge">۲</span></button>`,right:'<span class="hbtn ghost"></span>'})}
  <div class="px prof" style="display:flex;flex-direction:column;gap:14px;padding-top:8px;padding-bottom:130px">
-  <button class="me" data-go="editprofile"><span class="mono">ح</span><span class="m"><b>حسام موسوی</b><span class="tn">${fd('09126652442')}</span></span><span class="ed">ویرایش</span></button>
+  <button class="me" data-go="editprofile"><span class="mono">ی</span><span class="m"><b>یوسف حاجی‌پور</b><span class="tn">${fd('09126652442')}</span></span><span class="ed">ویرایش</span></button>
   <div class="stats">
-   <div class="tw" role="button" tabindex="0" data-go="wallet"><small>${i('wallet')}کیف پول</small><b class="tn">${money(S.wallet)}<span>تومان</span></b><button class="go" data-go="addfund">${i('add')}شارژ</button></div>
-   <button class="tp" data-go="points"><small>${i('star')}امتیاز</small><b class="tn">${fd(S.points)}</b><span class="bar"><i style="width:${pct}%"></i></span><em class="tn">${S.points>=1000?'جایزه آماده دریافته':fd(1000-S.points)+' امتیاز تا جایزه بعدی'}</em></button>
+   <div class="sc2 w" role="button" tabindex="0" data-go="wallet"><span class="hd">${i('wallet')}کیف پول</span><span class="val tn">${money(S.wallet)}<small>تومان</small></span><button class="act" data-go="addfund">${i('add')}شارژ</button></div>
+   <button class="sc2 p" data-go="points"><span class="hd">${i('star')}امتیاز</span><span class="val tn">${fd(S.points)}<small>امتیاز</small></span><span class="pb"><span class="bar"><i style="width:${pct}%"></i></span><em class="tn">${S.points>=1000?'جایزه آماده‌ی دریافته':fd(1000-S.points)+' تا جایزه'}</em></span></button>
   </div>
   ${live?`<button class="again" data-go="status"><span class="m"><b>سفارشت در حال آماده‌سازی</b><span class="tn">#${fd(S.order.id)} · پیگیری</span></span>${i('chev')}</button>`:''}
   <div class="tiles">${[['سفارش‌های من','recipe','orders',''],['خودروهای من','car','cars',S.cars.length?'':'!'],['علاقه‌مندی‌ها','heart','favorites',fd(Object.keys(S.favs).length)],['کد تخفیف','tag','codes','۲']].map(([t,ic,go,b])=>`<button class="tile" data-go="${go}"><span class="ib">${i(ic)}</span>${t}${b?`<span class="badge tn">${b}</span>`:''}</button>`).join('')}</div>
-  <div class="list" style="margin-top:6px">${[['پشتیبانی','headset','support','هر روز ۸ تا ۲۳'],['درباره کافه لئو','info','about','']].map(([t,ic,go,sub],k)=>`${k?'<div class="sep"></div>':''}<button class="li" data-go="${go}">${i(ic)}<span class="t">${t}${sub?`<span style="font-size:12px;color:var(--mute);font-weight:400">${sub}</span>`:''}</span><span class="chev">${i('chev')}</span></button>`).join('')}
+  <div class="list" style="margin-top:6px">${[['سفارش‌های خودکار','clock','routines',S.routines.filter(r=>r.on).length?fd(S.routines.filter(r=>r.on).length)+' سفارش فعال':'هر روز سر یه ساعت'],['پشتیبانی','headset','support','هر روز ۸ تا ۲۳'],['درباره کافه لئو','info','about','']].map(([t,ic,go,sub],k)=>`${k?'<div class="sep"></div>':''}<button class="li" data-go="${go}">${i(ic)}<span class="t">${t}${sub?`<span style="font-size:12px;color:var(--mute);font-weight:400">${sub}</span>`:''}</span><span class="chev">${i('chev')}</span></button>`).join('')}
   <div class="sep"></div><button class="li" data-sheet="logout" style="color:#b3302a">${LOGOUT}<span class="t">خروج از حساب</span></button></div>
  </div></div>${tabbar('profile')}`};
 
+function rcard(r,k){const tot=r.lines.reduce((a,l)=>a+unit(l.id,l.add)*l.q,0);
+ return `<div class="rcard${r.on?'':' off'}"><div class="h"><span class="tm"><b class="tn">${ft(r.time)}</b><span>${daysTxt(r.days)}</span></span><button class="sw2${r.on?' on':''}" data-rtog="${k}" aria-label="فعال بودن"><i></i></button></div>
+ <div class="its"><span class="ths">${r.lines.slice(0,3).map(l=>`<span><img src="${IMG[P[l.id].img]}" alt=""></span>`).join('')}</span><p>${r.lines.map(l=>(l.q>1?fd(l.q)+'× ':'')+P[l.id].n).join('، ')}<br><span class="tn" style="color:var(--mute);font-size:12.5px">${T(tot)} · ${r.method==='car'?'کنار خودرو':'حضوری'} · ${BR[r.branch].n}</span></p></div>
+ ${r.on?`<div class="nx">${i('clock')}<span>${r.skip?'فردا رد می‌شه':'سفارش بعدی: فردا ساعت '+ft(r.time)}</span><button data-rskip="${k}">${r.skip?'برگردون':'رد کردن فردا'}</button></div>`:'<div class="nx off">متوقف شده</div>'}
+ <div class="ft"><button data-redit="${k}">تغییر ساعت و روزها</button><button class="del" data-rdel="${k}">حذف</button></div></div>`}
+V.routines=()=>`${sbar()}<div class="scr">${hdr('سفارش‌های خودکار')}<div class="px" style="display:flex;flex-direction:column;gap:14px;padding-top:12px;padding-bottom:150px">
+ <div class="rinfo">${i('clock')}<span>سفارشی که هر روز سر یه ساعت لازم داری رو یه بار تنظیم کن؛ خودش ثبت می‌شه، از کیف پول پرداخت می‌شه و سر ساعت آماده‌ست.</span></div>
+ ${S.routines.length?S.routines.map(rcard).join(''):`<div class="empty"><span class="eb">${i('clock')}</span><b>سفارش خودکاری نداری</b><p>از یه سفارش قبلی بساز، یا موقع پرداخت «ساعت دلخواه» و «هر روز تکرار شه» رو بزن.</p></div>`}
+ </div></div><div class="dock"><button class="btn" data-sheet="rnew">${i('add')}سفارش خودکار جدید</button></div>`;
 V.wallet=()=>`${sbar()}<div class="scr">${hdr('کیف پول')}<div class="px" style="display:flex;flex-direction:column;gap:28px;padding-top:12px;padding-bottom:60px">
  <div style="display:flex;flex-direction:column;gap:8px"><div class="wbig"><span>موجودی کیف پول</span><div class="tn"><small>تومان</small>${money(S.wallet)}</div></div>
  <div class="two"><button data-go="addfund">${i('plusFill')}شارژ کن</button><button data-sheet="gift">${i('gift')}کد هدیه</button></div></div>
@@ -1011,7 +1089,7 @@ V.cars=()=>`${sbar()}<div class="scr">${hdr('خودروهای من')}<div class=
  </div></div>`;
 
 V.editprofile=()=>`${sbar()}<div class="scr">${hdr('ویرایش اطلاعات')}<div class="px" style="display:flex;flex-direction:column;gap:22px;padding-top:12px;padding-bottom:140px">
- <div class="ef"><label for="ef1">نام و نام خانوادگی</label><div class="finp"><input id="ef1" value="حسام موسوی"></div></div>
+ <div class="ef"><label for="ef1">نام و نام خانوادگی</label><div class="finp"><input id="ef1" value="یوسف حاجی‌پور"></div></div>
  <div class="ef"><label for="ef2">شماره موبایل</label><div class="finp" style="padding-left:4px"><input id="ef2" class="tn" value="${fd('09126652442')}" readonly><button class="chgb" data-toast="یه کد برای شماره جدید می‌فرستیم">تغییر${i('chev')}</button></div></div>
  <div class="ef"><label for="ef3">تاریخ تولد <em>(اختیاری)</em></label><div class="finp"><input id="ef3" placeholder="روز / ماه / سال" inputmode="numeric"></div><p class="hint">روز تولدت یه کد تخفیف هدیه می‌گیری.</p></div>
  <div class="ef"><label for="ef4">ایمیل <em>(اختیاری)</em></label><div class="finp"><input id="ef4" type="email" placeholder="ایمیل" style="text-align:right"></div></div>
@@ -1078,6 +1156,14 @@ function sheetHTML(){
   <button class="tgl" data-defsw><span class="sw2${f.def?' on':''}"><i></i></span><span class="t"><b>خودروی پیش‌فرض</b><span>برای سفارش‌های بعدی خودش انتخاب می‌شه.</span></span></button>
   ${e?`<button class="btn red" data-sheet="confirmCar">${i('trash')}حذف خودرو</button>`:''}
   <button class="btn" data-savecar>ثبت خودرو</button>`;}
+ if(sh==='rnew'){b=`<div class="shh"><div><h3>سفارش خودکار جدید</h3><p>از کدوم سفارش بسازیم؟</p></div>${X}</div>
+  <div style="display:flex;flex-direction:column;gap:8px">${S.history.map((h,k)=>`<button class="opt" data-rfrom="${k}"><span class="ths2">${h.lines.slice(0,2).map(l=>`<img src="${IMG[P[l.id].img]}" alt="">`).join('')}</span><span class="grow">${h.lines.map(l=>P[l.id].n).join('، ')}<span class="sub tn">${h.date} · ${T(h.total)}</span></span>${i('chev')}</button>`).join('')}</div>
+  <p class="hint" style="text-align:center">یا از منو سبدت رو بچین و موقع پرداخت «ساعت دلخواه» رو بزن.</p><button class="btn out" data-close data-then2="menu">رفتن به منو</button>`;}
+ if(sh==='rtime'){const r=S._rt;b=`<div class="shh"><div><h3>ساعت و روزها</h3><p>سفارش خودکار</p></div>${X}</div>
+  <label class="trow"><span>ساعت آماده بودن</span><input type="time" id="rtimeIn" value="${r.time}" step="900" aria-label="ساعت"></label>
+  <div class="days">${DAYS.map((d,k)=>`<button class="${r.days.includes(k)?'on':''}" data-rtday="${k}" aria-label="${DAYN[k]}">${d}</button>`).join('')}</div>
+  <p class="hint">${daysTxt(r.days.slice().sort())}، ساعت ${ft(r.time)}</p>
+  <button class="btn" data-rtsave>ذخیره</button>`;}
  if(sh==='mood'){const m=MOODS[S.sd],ids=m[3].filter(avail),id=ids[S._mi%ids.length],p=P[id];
   b=`<div class="shh"><div><h3>${m[0].replace('<br>',' ')}</h3><p class="tn">پیشنهاد ${fd(S._mi%ids.length+1)} از ${fd(ids.length)}</p></div>${X}</div>
   <div class="sug"><span class="th"><img src="${IMG[p.img]}" alt=""></span><b>${p.n}</b><span class="desc" style="font-size:13.5px">${p.d}</span><span class="tn" style="font-size:15px">${T(p.p)}${p.old?` <span class="old">${money(p.old)}</span>`:''}</span></div>
@@ -1098,29 +1184,31 @@ function histToOrder(h){const ls=h.lines.map(l=>({...l,t:unit(l.id,l.add)*l.q}))
 
 /* ---------- side notes ---------- */
 const NOTES={
+ routines:['جدید: سفارشی که هر روز سر یه ساعت خودکار ثبت و از کیف پول پرداخت می‌شه','روشن/خاموش، رد کردن فقط فردا، تغییر ساعت و روزها، حذف با امکان بازگردانی','ساخت از سفارش قبلی یا از صفحه‌ی پرداخت'],
+ rtime:['انتخاب ساعت با چرخ ساعت خود گوشی و روزهای هفته'],
  login:['عکس کافه حذف شد؛ وکتور ساده‌ی لیوان با رنگ‌های اپ'],
  otp:['متن‌ها خودمونی‌تر شد؛ ورود خودکار و حالت کد اشتباه حفظ شد'],
- home:['«باز تا ۲۳» حذف شد','«همون همیشگی» افقی با کارت‌های کوچیک (برای ۵-۶ آیتم هم جواب می‌ده)','پک‌ها کوچیک‌تر با متن کم‌رنگ‌تر','«الان چی می‌چسبه» برگشت به خانه؛ با زدن هر حالت، پیشنهاد در برگه باز می‌شه و می‌شه «یه چیز دیگه» زد یا مستقیم افزود'],
+ home:['بنرها مثل طراحی: عکس لیوان سرد از پایین، کد Liu20؛ پروتئینه‌ها اول','«الان چی می‌چسبه» هم‌زبان با بنرها: کارت‌های رنگ ملایم با عکس سمت چپ','برگشت به خانه همیشه از بالای صفحه'],
  branch:['آدرس شعبه حذف شد'],
- menu:['زدن تب منو، جست‌وجو رو آماده‌ی تایپ می‌کنه','یک خط توضیح زیر اسم هر محصول','«الان چی می‌چسبه» اینجا اومد'],
+ menu:['کیبورد خودکار باز نمی‌شه','دسته‌های متنی اول دیده نمی‌شن؛ بعد از رد شدن از آیکون‌ها، بالای صفحه ثابت می‌شن'],
  addons:['+ همیشه مستقیم اضافه می‌کنه؛ افزودنی از داخل سبد زیر همون آیتم انتخاب می‌شه'],
- cart:['لینک «افزودنی؟» زیر نوشیدنی‌های گرم','یادداشت برای باریستا (اختیاری)'],
- checkout:['تحویل کنار خودرو بدون خودرو: ردیف «افزودن خودرو» که برگه‌ی ثبت خودرو رو باز می‌کنه و بعد از ثبت، خودرو انتخاب‌شده برمی‌گرده','خلاصه‌ی یک‌خطی انتخاب‌های قبلی + «تغییر»'],
+ cart:['ردیف شعبه از بالای سبد حذف شد','امتیاز این خرید طلایی شد'],
+ checkout:['ردیف شعبه حذف شد','زمان آماده بودن: ۴ کارت مرتب (۱۰، ۲۰، ۳۰ دقیقه، ساعت دلخواه)','ساعت دلخواه + «هر روز تکرار شه» = سفارش خودکار'],
  gateway:['بدون تغییر'],payfail:['لحن آرام‌کننده: «نگران نباش، سبدت سر جاشه»'],
- success:['«سفارشت ثبت شد»'],status:['مرحله‌ی «در انتظار تایید شعبه» با امکان لغو؛ مبلغ به کیف پول برمی‌گرده'],order:['بدون سایز'],
+ success:['وکتور جدید لیوان با تیک'],status:['مرحله‌ی «در انتظار تایید شعبه» با امکان لغو؛ مبلغ به کیف پول برمی‌گرده'],order:['بدون سایز'],
  orders:['دکمه‌ی «سفارش دوباره» کوچیک و طوسی'],
- profile:['کارت امتیاز طلایی','فونت‌ها نازک‌تر'],
+ profile:['کارت‌های کیف پول و امتیاز هم‌اندازه و مرتب','اسم: یوسف حاجی‌پور','ردیف «سفارش‌های خودکار»'],
  wallet:['پرداخت‌ها دوباره قرمز، شارژها سبز'],tx:['رنگ مبلغ با صفحه‌ی کیف پول یکی شد'],gift:['متن دوستانه'],
  addfund:['«مبلغ شارژ»'],cars:['شروع خالی؛ حالت خالی با توضیح فایده'],car:['ثبت خودرو در شیت یا مستقیم داخل پرداخت'],
  editprofile:['عکس پروفایل حذف شد'],codes:['«استفاده در سبد» کد رو مستقیم اعمال می‌کنه'],
  favorites:['بازطراحی کارت: ردیف افقی با عکس، قیمت، توضیح کوتاه و دکمه‌ی «افزودن»','«افزودن همه» برای سفارش سریع','برداشتن از علاقه‌مندی با قلب قرمز'],
  support:['سؤال‌ها خودمونی'],about:['متن دوستانه'],points:['«انتخاب جایزه»، «دریافت جایزه»']
 };
-const NEW=new Set(['payfail','orders','about','gift','gateway']);
-const REDO=new Set(['profile','favorites','checkout','cart','home']);
+const NEW=new Set(['routines','rtime']);
+const REDO=new Set(['profile','checkout','cart','home','menu','success']);
 const IDX=[['ورود',[['login','ورود'],['otp','کد تایید']]],
  ['خرید',[['home','خانه'],['branch','انتخاب شعبه'],['menu','منوی کافه'],['addons','افزودنی‌ها'],['cart','سبد خرید'],['checkout','پرداخت'],['gateway','درگاه'],['payfail','پرداخت ناموفق'],['success','ثبت سفارش'],['status','پیگیری سفارش'],['order','جزئیات سفارش']]],
- ['حساب',[['profile','پروفایل'],['orders','سفارش‌های من'],['wallet','کیف پول'],['tx','رسید تراکنش'],['gift','کد هدیه'],['addfund','شارژ کیف پول'],['cars','خودروهای من'],['car','خودروی جدید'],['editprofile','اطلاعاتت'],['codes','کدهای تخفیف'],['favorites','علاقه‌مندی‌ها'],['support','پشتیبانی'],['about','درباره کافه لئو'],['points','امتیازهای من']]]];
+ ['حساب',[['profile','پروفایل'],['routines','سفارش‌های خودکار'],['orders','سفارش‌های من'],['wallet','کیف پول'],['tx','رسید تراکنش'],['gift','کد هدیه'],['addfund','شارژ کیف پول'],['cars','خودروهای من'],['car','خودروی جدید'],['editprofile','اطلاعاتت'],['codes','کدهای تخفیف'],['favorites','علاقه‌مندی‌ها'],['support','پشتیبانی'],['about','درباره کافه لئو'],['points','امتیازهای من']]]];
 function curKey(){const m={addons:'addons',order:'order',tx:'tx',car:'car',gateway:'gateway',gift:'gift',hist:'orders'};return S.sheet&&m[S.sheet]?m[S.sheet]:S.scr}
 function renderSide(){const c=curKey();
  document.getElementById('idx').innerHTML=IDX.map(([g,items])=>`<div class="grp-t">${g}</div><div class="idx">${items.map(([k,t])=>`<button class="${c===k?'on':''}" data-jump="${k}">${t}${NEW.has(k)?'<small>جدید</small>':REDO.has(k)?'<small>بازطراحی</small>':''}</button>`).join('')}</div>`).join('');
@@ -1134,12 +1222,13 @@ function render(keep){
  S._bump=0;
  const sc=ph.querySelector('.scr');if(sc)sc.scrollTop=y;
  if(ae){const el=document.getElementById(ae.id);if(el){el.focus();try{el.setSelectionRange(ae.p,ae.p)}catch(_){}}}
- renderSide();
+ renderSide();if(S.scr==='menu')menuSticky();if(!keep){window.scrollTo(0,0);ph.scrollTop=0}
  clearInterval(tick);if(S.scr==='otp'&&S.resendAt>Date.now())tick=setInterval(()=>{const t=ph.querySelector('[data-timer]');const left=Math.max(0,Math.ceil((S.resendAt-Date.now())/1000));if(!left){clearInterval(tick);render(true);return}if(t)t.textContent=fd(Math.floor(left/60))+':'+fd(String(left%60).padStart(2,'0'))},1000);
 }
+function menuSticky(sc){const t=ph.querySelector('.mtop'),g=ph.querySelector('.cgrid');if(!t||!g)return;sc=sc||ph.querySelector('.scr');t.classList.toggle('sc',sc.scrollTop>g.offsetTop+g.offsetHeight-60)}
 function go(k){if(S.scr!==k)S.stack.push(S.scr);S.scr=k;S.sheet=null;render()}
 function back(){S.scr=S.stack.pop()||'home';S.sheet=null;render()}
-function tab(k){S.stack=[];if(k==='profile'&&!S.auth){S.returnTo='profile';S.scr='login';return render()}if(k==='menu'){S.showCats=true;S.q=''}S.scr=k;S.sheet=null;render();if(k==='menu'){const q=document.getElementById('q');q&&q.focus({preventScroll:true})}}
+function tab(k){S.stack=[];if(k==='profile'&&!S.auth){S.returnTo='profile';S.scr='login';return render()}if(k==='menu'){S.showCats=true;S.q=''}S.scr=k;S.sheet=null;render();window.scrollTo(0,0)}
 let tt;function toast(m,act){S.toast=m;S.toastAct=act||null;render(true);clearTimeout(tt);tt=setTimeout(()=>{S.toast=null;S.toastAct=null;S._undo=null;render(true)},act?3500:2200)}
 function add(id){if(!avail(id))return toast(`«${P[id].n}» امروز در این شعبه موجود نیست`);
  const ls=lines().filter(l=>l.id===id);if(ls.length){S.cart[ls[ls.length-1].k]++;S._bump=1;buzz()}else addLine(id,[]);render(true)}
@@ -1152,8 +1241,9 @@ function startPay(){const ps=payState();
 function finishOrder(via){
  const L=lines();const tot=payable();
  if(via==='wallet')S.wallet-=tot;
- S.order={id:23316+Math.floor(Math.random()*30),lines:L.map(l=>({id:l.id,q:l.q,add:l.add,t:l.t})),total:tot,disc:disc(),pay:via,method:S.method,car:S.carDef,branch:S.branch,time:S.time,eta:S.busy?25:+en(BR[S.branch].prep),step:0,accepted:false,note:S.note||'',onWay:false,arrived:false,earn:earn(),rated:0};
+ S.order={id:23316+Math.floor(Math.random()*30),lines:L.map(l=>({id:l.id,q:l.q,add:l.add,t:l.t})),total:tot,disc:disc(),pay:via,method:S.method,car:S.carDef,branch:S.branch,time:S.time,eta:S.busy?25:+en(BR[S.branch].prep),ct:S.ctime,rep:S.time===3&&S.rep,step:0,accepted:false,note:S.note||'',onWay:false,arrived:false,earn:earn(),rated:0};
  S.txs.unshift(['out',tot,'الان','امروز',via==='wallet'?'کیف پول':'کارت بانکی']);
+ if(S.time===3&&S.rep){S.routines.unshift({time:S.ctime||'08:00',days:S.rdays.slice().sort(),lines:L.map(l=>({id:l.id,q:l.q,add:l.add})),method:S.method,car:S.carDef,branch:S.branch,on:true,skip:false});S.rep=false}
  S.prefs={method:S.method,time:S.time,pay:via==='wallet'?'wallet':'online'};S.note='';S.cart={};S.codeOn=null;S.code='';S.codeOpen=false;S.sheet=null;S.stack=['home'];S.scr='success';render()}
 function reorder(ls){S.cart={};ls.forEach(l=>addLine(l.id,l.add||[],l.q));S.stack=['home','cart'];S.scr='checkout';S.sheet=null;
  if(!S.auth)return needLogin('checkout');S.pay=S.wallet>=payable()?'wallet':'online';render();setTimeout(()=>toast('سفارش قبلی به سبد اضافه شد'),50)}
@@ -1162,7 +1252,7 @@ function readCar(){const g=id=>{const el=document.getElementById(id);return el?e
 ph.addEventListener('click',e=>{
  const t=e.target.closest('[data-ovclose],button,[role=button]');if(!t||t.disabled)return;const d=t.dataset;
  if('ovclose' in d){if(e.target===t){S.sheet=null;render(true)}return}
- if('toastact' in d){if(S._undo){const l=S._undo;S.cart[l.k]=(S.cart[l.k]||0)+1;S._undo=null;S.toast=null;return render(true)}S.toast=null;return go('cart')}
+ if('toastact' in d){if(S._rdel){S.routines.unshift(S._rdel);S._rdel=null;S.toast=null;return render(true)}if(S._undo){const l=S._undo;S.cart[l.k]=(S.cart[l.k]||0)+1;S._undo=null;S.toast=null;return render(true)}S.toast=null;return go('cart')}
  if('back' in d)return back();
  if(d.tab)return tab(d.tab);
  if('gologin' in d)return needLogin('home');
@@ -1191,7 +1281,17 @@ ph.addEventListener('click',e=>{
  if('editprefs' in d){S.editPrefs=true;return render(true)}
  if(d.pay){S.pay=d.pay;return render(true)}
  if(d.method){S.method=d.method;if(d.method==='car'&&!S.cars.length){S.carForm={m:'',c:'سفید',p:['','الف','',''],def:true};S._carErr='';S.sd=null}return render(true)}
- if(d.time){S.time=+d.time;return render(true)}
+ if(d.rtog!=null){const r=S.routines[+d.rtog];r.on=!r.on;return toast(r.on?'سفارش خودکار فعال شد':'سفارش خودکار متوقف شد')}
+ if(d.rskip!=null){const r=S.routines[+d.rskip];r.skip=!r.skip;return toast(r.skip?'فردا این سفارش ثبت نمی‌شه':'فردا طبق معمول ثبت می‌شه')}
+ if(d.rdel!=null){const r=S.routines.splice(+d.rdel,1)[0];S._rdel=r;return toast('سفارش خودکار حذف شد','بازگردانی')}
+ if(d.redit!=null){S._rk=+d.redit;S._rt=JSON.parse(JSON.stringify(S.routines[S._rk]));S.sheet='rtime';return render(true)}
+ if(d.rfrom!=null){const h=S.history[+d.rfrom];S.routines.unshift({time:'08:00',days:[0,1,2,3,4,5,6],lines:h.lines.map(l=>({id:l.id,q:l.q,add:l.add||[]})),method:'store',branch:h.branch,on:true,skip:false});S._rk=0;S._rt=JSON.parse(JSON.stringify(S.routines[0]));S.sheet='rtime';return render(true)}
+ if(d.rtday!=null){const k=+d.rtday,a=S._rt.days;if(a.includes(k)){if(a.length>1)a.splice(a.indexOf(k),1)}else a.push(k);return render(true)}
+ if('rtsave' in d){const v=document.getElementById('rtimeIn').value;if(v)S._rt.time=v;S._rt.days.sort();S.routines[S._rk]=S._rt;S.sheet=null;return toast('سفارش خودکار ذخیره شد')}
+ if(d.then2){S.sheet=null;tab(d.then2);return}
+ if(d.time){S.time=+d.time;if(S.time===3&&!S.ctime)S.ctime='08:00';if(S.time!==3)S.rep=false;return render(true)}
+ if('rep' in d){S.rep=!S.rep;if(S.rep)S.pay='wallet';return render(true)}
+ if(d.rday!=null){const k=+d.rday,a=S.rdays;if(a.includes(k)){if(a.length>1)a.splice(a.indexOf(k),1)}else a.push(k);return render(true)}
  if(d.defcar){S.carDef=+d.defcar;return render(true)}
  if('place' in d)return startPay();
  if('gwok' in d){const g=S._gw;S.sheet=null;if(g.kind==='fund'){S.wallet+=g.amount;S.txs.unshift(['in',g.amount,'الان','امروز','کارت بانکی']);const r=S.returnTo;S.returnTo=null;if(r==='checkout'){S.scr='checkout';S.stack=['home','cart'];S.pay='wallet';render();return toast(`${T(g.amount)} شارژ شد؛ حالا پرداخت کن`)}S.fundCustom='';back();return toast(`${T(g.amount)} به کیف پولت اضافه شد`)}
@@ -1242,7 +1342,8 @@ ph.addEventListener('input',e=>{const t=e.target;
  if(t.id==='noteIn')S.note=t.value;
  if(t.id==='fundIn'){S.fundCustom=en(t.value).replace(/\D/g,'').slice(0,9);return render(true)}
 });
-ph.addEventListener('scroll',e=>{if(e.target.id!=='sl')return;const sl=e.target;const k=Math.round(Math.abs(sl.scrollLeft)/sl.clientWidth);ph.querySelectorAll('.dots i').forEach((d,n)=>d.classList.toggle('on',n===k))},true);
+ph.addEventListener('scroll',e=>{if(e.target.classList&&e.target.classList.contains('scr'))menuSticky(e.target);if(e.target.id!=='sl')return;const sl=e.target;const k=Math.round(Math.abs(sl.scrollLeft)/sl.clientWidth);ph.querySelectorAll('.dots i').forEach((d,n)=>d.classList.toggle('on',n===k))},true);
+ph.addEventListener('change',e=>{if(e.target.id==='ctime'){S.ctime=e.target.value||'08:00';render(true)}if(e.target.id==='rtimeIn'&&S._rt){S._rt.time=e.target.value||S._rt.time;render(true)}});
 ph.addEventListener('keydown',e=>{
  if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role=button]')){e.preventDefault();e.target.click()}
  if(e.key==='Enter'&&e.target.id==='codeIn'){const b=ph.querySelector('[data-codeapply]');b&&b.click()}
