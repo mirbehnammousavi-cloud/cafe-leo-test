@@ -962,6 +962,28 @@ button{cursor:pointer;background:none;border:0;padding:0;text-align:inherit}
 .lvb.big{background:rgba(255,255,255,.75)!important;color:var(--ink)!important;backdrop-filter:blur(6px)}
 @media (prefers-reduced-motion:reduce){.cl-hero .blob{animation:none}}
 
+/* v13 */
+.lst-add{width:auto!important;height:38px!important;border-radius:12px!important;padding:0 12px 0 10px;gap:4px;display:flex!important;align-items:center;font-size:13.5px;font-weight:600;background:var(--soft)!important;box-shadow:none!important;color:var(--ink)!important}
+.lst-add .ic{width:17px!important;height:17px!important}
+.lst-q{height:38px!important;border-radius:12px!important;background:var(--soft)!important;box-shadow:none!important;padding:0 3px!important}
+.lst-q button{width:32px!important;height:32px!important;border-radius:9px!important}
+.lst-q button:first-child{background:var(--paper)!important}
+.lst-q span{min-width:24px;font-size:14.5px}
+.days button{display:grid;place-items:center;line-height:1}
+.days7 .d.gift{background:#fff3d1}.days7 .d.gift.done{background:#ffb300}.days7 .d.gift .ic{width:24px!important;height:24px!important}
+.pcd{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:500;color:#b3302a;background:#fdeceb;border-radius:20px;padding:3px 9px;font-variant-numeric:tabular-nums;white-space:nowrap;align-self:flex-start}
+.pcd .ic{width:13px;height:13px}
+.lrow .pcd{margin-top:2px}
+/* club hero: flat loyalty-card look */
+.cl-hero{background:#fff7e0!important;border:0!important}
+.cl-hero .blob,.cl-hero::after{display:none!important}
+.cl-hero .deco{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;border-radius:24px}
+.cl-hero .deco svg{position:absolute}
+.cl-hero .top{gap:8px}
+.cl-hero .bar{background:rgba(0,0,0,.08)!important}
+.cl-hero .lbar{background:rgba(0,0,0,.08)!important}
+.lvb.big{background:var(--paper)!important;backdrop-filter:none!important}
+
 /* ===== real-device mode ===== */
 html,body{background:#fff!important;height:100%;overscroll-behavior:none}
 body{padding:0!important;margin:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
@@ -1192,14 +1214,14 @@ const RW=[['sh','یه شات اسپرسو اضافه','روی هر قهوه',100
 const nextRw=()=>RW.filter(r=>r[3]>S.points).sort((a,b)=>a[3]-b[3])[0];
 const CODES={LEO20:{p:.2,min:200000},LIU20:{p:.2,min:200000},LIU10:{p:.1,min:0}};
 
-const S={busy:true,scr:'login',stack:[],auth:false,returnTo:null,phone:'',otp:'',otpState:'',resendAt:0,
+const S={busy:false,scr:'login',stack:[],auth:false,returnTo:null,phone:'',otp:'',otpState:'',resendAt:0,
  wallet:1980000,points:840,branch:'eel',cart:{},cat:'hot',q:'',showCats:true,
  favs:{m1:1,m2:1,m5:1,m9:1},
  code:'',codeOn:null,codeOpen:false,codeErr:'',time:0,pay:'wallet',method:'store',
  cars:[],carDef:0,carForm:null,
  order:null,history:[{id:23288,date:'دیروز، ۱۸:۲۰',branch:'eel',lines:[{id:'m1',q:1,add:[]},{id:'m5',q:1,add:[0]}],total:498000},{id:23140,date:'۳ آبان، ۱۰:۰۵',branch:'eel',lines:[{id:'m6',q:2,add:[]},{id:'m9',q:1,add:[]}],total:750000}],
  fund:500000,fundCustom:'',codesTab:0,faq:0,mview:'list',xp:3540,ptab:'rw',ck:{streak:3,done:false,box:false},myRw:[],inv:{code:'YOUSEF24',joined:2,pending:1},
- ms:[['این هفته ۳ بار سفارش بده',2,3,60,0],['یه اسموتی امتحان کن',0,1,25,0],['به ۲ سفارش نظر بده',1,2,20,0],['تاریخ تولدت رو ثبت کن',0,1,30,0],['یه دوست دعوت کن',1,1,50,0]],
+ ms:[['این هفته ۳ بار سفارش بده',2,3,60,0],['یه اسموتی امتحان کن',0,1,25,0],['یه سفارش خودکار بساز',0,1,40,0],['تاریخ تولدت رو ثبت کن',0,1,30,0],['یه دوست دعوت کن',1,1,50,0]],
  phist:[['خرید از کافه','دیروز',498],['حضور روزانه','دیروز',5],['جایزه: چای و نبات','۲ آبان',-250],['دعوت از دوست','۱ آبان',100],['خرید از کافه','۲۸ مهر',750]],ctime:'',rep:false,rdays:[0,1,2,3,4,5,6],
  routines:[{time:'08:00',days:[0,1,2,3,4],lines:[{id:'m6',q:1,add:[]}],method:'store',branch:'eel',on:true,skip:false}],sheet:null,sd:null,toast:null,toastAct:null,
  txs:[['in',1000000,'۱۴:۱۰','۵ مهر ۱۴۰۵','درگاه آنلاین'],['out',498000,'۱۸:۲۰','دیروز','کیف پول'],['in',1000000,'۱۵:۳۴','۳ مهر ۱۴۰۵','درگاه آنلاین'],['out',289000,'۱۱:۱۰','۳ مهر ۱۴۰۵','کیف پول']]};
@@ -1240,7 +1262,7 @@ function addCtl(id,big){
 }
 const favBtn=id=>`<button class="fav${S.favs[id]?' on':''}" data-fav="${id}" aria-label="${S.favs[id]?'برداشتن از':'افزودن به'} علاقه‌مندی‌ها" aria-pressed="${!!S.favs[id]}">${i('heart')}</button>`;
 const stk=id=>P[id].g==='pack'?'<span class="stk">مخصوص اپ</span>':'';
-const pimg=(id,big)=>`<div class="pimg${avail(id)?'':' na'}"><img src="${IMG[P[id].img]}" alt="">${stk(id)}${avail(id)?'':'<span class="na-tag">ناموجود</span>'}${favBtn(id)}${addCtl(id,big)}</div>`;
+const pimg=(id,big)=>`<div class="pimg${avail(id)?'':' na'}"><img src="${IMG[P[id].img]}" alt="">${stk(id)}${avail(id)?'':'<span class="na-tag">ناموجود</span>'}${P[id].g==='pack'?'':favBtn(id)}${addCtl(id,big)}</div>`;
 function tabbar(on){
  const t=(k,l,ic,icOn)=>`<button class="tab${on===k?' on':''}" data-tab="${k}">${on===k?i(icOn):i(ic)}${l}</button>`;
  const c=cartCount();
@@ -1290,7 +1312,7 @@ function orderCard(full){const o=S.order;if(!o||o.step>=3)return '';
  const head=['در حال آماده‌سازی','آماده‌ی تحویله','نوش جان!'][o.step];
  const car=S.cars[o.car];
  let body='';
- if(o.step===2) body=`<div class="msg">${fd(o.earn)} امتیاز به باشگاهت اضافه شد.</div>${full?'':`<div class="acts"><button class="arrive o" data-go="status">ثبت نظر</button><button class="arrive" data-reorderNow>سفارش دوباره</button></div>`}`;
+ if(o.step===2) body=`<div class="msg">${fd(o.earn)} امتیاز به باشگاهت اضافه شد.</div>${full?'':`<div class="acts"><button class="arrive" data-reorderNow>سفارش دوباره</button></div>`}`;
  else if(o.arrived) body=`<div class="msg ok">${arrDone(o,car)}</div>`;
  else body=`${o.method==='store'&&o.step===1?`<div class="msg">شماره <b class="tn">#${fd(o.id)}</b> رو به صندوق بگو.</div>`:''}<div class="acts"><button class="arrive" data-arrive>${arrTxt(o)}</button></div>`;
  return `<div class="ost"${full?'':' role="button" tabindex="0" data-go="status"'}><div class="in"><div class="kh"><div><div class="k">سفارش شما · <span class="tn">#${fd(o.id)}</span></div><div class="v">${head}</div></div>${o.step===0?`<span class="eta tn">~${fd(o.eta)} دقیقه</span>`:''}</div><div class="steps">${stepsHTML(o.step)}</div>${body}</div></div>`;
@@ -1311,13 +1333,16 @@ V.home=()=>`${sbar()}<div class="scr">
    ${S.auth&&S.history[0]&&!(S.order&&S.order.step<3)?`<div class="again2"><span>سفارش قبلی: ${S.history[0].lines.map(l=>P[l.id].n).join('، ')}</span><button data-reorder="0">تکرار</button></div>`:''}
    <div class="hs" style="gap:10px">${['m5','m1','m3','m2','m6','m4'].map(mini).join('')}</div></div>
   <div class="sec mood2"><h2>الان چی می‌چسبه؟<span class="sub">حالت رو بگو، پیشنهاد با ما</span></h2>
-   <div class="mgrid2">${MOODS.map(([t,k,c,ids],n)=>`<button class="mt2" data-mood="${n}" style="--mbg:${MBG[n]};--mink:${c}"><img src="${IMG[k]}" alt=""><span class="mtx"><b>${t.replace('<br>',' ')}</b><span class="tn">${fd(ids.length)} پیشنهاد</span></span></button>`).join('')}</div></div>
+   <div class="mgrid2">${MOODS.map(([t,k,c,ids],n)=>`<button class="mt2" data-mood="${n}" style="--mbg:${MBG[n]};--mink:${c}"><img src="${IMG[k]}" alt=""><span class="mtx"><b>${t.replace('<br>',' ')}</b></span></button>`).join('')}</div></div>
   <div class="sec"><h2>پک های این هفته</h2><div class="hs" style="gap:16px">${['m9','m10'].map(packCard).join('')}</div></div>
  </div></div>${tabbar('home')}`;
 function mini(id){const p=P[id];return `<div class="mini">${pimg(id).replace('class="pimg','class="pimg sm')}<span class="nm">${p.n}</span><span class="desc">${p.d}</span><span class="pr tn">${T(p.p)}</span></div>`}
 function vrow(id){const p=P[id],q=qtyOfId(id);return `<div class="vrow"><span class="th"><img src="${IMG[p.img]}" alt=""></span><span class="m"><b>${p.n}</b><span class="desc">${p.d}</span><span class="pr tn">${T(p.p)}</span></span>${q?`<span class="qty"><button class="${q===1?'del':''}" data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button><span class="tn">${fd(q)}</span><button data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button></span>`:`<button class="pl" data-add="${id}" aria-label="افزودن ${p.n}">${i('plusW')}</button>`}</div>`}
 function pcard(id){const p=P[id];return `<div class="pc">${pimg(id)}<span class="nm">${p.n}</span><span class="pr tn">${T(p.p)}</span></div>`}
-function packCard(id){const p=P[id];return `<div class="pack">${pimg(id)}<div class="t"><div><b>${p.n}</b><span>${p.desc}</span></div><div class="prow tn">${T(p.p)} <span class="old">${money(p.old)}</span></div></div></div>`}
+const PEND={m9:Date.now()+(2*86400+5*3600+32*60)*1000,m10:Date.now()+(17*3600+48*60)*1000};
+function cdTxt(id){let r=Math.max(0,PEND[id]-Date.now());const dd=Math.floor(r/864e5);r%=864e5;const h=Math.floor(r/36e5),m=Math.floor(r%36e5/6e4),x=Math.floor(r%6e4/1e3);const t=[h,m,x].map(v=>String(v).padStart(2,'0')).join(':');return fd((dd?dd+' روز و ':'')+t)+' مونده'}
+const cd=id=>PEND[id]?`<span class="pcd" data-cd="${id}">${i('clock')}<span>${cdTxt(id)}</span></span>`:'';
+function packCard(id){const p=P[id];return `<div class="pack">${pimg(id)}<div class="t"><div><b>${p.n}</b><span>${p.desc}</span></div>${cd(id)}<div class="prow tn">${T(p.p)} <span class="old">${money(p.old)}</span></div></div></div>`}
 function dcard(id){const p=P[id];return `<div class="pc dpc">${pimg(id)}<span class="nm">${p.n}</span><span class="pr2 tn"><span class="num">${money(p.p)}</span><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></div>`}
 
 V.menu=()=>{const q=norm(S.q);const all=S.showCats&&!q;
@@ -1331,9 +1356,9 @@ V.menu=()=>{const q=norm(S.q);const all=S.showCats&&!q;
 const IGRID='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>';
 const ILIST='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="4.5" width="5" height="5" rx="1.5"/><rect x="3.5" y="14.5" width="5" height="5" rx="1.5"/><path d="M12 7h8.5M12 17h8.5"/></svg>';
 function lctl(id){if(!avail(id))return '<span class="lna">ناموجود</span>';const q=qtyOfId(id);
- return q?`<span class="lst-q"><button data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button><span class="tn">${fd(q)}</span><button data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button></span>`:`<button class="lst-add" data-add="${id}" aria-label="افزودن ${P[id].n}">${i('add')}</button>`}
-function lrow(id){const p=P[id];return `<div class="lrow${avail(id)?'':' na'}"><span class="th"><img src="${IMG[p.img]}" alt="" loading="lazy">${p.g==='pack'?'<span class="stk sm">مخصوص اپ</span>':''}</span><span class="m"><b>${p.n}</b><span class="pr tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></span>${lctl(id)}</div>`}
-function gcard(id){const p=P[id];return `<div class="gc">${pimg(id)}<span class="nm">${p.n}</span><span class="pp tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old" style="font-size:12px">${money(p.old)}</span>`:''}</span></div>`}
+ return q?`<span class="lst-q"><button data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button><span class="tn">${fd(q)}</span><button data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button></span>`:`<button class="lst-add" data-add="${id}" aria-label="افزودن ${P[id].n}">${i('add')}افزودن</button>`}
+function lrow(id){const p=P[id];return `<div class="lrow${avail(id)?'':' na'}"><span class="th"><img src="${IMG[p.img]}" alt="" loading="lazy">${p.g==='pack'?'<span class="stk sm">مخصوص اپ</span>':''}</span><span class="m"><b>${p.n}</b>${cd(id)}<span class="pr tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></span>${lctl(id)}</div>`}
+function gcard(id){const p=P[id];return `<div class="gc">${pimg(id)}<span class="nm">${p.n}</span>${cd(id)}<span class="pp tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old" style="font-size:12px">${money(p.old)}</span>`:''}</span></div>`}
 
 V.cart=()=>{const L=lines();
  return `${sbar()}<div class="scr">${hdr('سبد خرید',{left:L.length?`<button class="hbtn" data-sheet="confirmClear" aria-label="خالی کردن سبد" style="color:#c62f29">${i('trash')}</button>`:'',right:backBtn})}
@@ -1368,7 +1393,7 @@ V.checkout=()=>{const ps=payState();const needCar=S.method==='car'&&!S.cars.leng
    :`<button class="carrow addcar" data-sheet="car">${i('plusFill')}<span class="m"><b>افزودن خودرو</b><span>فقط یک بار؛ برای تحویل کنار خودرو</span></span>${i('chev')}</button>`}</div>`
   :`<button class="opt" data-method="car">${i('car')}<span class="grow">تحویل کنار خودرو<span class="sub">جلوی کافه، داخل خودرو تحویل بگیر</span></span><span class="radio"></span></button>`}
  </div>
- <div class="fld"><span class="lbl">زمان آماده بودن</span><div class="tgrid">${TIMES.map(([t,m],k)=>`<button class="tcard${S.time===k?' on':''}" data-time="${k}"><b>${t}</b><span class="tn">${k===0?(S.busy?'حدود ۲۵ دقیقه':'حدود ۱۰ دقیقه'):m?'حدود ساعت '+atMin(m):(S.ctime?'ساعت '+ft(S.ctime)+(S.rep?' · هر روز':''):'امروز یا هر روز')}</span></button>`).join('')}</div>
+ <div class="fld"><span class="lbl">زمان آماده بودن</span><div class="tgrid">${TIMES.map(([t,m],k)=>`<button class="tcard${S.time===k?' on':''}" data-time="${k}"><b>${t}</b><span class="tn">${k===0?'۱۰ دقیقه':m?'حدود ساعت '+atMin(m):(S.ctime?'ساعت '+ft(S.ctime)+(S.rep?' · هر روز':''):'امروز یا هر روز')}</span></button>`).join('')}</div>
  ${S.time===3?`<div class="ctbox"><label class="trow"><span>ساعت آماده بودن</span><input type="time" id="ctime" value="${S.ctime||'08:00'}" step="900" aria-label="ساعت آماده بودن"></label>
   <button class="tgl rep" data-rep><span class="sw2${S.rep?' on':''}"><i></i></span><span class="t"><b>هر روز همین ساعت تکرار شه</b><span>سفارش خودکار؛ هر بار از کیف پول پرداخت می‌شه</span></span></button>
   ${S.rep?`<div class="days">${DAYS.map((d,k)=>`<button class="${S.rdays.includes(k)?'on':''}" data-rday="${k}" aria-label="${DAYN[k]}">${d}</button>`).join('')}</div><p class="hint">${daysTxt(S.rdays.slice().sort())}، ساعت ${ft(S.ctime||'08:00')}. ۳۰ دقیقه قبلش یادآوری می‌گیری و می‌تونی همون روز رو رد کنی. از پروفایل، «سفارش‌های خودکار» قابل تغییره.</p>`:''}</div>`:''}</div>
@@ -1390,21 +1415,20 @@ V.success=()=>`${sbar()}<div class="scr">${hdr('',{left:wchip(),right:'<span cla
  <button class="btn" data-go="status">پیگیری سفارش</button><button class="btn out" data-tab="home">بازگشت به خانه</button></div></div>`;
 function trkRing(st){const p=[.34,.67,1][st];const C=2*Math.PI*54;
  return `<svg viewBox="0 0 132 132" class="trkring" aria-hidden="true"><circle cx="66" cy="66" r="54" fill="none" stroke="#efefef" stroke-width="8"/><circle cx="66" cy="66" r="54" fill="none" stroke="#ffb300" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C*p} ${C}" transform="rotate(-90 66 66)"/>
- <g transform="translate(66 70)">${st===2?'<circle r="26" fill="#13a35a"/><path d="m-11 0 7 7 15-15" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>':`<path d="M-18-16h36l-4 38a6 6 0 0 1-6 5h-16a6 6 0 0 1-6-5z" fill="#fff" stroke="#1b1b1b" stroke-width="3.2" stroke-linejoin="round"/><rect x="-23" y="-25" width="46" height="10" rx="5" fill="#1b1b1b"/><path d="M-16.2 0h32.4l-1.5 15h-29.4z" fill="#ffb300"/>${st===0?'<path class="stm" d="M-8-31c-2-4 2-6 0-10M0-31c-2-4 2-6 0-10M8-31c-2-4 2-6 0-10" stroke="#cfcfcf" stroke-width="2.6" stroke-linecap="round" fill="none"/>':'<circle cx="17" cy="-22" r="8" fill="#e26a00"/><path d="M17-26v4M17-18v.1" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>'}`}</g></svg>`}
+ <g transform="translate(66 ${st===2?66:70})">${st===2?'<circle r="26" fill="#13a35a"/><path d="m-11 0 7 7 15-15" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>':`<path d="M-18-16h36l-4 38a6 6 0 0 1-6 5h-16a6 6 0 0 1-6-5z" fill="#fff" stroke="#1b1b1b" stroke-width="3.2" stroke-linejoin="round"/><rect x="-23" y="-25" width="46" height="10" rx="5" fill="#1b1b1b"/><path d="M-16.2 0h32.4l-1.5 15h-29.4z" fill="#ffb300"/>${st===0?'<path class="stm" d="M-8-31c-2-4 2-6 0-10M0-31c-2-4 2-6 0-10M8-31c-2-4 2-6 0-10" stroke="#cfcfcf" stroke-width="2.6" stroke-linecap="round" fill="none"/>':'<circle cx="17" cy="-22" r="8" fill="#e26a00"/><path d="M17-26v4M17-18v.1" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>'}`}</g></svg>`}
 V.status=()=>{const o=S.order;const car=S.cars[o.car];const ts=o.ts||[0,0,0,0];
  const TL=[['ثبت و تایید شد','سفارش خودکار توسط شعبه تایید شد'],['در حال آماده‌سازی','باریستا مشغول آماده کردنه'],['آماده‌ی تحویل',o.method==='car'?'کنار خودرو تحویلت می‌دیم':'از پیشخوان تحویل بگیر'],['تحویل شد','نوش جان']];
  const cur=o.step+1;
  const sub=o.step===0?(o.time===3?'آماده در ساعت '+ft(o.ct||'08:00'):'حدود '+fd(o.eta)+' دقیقه دیگه آماده‌ست'):o.step===1?(o.method==='car'?'وقتی رسیدی، دکمه‌ی پایین رو بزن':'شماره سفارشت رو به صندوق بگو'):fd(o.earn)+' امتیاز به باشگاهت اضافه شد';
  return `${sbar()}<div class="scr">${hdr('پیگیری سفارش',{left:wchip()})}
- <div class="px" style="padding-top:8px;display:flex;flex-direction:column;gap:18px;padding-bottom:190px">
+ <div class="px" style="padding-top:8px;display:flex;flex-direction:column;gap:18px;padding-bottom:250px">
   <div class="trk"><div class="ringw">${trkRing(o.step)}</div><span class="k tn">سفارش #${fd(o.id)} · ${o.method==='car'?'کنار خودرو':'حضوری'} · ${BR[o.branch].n}</span><h2>${['در حال آماده‌سازی','آماده‌ی تحویله','نوش جان!'][o.step]}</h2><p class="tn">${sub}</p></div>
   ${o.step<2&&o.arrived?`<div class="arrok">${i('checkG')}<span>${arrDone(o,car)}</span></div>`:''}
   ${o.step<2&&!o.arrived&&o.method==='car'&&car?`<div class="arrcar">${i('car32')}<span class="m"><b>${car.m} ${car.c}</b><span class="tn">${car.p[0]} ${car.p[1]} ${car.p[2]} · ایران ${car.p[3]}</span></span></div>`:''}
   <div class="tl">${TL.map(([t,s2],k)=>{const done=k<cur||(k===cur&&o.step===2),now=k===cur&&o.step<2;return `<div class="ti${done?' done':''}${now?' now':''}"><span class="dot">${done?CHECK:''}</span><span class="m"><b>${t}</b><span>${now?s2:done&&ts[k]?'ساعت '+hm(new Date(ts[k])):k===0?s2:''}</span></span></div>`}).join('')}</div>
-  ${o.step===2?`<div style="text-align:center;display:flex;flex-direction:column;gap:10px;padding:4px 0"><b style="font-size:16px">${o.rated?'ممنون از نظرت':'از سفارشت راضی بودی؟'}</b><div class="rate5">${[1,2,3,4,5].map(n=>`<button class="${(o.rated||0)>=n?'on':''}" data-rate="${n}" aria-label="${fd(n)} ستاره">${i('star16')}</button>`).join('')}</div></div>`:''}
   ${o.step<2?`<button class="link" data-advance style="font-size:12.5px;color:var(--mute);align-self:center">نسخه نمایشی: مرحله بعد ←</button>`:''}
   <details class="rdet"><summary>جزئیات سفارش و رسید${i('chev')}</summary>${rcptHTML(o)}</details></div>
- <div class="dock">${o.step===2?`<button class="btn" data-reorderNow>سفارش دوباره</button>`:o.arrived?`<button class="btn out" data-sheet="support">تماس با شعبه</button>`:`<button class="btn" data-arrive>${arrTxt(o)}</button><button class="link" data-sheet="support">تماس با شعبه</button>`}</div></div>`};
+ <div class="dock">${o.step===2?`<button class="btn" data-reorderNow>سفارش دوباره</button><button class="link" data-tab="home">بازگشت به صفحه‌ی اول</button>`:o.arrived?`<button class="btn out" data-sheet="support">تماس با شعبه</button>`:`<button class="btn" data-arrive>${arrTxt(o)}</button><button class="link" data-sheet="support">تماس با شعبه</button>`}</div></div>`};
 V.payfail=()=>`${sbar()}<div class="scr">${hdr('',{logo:true})}
  <div class="okc" style="padding-top:40px"><span class="ring bad"><span style="transform:scale(2.4)">${ALERT}</span></span><div><h2>پرداخت انجام نشد</h2><p>سبد خریدت حفظ شده. اگه پولی کم شده<br>تا ۷۲ ساعت برمی‌گرده.</p></div></div>
  <div class="px" style="margin-top:28px"><div class="gw tn"><div class="row"><span>مبلغ سفارش</span><b>${T(payable())}</b></div><div class="row"><span>موجودی کیف پول</span><b>${T(S.wallet)}</b></div></div></div>
@@ -1502,15 +1526,15 @@ function lvBadge(k,big){const l=LV[k];return `<span class="lvb${big?' big':''}" 
 V.points=()=>{const k=lvOf(S.xp),nx=LV[k+1],lp=nx?Math.min(100,(S.xp-LV[k][1])/(nx[1]-LV[k][1])*100):100,n=nextRw();
  const days=[5,10,15,20,25,30,35];const st=S.ck.streak;
  return `${sbar()}<div class="scr">${hdr('باشگاه لئو',{left:`<button class="hbtn" data-sheet="howpts" aria-label="راهنما">${i('info')}</button>`})}<div class="px cl" style="padding-top:8px;padding-bottom:70px">
- <div class="cl-hero"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+ <div class="cl-hero"><span class="deco"><svg width="170" height="170" viewBox="0 0 24 24" style="left:-40px;bottom:-50px;opacity:.12"><path fill="#ffb300" d="M15.49 7.03c.24.49.88.96 1.42 1.05l3.19.53c2.04.34 2.52 1.82 1.05 3.28l-2.48 2.48c-.42.42-.65 1.23-.52 1.81l.71 3.07c.56 2.43-.73 3.37-2.88 2.1l-2.99-1.77c-.54-.32-1.43-.32-1.98 0l-2.99 1.77c-2.14 1.27-3.44.32-2.88-2.1l.71-3.07c.13-.58-.1-1.39-.52-1.81L2.85 11.89C1.39 10.43 1.86 8.95 3.9 8.61l3.19-.53c.53-.09 1.17-.56 1.41-1.05l1.76-3.52c.96-1.91 2.52-1.91 3.47 0z"/></svg><svg width="70" height="70" viewBox="0 0 24 24" style="right:-14px;top:70px;opacity:.18;transform:rotate(18deg)"><path fill="#ffb300" d="M15.49 7.03c.24.49.88.96 1.42 1.05l3.19.53c2.04.34 2.52 1.82 1.05 3.28l-2.48 2.48c-.42.42-.65 1.23-.52 1.81l.71 3.07c.56 2.43-.73 3.37-2.88 2.1l-2.99-1.77c-.54-.32-1.43-.32-1.98 0l-2.99 1.77c-2.14 1.27-3.44.32-2.88-2.1l.71-3.07c.13-.58-.1-1.39-.52-1.81L2.85 11.89C1.39 10.43 1.86 8.95 3.9 8.61l3.19-.53c.53-.09 1.17-.56 1.41-1.05l1.76-3.52c.96-1.91 2.52-1.91 3.47 0z"/></svg><svg width="34" height="34" viewBox="0 0 24 24" style="left:40%;top:14px;opacity:.22;transform:rotate(-12deg)"><path fill="#e26a00" d="M15.49 7.03c.24.49.88.96 1.42 1.05l3.19.53c2.04.34 2.52 1.82 1.05 3.28l-2.48 2.48c-.42.42-.65 1.23-.52 1.81l.71 3.07c.56 2.43-.73 3.37-2.88 2.1l-2.99-1.77c-.54-.32-1.43-.32-1.98 0l-2.99 1.77c-2.14 1.27-3.44.32-2.88-2.1l.71-3.07c.13-.58-.1-1.39-.52-1.81L2.85 11.89C1.39 10.43 1.86 8.95 3.9 8.61l3.19-.53c.53-.09 1.17-.56 1.41-1.05l1.76-3.52c.96-1.91 2.52-1.91 3.47 0z"/></svg><svg width="120" height="120" viewBox="0 0 120 120" style="right:-30px;bottom:-34px;opacity:.10"><circle cx="60" cy="60" r="52" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-dasharray="4 7"/><circle cx="60" cy="60" r="34" fill="none" stroke="#1b1b1b" stroke-width="2"/></svg></span>
   <div class="top">${lvBadge(k,1)}<span class="mx tn">${nx?'×'+['۱','۱٫۲','۱٫۵','۲'][k]+' امتیاز':'بالاترین سطح'}</span></div>
   <div class="cbig"><b class="tn">${fd(S.points)}</b><span>امتیاز قابل خرج</span></div>
   ${n?`<div class="nx"><span class="tn">${fd(n[3]-S.points)} امتیاز تا ${n[1]}</span><span class="bar"><i style="width:${S.points/n[3]*100}%"></i></span></div>`:''}
   <div class="lvl"><span class="tn">${nx?`سطح بعدی: <b>${nx[0]}</b> · ${fd(nx[1]-S.xp)} امتیاز دیگه`:'تو در بالاترین سطحی'}</span><span class="lbar"><i style="width:${lp}%"></i></span></div>
  </div>
  <div class="cl-ck"><div class="h"><b>حضور روزانه</b><span class="tn">${fd(st)} روز پشت سر هم ${st>=3?'🔥':''}</span></div>
-  <div class="days7">${days.map((v,j)=>{const done=j<st,today=j===st&&!S.ck.done;return `<span class="d${done?' done':''}${today?' today':''}">${j===6?`${i('gift')}<b class="tn g">+${fd(v)}</b>`:`<b class="tn">+${fd(v)}</b>`}<small>${['ش','ی','د','س','چ','پ','ج'][j]}</small></span>`}).join('')}</div>
-  ${S.ck.done?`<span class="ckdone">${CHECK}امروز گرفتی؛ فردا برگرد</span>`:`<button class="btn sm" data-checkin>${st===6?'دریافت ۳۵ امتیاز + جعبه‌ی شانس':'دریافت امتیاز امروز (+'+fd(days[st]||35)+')'}</button>`}
+  <div class="days7">${days.map((v,j)=>{const done=j<st,today=j===st&&!S.ck.done;return `<span class="d${done?' done':''}${today?' today':''}${j===6?' gift':''}">${j===6?i('gift'):`<b class="tn">+${fd(v)}</b>`}<small>${['ش','ی','د','س','چ','پ','ج'][j]}</small></span>`}).join('')}</div>
+  ${S.ck.done?`<span class="ckdone">${CHECK}امروز گرفتی؛ فردا برگرد</span>`:`<button class="btn sm" data-checkin>${st===6?'باز کردن هدیه‌ی روز هفتم':'دریافت امتیاز امروز (+'+fd(days[st]||35)+')'}</button>`}
  </div>
  <div class="cl-inv"><div class="m"><b>دوستت رو دعوت کن</b><span>دوستت ۲۰٪ تخفیف اولین سفارش می‌گیره، تو بعد از سفارشش <b class="tn">۱۰۰ امتیاز</b>.</span></div>
   <div class="link"><span class="ltr tn">cafeleo.ir/i/${S.inv.code}</span><button data-copy="cafeleo.ir/i/${S.inv.code}">کپی</button></div>
@@ -1567,7 +1591,7 @@ function sheetHTML(){
   b=`<div class="shh"><div><h3>${r[1]}</h3><p>${r[2]}</p></div>${X}</div><div class="rwbig"><img src="${IMG[r[4]]}" alt=""></div>
   <div class="list"><div class="li" style="justify-content:space-between"><span>هزینه</span><b class="tn">${fd(r[3])} امتیاز</b></div><div class="sep"></div><div class="li" style="justify-content:space-between"><span>امتیاز تو</span><b class="tn">${fd(S.points)}</b></div><div class="sep"></div><div class="li" style="justify-content:space-between"><span>اعتبار</span><b>۳۰ روز بعد از دریافت</b></div></div>
   ${lock?`<button class="btn" disabled>مخصوص سطح ${LV[r[5]][0]}</button>`:ok?`<button class="btn" data-redeemrw="${r[0]}">دریافت با ${fd(r[3])} امتیاز</button>`:`<button class="btn" disabled>${fd(r[3]-S.points)} امتیاز دیگه لازمه</button>`}`;}
- if(sh==='howpts') b=`<div class="shh"><h3>چطور امتیاز بگیرم؟</h3>${X}</div><div class="list">${[['هر ۱٬۰۰۰ تومان خرید','۱ امتیاز × ضریب سطح'],['حضور روزانه','روز اول ۵، هر روز ۵ تا بیشتر'],['روز هفتم پشت سر هم','۳۵ امتیاز + جعبه‌ی شانس'],['دعوت از دوست','۱۰۰ امتیاز'],['چالش‌های هفتگی','۲۰ تا ۶۰ امتیاز'],['نظر دادن بعد از سفارش','۱۰ امتیاز'],['روز تولدت','۱۰۰ امتیاز']].map(([a,b2],k)=>`${k?'<div class="sep"></div>':''}<div class="li" style="justify-content:space-between"><span>${a}</span><b class="tn" style="color:var(--ink)">${b2}</b></div>`).join('')}</div><button class="btn" data-close>متوجه شدم</button>`;
+ if(sh==='howpts') b=`<div class="shh"><h3>چطور امتیاز بگیرم؟</h3>${X}</div><div class="list">${[['هر ۱٬۰۰۰ تومان خرید','۱ امتیاز × ضریب سطح'],['حضور روزانه','روز اول ۵، هر روز ۵ تا بیشتر'],['روز هفتم پشت سر هم','هدیه‌ی شانسی'],['دعوت از دوست','۱۰۰ امتیاز'],['چالش‌های هفتگی','۲۰ تا ۶۰ امتیاز'],['روز تولدت','۱۰۰ امتیاز']].map(([a,b2],k)=>`${k?'<div class="sep"></div>':''}<div class="li" style="justify-content:space-between"><span>${a}</span><b class="tn" style="color:var(--ink)">${b2}</b></div>`).join('')}</div><button class="btn" data-close>متوجه شدم</button>`;
  if(sh==='support') b=`<div class="shh"><div><h3>تماس با ${BR[S.order?S.order.branch:S.branch].n}</h3><p>هر روز ۸ تا ۲۳</p></div>${X}</div><div class="gw" style="align-items:center"><span class="amt tn" style="direction:ltr">۰۴۱-۳۳۳۳۰۰۰۰</span></div><div class="rowb"><button class="btn out" data-copy="04133330000">کپی شماره</button><button class="btn" data-close data-then="support">ارسال پیام</button></div>`;
  return `<div class="ov" data-ovclose><div class="sheet" role="dialog" aria-modal="true"><span class="grab"></span><div class="sc">${b}</div></div></div>`;
 }
@@ -1579,9 +1603,9 @@ const NOTES={
  rtime:['انتخاب ساعت با چرخ ساعت خود گوشی و روزهای هفته'],
  login:['عکس کافه حذف شد؛ وکتور ساده‌ی لیوان با رنگ‌های اپ'],
  otp:['متن‌ها خودمونی‌تر شد؛ ورود خودکار و حالت کد اشتباه حفظ شد'],
- home:['خط «سفارش خودکار فردا» با دکمه‌ی رد کردن','نوار پیشرفت تا جایزه‌ی بعدی','بنرهای نهایی و منوی شناور پایین‌تر'],
+ home:['پک‌ها: بدون علاقه‌مندی، با شمارش معکوس تا پایان پیشنهاد','«الان چی می‌چسبه» بدون شمارنده','کارت سفارش تحویل‌شده بدون «ثبت نظر»','خط «سفارش خودکار فردا» با دکمه‌ی رد کردن','نوار پیشرفت تا جایزه‌ی بعدی','بنرهای نهایی و منوی شناور پایین‌تر'],
  branch:['آدرس شعبه حذف شد'],
- menu:['دکمه‌ی + سفید با خط دور مشکی، کم‌تر توی چشم','برچسب «مخصوص اپ» روی پک‌ها','دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
+ menu:['دکمه‌ی افزودن: مربع گرد ملایم با متن «افزودن» به جای دایره','دکمه‌ی + سفید با خط دور مشکی، کم‌تر توی چشم','برچسب «مخصوص اپ» روی پک‌ها','دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
  addons:['+ همیشه مستقیم اضافه می‌کنه؛ افزودنی از داخل سبد زیر همون آیتم انتخاب می‌شه'],
  cart:['ردیف شعبه از بالای سبد حذف شد','امتیاز این خرید طلایی شد'],
  checkout:['ردیف شعبه حذف شد','زمان آماده بودن: ۴ کارت مرتب (۱۰، ۲۰، ۳۰ دقیقه، ساعت دلخواه)','ساعت دلخواه + «هر روز تکرار شه» = سفارش خودکار'],
@@ -1617,6 +1641,7 @@ function render(keep){
  clearInterval(tick);if(S.scr==='otp'&&S.resendAt>Date.now())tick=setInterval(()=>{const t=ph.querySelector('[data-timer]');const left=Math.max(0,Math.ceil((S.resendAt-Date.now())/1000));if(!left){clearInterval(tick);render(true);return}if(t)t.textContent=fd(Math.floor(left/60))+':'+fd(String(left%60).padStart(2,'0'))},1000);
 }
 function chipFocus(){const c=ph.querySelector('.chips .chip.on');if(c&&c.dataset.cat!=='all'){const w=c.parentElement;w.scrollLeft+=c.getBoundingClientRect().left-w.getBoundingClientRect().left-(w.clientWidth-c.offsetWidth)/2}}
+setInterval(()=>{ph.querySelectorAll('[data-cd]').forEach(el=>{el.lastElementChild.textContent=cdTxt(el.dataset.cd)})},1000);
 function menuSticky(sc){const t=ph.querySelector('.mtop'),g=ph.querySelector('.cgrid');if(!t||!g)return;sc=sc||ph.querySelector('.scr');t.classList.toggle('sc',sc.scrollTop>g.offsetTop+g.offsetHeight-60)}
 function go(k){if(S.scr!==k)S.stack.push(S.scr);S.scr=k;S.sheet=null;render()}
 function back(){S.scr=S.stack.pop()||'home';S.sheet=null;render()}
@@ -1633,7 +1658,7 @@ function startPay(){const ps=payState();
 function finishOrder(via){
  const L=lines();const tot=payable();
  if(via==='wallet')S.wallet-=tot;
- S.order={id:23316+Math.floor(Math.random()*30),lines:L.map(l=>({id:l.id,q:l.q,add:l.add,t:l.t})),total:tot,disc:disc(),pay:via,method:S.method,car:S.carDef,branch:S.branch,time:S.time,eta:S.busy?25:+en(BR[S.branch].prep),ct:S.ctime,rep:S.time===3&&S.rep,step:0,accepted:true,t0:Date.now(),ts:[Date.now(),Date.now(),0,0],note:S.note||'',onWay:false,arrived:false,earn:earn(),rated:0};
+ S.order={id:23316+Math.floor(Math.random()*30),lines:L.map(l=>({id:l.id,q:l.q,add:l.add,t:l.t})),total:tot,disc:disc(),pay:via,method:S.method,car:S.carDef,branch:S.branch,time:S.time,eta:S.busy?25:10,ct:S.ctime,rep:S.time===3&&S.rep,step:0,accepted:true,t0:Date.now(),ts:[Date.now(),Date.now(),0,0],note:S.note||'',onWay:false,arrived:false,earn:earn(),rated:0};
  S.txs.unshift(['out',tot,'الان','امروز',via==='wallet'?'کیف پول':'کارت بانکی']);
  if(S.time===3&&S.rep){S.routines.unshift({time:S.ctime||'08:00',days:S.rdays.slice().sort(),lines:L.map(l=>({id:l.id,q:l.q,add:l.add})),method:S.method,car:S.carDef,branch:S.branch,on:true,skip:false});S.rep=false}
  S.prefs={method:S.method,time:S.time,pay:via==='wallet'?'wallet':'online'};S.note='';S.cart={};S.codeOn=null;S.code='';S.codeOpen=false;S.sheet=null;S.stack=['home'];S.scr='success';render()}
@@ -1721,11 +1746,11 @@ ph.addEventListener('click',e=>{
  if(d.br){S.branch=d.br;return render(true)}
  if('brok' in d){const prev=S.stack[S.stack.length-1];if(prev==='checkout'||prev==='cart')return back();S.stack=['home'];S.scr='menu';S.showCats=true;return render()}
  if('mview' in d){S.mview=S.mview==='list'?'card':'list';return render(true)}
- if(d.mgo!=null){const j=+d.mgo;if(j===0)return tab('menu');if(j===1){S.cat='smoothie';S.q='';S.showCats=false;S.stack=['home'];S.scr='menu';return render()}if(j===2)return go('orders');if(j===3)return go('editprofile');if(j===4){const el=ph.querySelector('.cl-inv');el&&el.scrollIntoView({behavior:'smooth',block:'center'});return}}
+ if(d.mgo!=null){const j=+d.mgo;if(j===0)return tab('menu');if(j===1){S.cat='smoothie';S.q='';S.showCats=false;S.stack=['home'];S.scr='menu';return render()}if(j===2)return go('routines');if(j===3)return go('editprofile');if(j===4){const el=ph.querySelector('.cl-inv');el&&el.scrollIntoView({behavior:'smooth',block:'center'});return}}
  if(d.ptab){S.ptab=d.ptab;return render(true)}
  if(d.rwd){S._rw=d.rwd;S.sheet='rwd';return render(true)}
  if(d.redeemrw){const r=RW.find(x=>x[0]===d.redeemrw);S.points-=r[3];const c='LEO'+r[0].toUpperCase()+Math.floor(10+Math.random()*89);const it=[...r];it.code=c;S.myRw.unshift(it);S.phist.unshift(['جایزه: '+r[1],'الان',-r[3]]);if(r[0]==='wl'){S.wallet+=50000;S.myRw.shift()}S.sheet=null;return toast(r[0]==='wl'?'۵۰ هزار تومان به کیف پولت اضافه شد':'جایزه فعال شد؛ بالای همین صفحه‌ست')}
- if('checkin' in d){const c=S.ck;if(c.done)return;let g=(c.streak+1)*5;if(c.streak===6){g=35+[10,20,30,50][Math.floor(Math.random()*4)]}S.points+=g;S.xp+=g;c.done=true;c.streak=Math.min(7,c.streak+1);S.phist.unshift([c.streak===7?'جعبه‌ی شانس':'حضور روزانه','امروز',g]);return toast(c.streak===7?`جعبه باز شد: ${fd(g)} امتیاز!`:`+${fd(g)} امتیاز گرفتی`)}
+ if('checkin' in d){const c=S.ck;if(c.done)return;let g=(c.streak+1)*5;if(c.streak===6){g=[30,40,50,80][Math.floor(Math.random()*4)]}S.points+=g;S.xp+=g;c.done=true;c.streak=Math.min(7,c.streak+1);S.phist.unshift([c.streak===7?'جعبه‌ی شانس':'حضور روزانه','امروز',g]);return toast(c.streak===7?`هدیه‌ی روز هفتم: ${fd(g)} امتیاز!`:`+${fd(g)} امتیاز گرفتی`)}
  if(d.claim!=null){const m=S.ms[+d.claim];m[4]=1;S.points+=m[3];S.xp+=m[3];S.phist.unshift(['چالش: '+m[0],'امروز',m[3]]);return toast(`+${fd(m[3])} امتیاز چالش`)}
  if('share' in d){const u='https://cafeleo.ir/i/'+S.inv.code;try{if(navigator.share){navigator.share({title:'کافه لئو',text:'با کد من اولین سفارشت ۲۰٪ تخفیف داره',url:u}).catch(()=>{});return}}catch(_){}try{navigator.clipboard.writeText(u).catch(()=>{})}catch(_){}return toast('لینک دعوت کپی شد')}
  if(d.redeem){S.points-=+d.redeem;return toast('جایزه فعال شد؛ کدش در «کدهای تخفیف» است')}
