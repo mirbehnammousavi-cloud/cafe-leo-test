@@ -927,6 +927,41 @@ button{cursor:pointer;background:none;border:0;padding:0;text-align:inherit}
 .lrow.na .th,.lrow.na .m{opacity:.5}
 .lna{font-size:12px;color:var(--mute);flex:none}
 
+/* v12 */
+.days7{grid-template-columns:repeat(7,minmax(0,1fr))!important}.days7 .d{aspect-ratio:auto!important;height:60px}
+.lst-add{background:var(--paper)!important;color:var(--ink)!important;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.lst-q{background:var(--paper)!important;box-shadow:inset 0 0 0 1.5px #d9d9d9}
+.lst-q button:first-child{background:transparent!important;color:var(--ink)!important}
+.cl-tabs button{display:flex;align-items:center;justify-content:center;text-align:center}
+.stk{position:absolute;top:10px;right:10px;z-index:2;background:#ffb300;color:#2b1f00;font-size:11px;font-weight:600;padding:3px 9px 3px 10px;border-radius:6px;transform:rotate(5deg);box-shadow:0 2px 0 rgba(0,0,0,.08),0 4px 10px rgba(255,160,0,.25);white-space:nowrap;pointer-events:none}
+.stk::before{content:"";position:absolute;right:4px;top:50%;width:4px;height:4px;margin-top:-2px;border-radius:50%;background:rgba(255,255,255,.75)}
+.stk.sm{top:-5px;right:-6px;font-size:9.5px;padding:2px 7px 2px 8px}
+.lrow .th{position:relative}
+.pimg .fav{z-index:3}
+.cl-rw .rc{overflow:visible}
+.cl-rw .rc.ok{box-shadow:none!important}
+.cl-rw .rc.ok .cost::after{content:none!important}
+.stk.rwst{top:12px;right:auto;left:10px;transform:rotate(-5deg)}
+.days7 .d b.g{font-size:11px}.days7 .d .ic{width:18px;height:18px}
+.cl-ms .mc[role=button]{cursor:pointer}
+.cl-ms .rw{display:flex;align-items:center;gap:2px}.cl-ms .rw .ic{width:16px;height:16px}
+.cl-hero{position:relative;overflow:hidden;isolation:isolate;background:#f7f4ee!important;color:var(--ink)!important;border:1px solid rgba(0,0,0,.04)}
+.cl-hero .blob{position:absolute;border-radius:50%;filter:blur(38px);z-index:-1;opacity:.75}
+.cl-hero .b1{width:220px;height:220px;background:#ffcf4d;top:-90px;right:-60px;animation:bl1 9s ease-in-out infinite alternate}
+.cl-hero .b2{width:180px;height:180px;background:#ff9a3d;bottom:-80px;left:-40px;opacity:.5;animation:bl2 11s ease-in-out infinite alternate}
+.cl-hero .b3{width:140px;height:140px;background:#ffe9a8;top:40px;left:30%;opacity:.8}
+@keyframes bl1{to{transform:translate(-40px,30px)}}@keyframes bl2{to{transform:translate(50px,-20px)}}
+.cl-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(255,255,255,.28);backdrop-filter:blur(2px)}
+.cl-hero .mx{color:#5b4a1f!important}
+.cl-hero .cbig span{color:#6b5a2f!important}
+.cl-hero .bar{background:rgba(255,255,255,.7)!important}
+.cl-hero .bar i{background:var(--ink)!important}
+.cl-hero .lvl{color:#5b4a1f!important;border-top-color:rgba(0,0,0,.08)!important}
+.cl-hero .lvl b{color:var(--ink)!important}
+.cl-hero .lbar{background:rgba(255,255,255,.7)!important}.cl-hero .lbar i{background:#e26a00!important}
+.lvb.big{background:rgba(255,255,255,.75)!important;color:var(--ink)!important;backdrop-filter:blur(6px)}
+@media (prefers-reduced-motion:reduce){.cl-hero .blob{animation:none}}
+
 /* ===== real-device mode ===== */
 html,body{background:#fff!important;height:100%;overscroll-behavior:none}
 body{padding:0!important;margin:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
@@ -1204,7 +1239,8 @@ function addCtl(id,big){
  return `<span class="addw" style="width:${big?100:86}px"><button class="ym" data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button><span class="q tn">${fd(q)}</span><button class="yp" data-add="${id}" aria-label="یکی بیشتر">${i('plusW')}</button></span>`;
 }
 const favBtn=id=>`<button class="fav${S.favs[id]?' on':''}" data-fav="${id}" aria-label="${S.favs[id]?'برداشتن از':'افزودن به'} علاقه‌مندی‌ها" aria-pressed="${!!S.favs[id]}">${i('heart')}</button>`;
-const pimg=(id,big)=>`<div class="pimg${avail(id)?'':' na'}"><img src="${IMG[P[id].img]}" alt="">${avail(id)?'':'<span class="na-tag">ناموجود</span>'}${favBtn(id)}${addCtl(id,big)}</div>`;
+const stk=id=>P[id].g==='pack'?'<span class="stk">مخصوص اپ</span>':'';
+const pimg=(id,big)=>`<div class="pimg${avail(id)?'':' na'}"><img src="${IMG[P[id].img]}" alt="">${stk(id)}${avail(id)?'':'<span class="na-tag">ناموجود</span>'}${favBtn(id)}${addCtl(id,big)}</div>`;
 function tabbar(on){
  const t=(k,l,ic,icOn)=>`<button class="tab${on===k?' on':''}" data-tab="${k}">${on===k?i(icOn):i(ic)}${l}</button>`;
  const c=cartCount();
@@ -1296,7 +1332,7 @@ const IGRID='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColo
 const ILIST='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="4.5" width="5" height="5" rx="1.5"/><rect x="3.5" y="14.5" width="5" height="5" rx="1.5"/><path d="M12 7h8.5M12 17h8.5"/></svg>';
 function lctl(id){if(!avail(id))return '<span class="lna">ناموجود</span>';const q=qtyOfId(id);
  return q?`<span class="lst-q"><button data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button><span class="tn">${fd(q)}</span><button data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button></span>`:`<button class="lst-add" data-add="${id}" aria-label="افزودن ${P[id].n}">${i('add')}</button>`}
-function lrow(id){const p=P[id];return `<div class="lrow${avail(id)?'':' na'}"><span class="th"><img src="${IMG[p.img]}" alt="" loading="lazy"></span><span class="m"><b>${p.n}</b><span class="pr tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></span>${lctl(id)}</div>`}
+function lrow(id){const p=P[id];return `<div class="lrow${avail(id)?'':' na'}"><span class="th"><img src="${IMG[p.img]}" alt="" loading="lazy">${p.g==='pack'?'<span class="stk sm">مخصوص اپ</span>':''}</span><span class="m"><b>${p.n}</b><span class="pr tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></span>${lctl(id)}</div>`}
 function gcard(id){const p=P[id];return `<div class="gc">${pimg(id)}<span class="nm">${p.n}</span><span class="pp tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old" style="font-size:12px">${money(p.old)}</span>`:''}</span></div>`}
 
 V.cart=()=>{const L=lines();
@@ -1464,25 +1500,25 @@ V.branch=()=>{const fromBuy=['checkout','cart'].includes(S.stack[S.stack.length-
 
 function lvBadge(k,big){const l=LV[k];return `<span class="lvb${big?' big':''}" style="--lc:${l[2]}">${i('star')}${l[0]}</span>`}
 V.points=()=>{const k=lvOf(S.xp),nx=LV[k+1],lp=nx?Math.min(100,(S.xp-LV[k][1])/(nx[1]-LV[k][1])*100):100,n=nextRw();
- const days=[5,5,10,5,5,10,'box'];const st=S.ck.streak;
+ const days=[5,10,15,20,25,30,35];const st=S.ck.streak;
  return `${sbar()}<div class="scr">${hdr('باشگاه لئو',{left:`<button class="hbtn" data-sheet="howpts" aria-label="راهنما">${i('info')}</button>`})}<div class="px cl" style="padding-top:8px;padding-bottom:70px">
- <div class="cl-hero">
+ <div class="cl-hero"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
   <div class="top">${lvBadge(k,1)}<span class="mx tn">${nx?'×'+['۱','۱٫۲','۱٫۵','۲'][k]+' امتیاز':'بالاترین سطح'}</span></div>
   <div class="cbig"><b class="tn">${fd(S.points)}</b><span>امتیاز قابل خرج</span></div>
   ${n?`<div class="nx"><span class="tn">${fd(n[3]-S.points)} امتیاز تا ${n[1]}</span><span class="bar"><i style="width:${S.points/n[3]*100}%"></i></span></div>`:''}
   <div class="lvl"><span class="tn">${nx?`سطح بعدی: <b>${nx[0]}</b> · ${fd(nx[1]-S.xp)} امتیاز دیگه`:'تو در بالاترین سطحی'}</span><span class="lbar"><i style="width:${lp}%"></i></span></div>
  </div>
  <div class="cl-ck"><div class="h"><b>حضور روزانه</b><span class="tn">${fd(st)} روز پشت سر هم ${st>=3?'🔥':''}</span></div>
-  <div class="days7">${days.map((v,j)=>{const done=j<st,today=j===st&&!S.ck.done;return `<span class="d${done?' done':''}${today?' today':''}">${v==='box'?i('gift'):`<b class="tn">+${fd(v)}</b>`}<small>${['ش','ی','د','س','چ','پ','ج'][j]}</small></span>`}).join('')}</div>
-  ${S.ck.done?`<span class="ckdone">${CHECK}امروز گرفتی؛ فردا برگرد</span>`:`<button class="btn sm" data-checkin>${st===6?'باز کردن جعبه‌ی شانس':'دریافت امتیاز امروز (+'+fd(days[st])+')'}</button>`}
+  <div class="days7">${days.map((v,j)=>{const done=j<st,today=j===st&&!S.ck.done;return `<span class="d${done?' done':''}${today?' today':''}">${j===6?`${i('gift')}<b class="tn g">+${fd(v)}</b>`:`<b class="tn">+${fd(v)}</b>`}<small>${['ش','ی','د','س','چ','پ','ج'][j]}</small></span>`}).join('')}</div>
+  ${S.ck.done?`<span class="ckdone">${CHECK}امروز گرفتی؛ فردا برگرد</span>`:`<button class="btn sm" data-checkin>${st===6?'دریافت ۳۵ امتیاز + جعبه‌ی شانس':'دریافت امتیاز امروز (+'+fd(days[st]||35)+')'}</button>`}
  </div>
  <div class="cl-inv"><div class="m"><b>دوستت رو دعوت کن</b><span>دوستت ۲۰٪ تخفیف اولین سفارش می‌گیره، تو بعد از سفارشش <b class="tn">۱۰۰ امتیاز</b>.</span></div>
   <div class="link"><span class="ltr tn">cafeleo.ir/i/${S.inv.code}</span><button data-copy="cafeleo.ir/i/${S.inv.code}">کپی</button></div>
   <div class="row"><span class="tn">${fd(S.inv.joined)} نفر عضو شدن · ${fd(S.inv.pending)} نفر منتظر اولین سفارش</span><button class="btn sm" data-share>${i('add')}دعوت</button></div></div>
  ${S.myRw.length?`<div class="cl-my"><b>جوایز فعال من</b>${S.myRw.map(r=>`<div class="it"><span class="th"><img src="${IMG[r[4]]}" alt=""></span><span class="m"><b>${r[1]}</b><span class="code tn">کد: ${r.code}</span></span><button data-usecode="${r.code}">استفاده</button></div>`).join('')}</div>`:''}
  <div class="cl-tabs">${[['rw','جوایز'],['ms','چالش‌ها'],['lv','سطح‌ها'],['hs','تاریخچه']].map(([t,l])=>`<button class="${S.ptab===t?'on':''}" data-ptab="${t}">${l}${t==='ms'&&S.ms.some(m=>m[1]>=m[2]&&!m[4])?'<i class="dot"></i>':''}</button>`).join('')}</div>
- ${S.ptab==='rw'?`<div class="cl-rw">${RW.map(r=>{const lock=r[5]>k,ok=!lock&&S.points>=r[3];return `<button class="rc${ok?' ok':''}${lock?' lock':''}" data-rwd="${r[0]}"><span class="im"><img src="${IMG[r[4]]}" alt=""></span><b>${r[1]}</b><span class="sub">${r[2]}</span><span class="cost">${lock?`مخصوص ${LV[r[5]][0]}`:`${i('star')}<span class="tn">${fd(r[3])}</span>`}</span>${!lock&&!ok?`<span class="pb"><i style="width:${S.points/r[3]*100}%"></i></span>`:''}</button>`}).join('')}</div>`:''}
- ${S.ptab==='ms'?`<div class="cl-ms">${S.ms.map((m,j)=>{const done=m[1]>=m[2];return `<div class="mc${m[4]?' got':''}"><span class="m"><b>${m[0]}</b><span class="pb"><i style="width:${Math.min(1,m[1]/m[2])*100}%"></i></span><span class="tn">${fd(Math.min(m[1],m[2]))} از ${fd(m[2])}</span></span>${m[4]?`<span class="got">${CHECK}گرفتی</span>`:done?`<button class="btn sm" data-claim="${j}">+${fd(m[3])}</button>`:`<span class="rw tn">+${fd(m[3])}</span>`}</div>`}).join('')}<p class="hint" style="text-align:center">چالش‌های تازه هر شنبه</p></div>`:''}
+ ${S.ptab==='rw'?`<div class="cl-rw">${RW.map(r=>{const lock=r[5]>k,ok=!lock&&S.points>=r[3];return `<button class="rc${ok?' ok':''}${lock?' lock':''}" data-rwd="${r[0]}"><span class="im"><img src="${IMG[r[4]]}" alt=""></span><b>${r[1]}</b><span class="sub">${r[2]}</span>${ok?'<span class="stk rwst">قابل دریافت</span>':''}<span class="cost">${lock?`مخصوص ${LV[r[5]][0]}`:`${i('star')}<span class="tn">${fd(r[3])}</span>`}</span>${!lock&&!ok?`<span class="pb"><i style="width:${S.points/r[3]*100}%"></i></span>`:''}</button>`}).join('')}</div>`:''}
+ ${S.ptab==='ms'?`<div class="cl-ms">${S.ms.map((m,j)=>{const done=m[1]>=m[2];return `<div class="mc${m[4]?' got':''}"${!done?` role="button" tabindex="0" data-mgo="${j}"`:''}><span class="m"><b>${m[0]}</b><span class="pb"><i style="width:${Math.min(1,m[1]/m[2])*100}%"></i></span><span class="tn">${fd(Math.min(m[1],m[2]))} از ${fd(m[2])}</span></span>${m[4]?`<span class="got">${CHECK}گرفتی</span>`:done?`<button class="btn sm" data-claim="${j}">+${fd(m[3])}</button>`:`<span class="rw tn">+${fd(m[3])}${i('chev')}</span>`}</div>`}).join('')}<p class="hint" style="text-align:center">چالش‌های تازه هر شنبه</p></div>`:''}
  ${S.ptab==='lv'?`<div class="cl-lv">${LV.map((l,j)=>`<div class="lc${j===k?' cur':''}${j<k?' past':''}"><div class="h">${lvBadge(j)}<span class="tn">${j?'از '+fd(l[1])+' امتیاز':'شروع'}</span>${j===k?'<span class="lvme">سطح تو</span>':''}</div><ul>${l[3].map(p=>`<li>${CHECK}${p}</li>`).join('')}</ul></div>`).join('')}<p class="hint">سطح بر اساس امتیازهای جمع‌شده در ۱۲ ماه اخیره و با خرج کردن امتیاز کم نمی‌شه.</p></div>`:''}
  ${S.ptab==='hs'?`<div class="cl-hs">${S.phist.map(([t,d,p])=>`<div class="hr2"><span><b>${t}</b><span>${d}</span></span><span class="p tn ${p<0?'neg':''}" dir="ltr">${p>0?'+':'−'}${fd(Math.abs(p))}</span></div>`).join('')}</div>`:''}
  </div></div>`};
@@ -1531,7 +1567,7 @@ function sheetHTML(){
   b=`<div class="shh"><div><h3>${r[1]}</h3><p>${r[2]}</p></div>${X}</div><div class="rwbig"><img src="${IMG[r[4]]}" alt=""></div>
   <div class="list"><div class="li" style="justify-content:space-between"><span>هزینه</span><b class="tn">${fd(r[3])} امتیاز</b></div><div class="sep"></div><div class="li" style="justify-content:space-between"><span>امتیاز تو</span><b class="tn">${fd(S.points)}</b></div><div class="sep"></div><div class="li" style="justify-content:space-between"><span>اعتبار</span><b>۳۰ روز بعد از دریافت</b></div></div>
   ${lock?`<button class="btn" disabled>مخصوص سطح ${LV[r[5]][0]}</button>`:ok?`<button class="btn" data-redeemrw="${r[0]}">دریافت با ${fd(r[3])} امتیاز</button>`:`<button class="btn" disabled>${fd(r[3]-S.points)} امتیاز دیگه لازمه</button>`}`;}
- if(sh==='howpts') b=`<div class="shh"><h3>چطور امتیاز بگیرم؟</h3>${X}</div><div class="list">${[['هر ۱٬۰۰۰ تومان خرید','۱ امتیاز × ضریب سطح'],['حضور روزانه','۵ تا ۱۰ امتیاز'],['روز هفتم پشت سر هم','جعبه‌ی شانس'],['دعوت از دوست','۱۰۰ امتیاز'],['چالش‌های هفتگی','۲۰ تا ۶۰ امتیاز'],['نظر دادن بعد از سفارش','۱۰ امتیاز'],['روز تولدت','۱۰۰ امتیاز']].map(([a,b2],k)=>`${k?'<div class="sep"></div>':''}<div class="li" style="justify-content:space-between"><span>${a}</span><b class="tn" style="color:var(--ink)">${b2}</b></div>`).join('')}</div><button class="btn" data-close>متوجه شدم</button>`;
+ if(sh==='howpts') b=`<div class="shh"><h3>چطور امتیاز بگیرم؟</h3>${X}</div><div class="list">${[['هر ۱٬۰۰۰ تومان خرید','۱ امتیاز × ضریب سطح'],['حضور روزانه','روز اول ۵، هر روز ۵ تا بیشتر'],['روز هفتم پشت سر هم','۳۵ امتیاز + جعبه‌ی شانس'],['دعوت از دوست','۱۰۰ امتیاز'],['چالش‌های هفتگی','۲۰ تا ۶۰ امتیاز'],['نظر دادن بعد از سفارش','۱۰ امتیاز'],['روز تولدت','۱۰۰ امتیاز']].map(([a,b2],k)=>`${k?'<div class="sep"></div>':''}<div class="li" style="justify-content:space-between"><span>${a}</span><b class="tn" style="color:var(--ink)">${b2}</b></div>`).join('')}</div><button class="btn" data-close>متوجه شدم</button>`;
  if(sh==='support') b=`<div class="shh"><div><h3>تماس با ${BR[S.order?S.order.branch:S.branch].n}</h3><p>هر روز ۸ تا ۲۳</p></div>${X}</div><div class="gw" style="align-items:center"><span class="amt tn" style="direction:ltr">۰۴۱-۳۳۳۳۰۰۰۰</span></div><div class="rowb"><button class="btn out" data-copy="04133330000">کپی شماره</button><button class="btn" data-close data-then="support">ارسال پیام</button></div>`;
  return `<div class="ov" data-ovclose><div class="sheet" role="dialog" aria-modal="true"><span class="grab"></span><div class="sc">${b}</div></div></div>`;
 }
@@ -1545,7 +1581,7 @@ const NOTES={
  otp:['متن‌ها خودمونی‌تر شد؛ ورود خودکار و حالت کد اشتباه حفظ شد'],
  home:['خط «سفارش خودکار فردا» با دکمه‌ی رد کردن','نوار پیشرفت تا جایزه‌ی بعدی','بنرهای نهایی و منوی شناور پایین‌تر'],
  branch:['آدرس شعبه حذف شد'],
- menu:['دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
+ menu:['دکمه‌ی + سفید با خط دور مشکی، کم‌تر توی چشم','برچسب «مخصوص اپ» روی پک‌ها','دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
  addons:['+ همیشه مستقیم اضافه می‌کنه؛ افزودنی از داخل سبد زیر همون آیتم انتخاب می‌شه'],
  cart:['ردیف شعبه از بالای سبد حذف شد','امتیاز این خرید طلایی شد'],
  checkout:['ردیف شعبه حذف شد','زمان آماده بودن: ۴ کارت مرتب (۱۰، ۲۰، ۳۰ دقیقه، ساعت دلخواه)','ساعت دلخواه + «هر روز تکرار شه» = سفارش خودکار'],
@@ -1685,10 +1721,11 @@ ph.addEventListener('click',e=>{
  if(d.br){S.branch=d.br;return render(true)}
  if('brok' in d){const prev=S.stack[S.stack.length-1];if(prev==='checkout'||prev==='cart')return back();S.stack=['home'];S.scr='menu';S.showCats=true;return render()}
  if('mview' in d){S.mview=S.mview==='list'?'card':'list';return render(true)}
+ if(d.mgo!=null){const j=+d.mgo;if(j===0)return tab('menu');if(j===1){S.cat='smoothie';S.q='';S.showCats=false;S.stack=['home'];S.scr='menu';return render()}if(j===2)return go('orders');if(j===3)return go('editprofile');if(j===4){const el=ph.querySelector('.cl-inv');el&&el.scrollIntoView({behavior:'smooth',block:'center'});return}}
  if(d.ptab){S.ptab=d.ptab;return render(true)}
  if(d.rwd){S._rw=d.rwd;S.sheet='rwd';return render(true)}
  if(d.redeemrw){const r=RW.find(x=>x[0]===d.redeemrw);S.points-=r[3];const c='LEO'+r[0].toUpperCase()+Math.floor(10+Math.random()*89);const it=[...r];it.code=c;S.myRw.unshift(it);S.phist.unshift(['جایزه: '+r[1],'الان',-r[3]]);if(r[0]==='wl'){S.wallet+=50000;S.myRw.shift()}S.sheet=null;return toast(r[0]==='wl'?'۵۰ هزار تومان به کیف پولت اضافه شد':'جایزه فعال شد؛ بالای همین صفحه‌ست')}
- if('checkin' in d){const c=S.ck;if(c.done)return;const v=[5,5,10,5,5,10][c.streak];let g=v;if(c.streak===6){g=[15,25,40,60][Math.floor(Math.random()*4)]}S.points+=g;S.xp+=g;c.done=true;c.streak=Math.min(7,c.streak+1);S.phist.unshift([c.streak===7?'جعبه‌ی شانس':'حضور روزانه','امروز',g]);return toast(c.streak===7?`جعبه باز شد: ${fd(g)} امتیاز!`:`+${fd(g)} امتیاز گرفتی`)}
+ if('checkin' in d){const c=S.ck;if(c.done)return;let g=(c.streak+1)*5;if(c.streak===6){g=35+[10,20,30,50][Math.floor(Math.random()*4)]}S.points+=g;S.xp+=g;c.done=true;c.streak=Math.min(7,c.streak+1);S.phist.unshift([c.streak===7?'جعبه‌ی شانس':'حضور روزانه','امروز',g]);return toast(c.streak===7?`جعبه باز شد: ${fd(g)} امتیاز!`:`+${fd(g)} امتیاز گرفتی`)}
  if(d.claim!=null){const m=S.ms[+d.claim];m[4]=1;S.points+=m[3];S.xp+=m[3];S.phist.unshift(['چالش: '+m[0],'امروز',m[3]]);return toast(`+${fd(m[3])} امتیاز چالش`)}
  if('share' in d){const u='https://cafeleo.ir/i/'+S.inv.code;try{if(navigator.share){navigator.share({title:'کافه لئو',text:'با کد من اولین سفارشت ۲۰٪ تخفیف داره',url:u}).catch(()=>{});return}}catch(_){}try{navigator.clipboard.writeText(u).catch(()=>{})}catch(_){}return toast('لینک دعوت کپی شد')}
  if(d.redeem){S.points-=+d.redeem;return toast('جایزه فعال شد؛ کدش در «کدهای تخفیف» است')}
