@@ -904,6 +904,29 @@ button{cursor:pointer;background:none;border:0;padding:0;text-align:inherit}
 .cl-hs .p{font-weight:600;font-size:14px;color:#13804b}.cl-hs .p.neg{color:var(--ink2)}
 .rwbig{height:130px;border-radius:20px;background:var(--soft);display:grid;place-items:center}.rwbig img{max-height:110px;max-width:160px;object-fit:contain}
 
+/* v11 list view */
+.mhdr .vt{flex:none}
+.lst{display:flex;flex-direction:column;padding:4px 16px 0}
+.lst.lst1{padding-top:8px;padding-bottom:calc(var(--tbh) + var(--sab) + 90px)}
+.lrow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);min-height:84px}
+.lrow:last-child{border-bottom:0}
+.lrow .th{width:68px;height:68px;border-radius:16px;background:var(--soft);display:grid;place-items:center;flex:none}
+.lrow .th img{width:58px;height:58px;object-fit:contain}
+.lrow .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.lrow .m>b{font-size:15px;font-weight:500;line-height:1.5}
+.lrow .pr{display:flex;align-items:baseline;gap:4px}.lrow .pr b{font-size:16px;font-weight:700}.lrow .pr small{font-size:10.5px;color:var(--ink2)}
+.lrow .pr .old{font-size:11.5px;color:var(--mute);text-decoration:line-through;margin-inline-start:4px}
+.lst-add{width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none}
+.lst-add .ic{width:20px;height:20px}
+.lst-add:active,.lst-q button:active{transform:scale(.94)}
+.lst-q{display:flex;align-items:center;height:44px;border-radius:44px;background:var(--soft);padding:2px;flex:none}
+.lst-q button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--ink)}
+.lst-q button:first-child{background:var(--ink);color:#fff}
+.lst-q .ic{width:18px;height:18px}
+.lst-q span{min-width:26px;text-align:center;font-weight:600;font-size:15px}
+.lrow.na .th,.lrow.na .m{opacity:.5}
+.lna{font-size:12px;color:var(--mute);flex:none}
+
 /* ===== real-device mode ===== */
 html,body{background:#fff!important;height:100%;overscroll-behavior:none}
 body{padding:0!important;margin:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
@@ -1140,7 +1163,7 @@ const S={busy:true,scr:'login',stack:[],auth:false,returnTo:null,phone:'',otp:''
  code:'',codeOn:null,codeOpen:false,codeErr:'',time:0,pay:'wallet',method:'store',
  cars:[],carDef:0,carForm:null,
  order:null,history:[{id:23288,date:'دیروز، ۱۸:۲۰',branch:'eel',lines:[{id:'m1',q:1,add:[]},{id:'m5',q:1,add:[0]}],total:498000},{id:23140,date:'۳ آبان، ۱۰:۰۵',branch:'eel',lines:[{id:'m6',q:2,add:[]},{id:'m9',q:1,add:[]}],total:750000}],
- fund:500000,fundCustom:'',codesTab:0,faq:0,xp:3540,ptab:'rw',ck:{streak:3,done:false,box:false},myRw:[],inv:{code:'YOUSEF24',joined:2,pending:1},
+ fund:500000,fundCustom:'',codesTab:0,faq:0,mview:'list',xp:3540,ptab:'rw',ck:{streak:3,done:false,box:false},myRw:[],inv:{code:'YOUSEF24',joined:2,pending:1},
  ms:[['این هفته ۳ بار سفارش بده',2,3,60,0],['یه اسموتی امتحان کن',0,1,25,0],['به ۲ سفارش نظر بده',1,2,20,0],['تاریخ تولدت رو ثبت کن',0,1,30,0],['یه دوست دعوت کن',1,1,50,0]],
  phist:[['خرید از کافه','دیروز',498],['حضور روزانه','دیروز',5],['جایزه: چای و نبات','۲ آبان',-250],['دعوت از دوست','۱ آبان',100],['خرید از کافه','۲۸ مهر',750]],ctime:'',rep:false,rdays:[0,1,2,3,4,5,6],
  routines:[{time:'08:00',days:[0,1,2,3,4],lines:[{id:'m6',q:1,add:[]}],method:'store',branch:'eel',on:true,skip:false}],sheet:null,sd:null,toast:null,toastAct:null,
@@ -1263,12 +1286,17 @@ function dcard(id){const p=P[id];return `<div class="pc dpc">${pimg(id)}<span cl
 
 V.menu=()=>{const q=norm(S.q);const all=S.showCats&&!q;
  const list=Object.keys(P).filter(id=>q?norm(P[id].n+' '+P[id].tags).includes(q):(all||P[id].g===S.cat));
- return `${sbar()}<div class="scr"><div class="mtop${all?'':' sc'}"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label>${backBtn.replace('data-back','data-tab="home"')}</div>
+ return `${sbar()}<div class="scr"><div class="mtop${all?'':' sc'}"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label><button class="hbtn vt" data-mview aria-label="${S.mview==='list'?'نمایش کارتی':'نمایش لیستی'}">${S.mview==='list'?IGRID:ILIST}</button>${backBtn.replace('data-back','data-tab="home"')}</div>
  ${q?'':`<div class="chips${all?' cx':''}"><button class="chip${all?' on':''}" data-cat="all">همه</button>${GORD.map(k=>`<button class="chip${!all&&S.cat===k?' on':''}" data-cat="${k}">${GN[k]}</button>`).join('')}</div>`}</div>
  ${all?`<div class="cgrid cats">${CATS.map(([n,k,c])=>`<button class="cat" data-cat="${c}"><span class="cb"><img src="${IMG[k]}" alt=""></span>${n}</button>`).join('')}</div>
 `:''}
  ${q?`<div class="px" style="padding-top:12px;font-size:13px;color:var(--mute)">${fd(list.length)} نتیجه برای «${S.q}»</div>`:''}
- ${!q&&all?GORD.map(g=>{const L2=list.filter(id=>P[id].g===g);return L2.length?`<h3 class="gsec" id="g_${g}">${GN[g]}<span class="tn">${fd(L2.length)}</span></h3><div class="grid2 gs">${L2.map(gcard).join('')}</div>`:''}).join('')+'<div style="height:calc(var(--tbh) + var(--sab) + 80px)"></div>':`<div class="grid2">${list.length?list.map(gcard).join(''):`<div class="empty" style="grid-column:1/-1"><span class="eb">${i('search')}</span><b>نتیجه‌ای پیدا نشد</b><p>یه اسم دیگه امتحان کن، مثلاً «قهوه» یا «شیک».</p></div>`}</div>`}</div>${cartbar()}${tabbar('menu')}`};
+ ${!q&&all?GORD.map(g=>{const L2=list.filter(id=>P[id].g===g);return L2.length?`<h3 class="gsec" id="g_${g}">${GN[g]}<span class="tn">${fd(L2.length)}</span></h3>${S.mview==='list'?`<div class="lst">${L2.map(lrow).join('')}</div>`:`<div class="grid2 gs">${L2.map(gcard).join('')}</div>`}`:''}).join('')+'<div style="height:calc(var(--tbh) + var(--sab) + 80px)"></div>':`<div class="${S.mview==='list'&&list.length?'lst lst1':'grid2'}">${list.length?list.map(S.mview==='list'?lrow:gcard).join(''):`<div class="empty" style="grid-column:1/-1"><span class="eb">${i('search')}</span><b>نتیجه‌ای پیدا نشد</b><p>یه اسم دیگه امتحان کن، مثلاً «قهوه» یا «شیک».</p></div>`}</div>`}</div>${cartbar()}${tabbar('menu')}`};
+const IGRID='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>';
+const ILIST='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="4.5" width="5" height="5" rx="1.5"/><rect x="3.5" y="14.5" width="5" height="5" rx="1.5"/><path d="M12 7h8.5M12 17h8.5"/></svg>';
+function lctl(id){if(!avail(id))return '<span class="lna">ناموجود</span>';const q=qtyOfId(id);
+ return q?`<span class="lst-q"><button data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button><span class="tn">${fd(q)}</span><button data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button></span>`:`<button class="lst-add" data-add="${id}" aria-label="افزودن ${P[id].n}">${i('add')}</button>`}
+function lrow(id){const p=P[id];return `<div class="lrow${avail(id)?'':' na'}"><span class="th"><img src="${IMG[p.img]}" alt="" loading="lazy"></span><span class="m"><b>${p.n}</b><span class="pr tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></span>${lctl(id)}</div>`}
 function gcard(id){const p=P[id];return `<div class="gc">${pimg(id)}<span class="nm">${p.n}</span><span class="pp tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old" style="font-size:12px">${money(p.old)}</span>`:''}</span></div>`}
 
 V.cart=()=>{const L=lines();
@@ -1517,7 +1545,7 @@ const NOTES={
  otp:['متن‌ها خودمونی‌تر شد؛ ورود خودکار و حالت کد اشتباه حفظ شد'],
  home:['خط «سفارش خودکار فردا» با دکمه‌ی رد کردن','نوار پیشرفت تا جایزه‌ی بعدی','بنرهای نهایی و منوی شناور پایین‌تر'],
  branch:['آدرس شعبه حذف شد'],
- menu:['کارت محصول مثل طراحی: بدون توضیح، قیمت درشت و پررنگ','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
+ menu:['دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
  addons:['+ همیشه مستقیم اضافه می‌کنه؛ افزودنی از داخل سبد زیر همون آیتم انتخاب می‌شه'],
  cart:['ردیف شعبه از بالای سبد حذف شد','امتیاز این خرید طلایی شد'],
  checkout:['ردیف شعبه حذف شد','زمان آماده بودن: ۴ کارت مرتب (۱۰، ۲۰، ۳۰ دقیقه، ساعت دلخواه)','ساعت دلخواه + «هر روز تکرار شه» = سفارش خودکار'],
@@ -1656,6 +1684,7 @@ ph.addEventListener('click',e=>{
  if(d.faq){S.faq=S.faq===+d.faq?-1:+d.faq;return render(true)}
  if(d.br){S.branch=d.br;return render(true)}
  if('brok' in d){const prev=S.stack[S.stack.length-1];if(prev==='checkout'||prev==='cart')return back();S.stack=['home'];S.scr='menu';S.showCats=true;return render()}
+ if('mview' in d){S.mview=S.mview==='list'?'card':'list';return render(true)}
  if(d.ptab){S.ptab=d.ptab;return render(true)}
  if(d.rwd){S._rw=d.rwd;S.sheet='rwd';return render(true)}
  if(d.redeemrw){const r=RW.find(x=>x[0]===d.redeemrw);S.points-=r[3];const c='LEO'+r[0].toUpperCase()+Math.floor(10+Math.random()*89);const it=[...r];it.code=c;S.myRw.unshift(it);S.phist.unshift(['جایزه: '+r[1],'الان',-r[3]]);if(r[0]==='wl'){S.wallet+=50000;S.myRw.shift()}S.sheet=null;return toast(r[0]==='wl'?'۵۰ هزار تومان به کیف پولت اضافه شد':'جایزه فعال شد؛ بالای همین صفحه‌ست')}
