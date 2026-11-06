@@ -984,6 +984,15 @@ button{cursor:pointer;background:none;border:0;padding:0;text-align:inherit}
 .cl-hero .lbar{background:rgba(0,0,0,.08)!important}
 .lvb.big{background:var(--paper)!important;backdrop-filter:none!important}
 
+/* v14 */
+.rbtop{display:flex;align-items:center;gap:10px;background:#e6effc;color:#123e7a;padding:10px 16px;font-size:12.5px;line-height:1.6}
+.rbtop .ic{width:20px;height:20px;flex:none}
+.rbtop span{flex:1;display:flex;flex-direction:column}.rbtop b{font-size:13.5px}
+.rbtop button{font-size:12.5px;font-weight:600;background:#fff;border-radius:20px;padding:5px 12px}
+.rbbar{background:#123e7a!important}
+.rbbar[disabled]{opacity:.6}
+.rbbar .tot .ic{width:22px;height:22px;color:#fff}
+
 /* ===== real-device mode ===== */
 html,body{background:#fff!important;height:100%;overscroll-behavior:none}
 body{padding:0!important;margin:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
@@ -1220,7 +1229,7 @@ const S={busy:false,scr:'login',stack:[],auth:false,returnTo:null,phone:'',otp:'
  code:'',codeOn:null,codeOpen:false,codeErr:'',time:0,pay:'wallet',method:'store',
  cars:[],carDef:0,carForm:null,
  order:null,history:[{id:23288,date:'دیروز، ۱۸:۲۰',branch:'eel',lines:[{id:'m1',q:1,add:[]},{id:'m5',q:1,add:[0]}],total:498000},{id:23140,date:'۳ آبان، ۱۰:۰۵',branch:'eel',lines:[{id:'m6',q:2,add:[]},{id:'m9',q:1,add:[]}],total:750000}],
- fund:500000,fundCustom:'',codesTab:0,faq:0,mview:'list',xp:3540,ptab:'rw',ck:{streak:3,done:false,box:false},myRw:[],inv:{code:'YOUSEF24',joined:2,pending:1},
+ fund:500000,fundCustom:'',codesTab:0,faq:0,mview:'auto',rb:null,xp:3540,ptab:'rw',ck:{streak:3,done:false,box:false},myRw:[],inv:{code:'YOUSEF24',joined:2,pending:1},
  ms:[['این هفته ۳ بار سفارش بده',2,3,60,0],['یه اسموتی امتحان کن',0,1,25,0],['یه سفارش خودکار بساز',0,1,40,0],['تاریخ تولدت رو ثبت کن',0,1,30,0],['یه دوست دعوت کن',1,1,50,0]],
  phist:[['خرید از کافه','دیروز',498],['حضور روزانه','دیروز',5],['جایزه: چای و نبات','۲ آبان',-250],['دعوت از دوست','۱ آبان',100],['خرید از کافه','۲۸ مهر',750]],ctime:'',rep:false,rdays:[0,1,2,3,4,5,6],
  routines:[{time:'08:00',days:[0,1,2,3,4],lines:[{id:'m6',q:1,add:[]}],method:'store',branch:'eel',on:true,skip:false}],sheet:null,sd:null,toast:null,toastAct:null,
@@ -1232,7 +1241,7 @@ const key=(id,add)=>id+'|'+(add||[]).slice().sort().join(',');
 const unit=(id,add)=>P[id].p+(add||[]).reduce((a,k)=>a+ADDONS[k][1],0);
 const lines=()=>Object.entries(S.cart).map(([k,q])=>{const [id,ad]=k.split('|');const add=ad?ad.split(',').map(Number):[];return {k,id,q,add,u:unit(id,add),t:unit(id,add)*q}});
 const cartCount=()=>Object.values(S.cart).reduce((a,b)=>a+b,0);
-const qtyOfId=id=>lines().filter(l=>l.id===id).reduce((a,l)=>a+l.q,0);
+const qtyOfId=id=>S.rb?S.rb.lines.filter(l=>l.id===id).reduce((a,l)=>a+l.q,0):lines().filter(l=>l.id===id).reduce((a,l)=>a+l.q,0);
 const subtotal=()=>lines().reduce((a,l)=>a+l.t,0);
 const disc=()=>{if(!S.codeOn)return 0;const c=CODES[S.codeOn];return subtotal()>=c.min?Math.round(subtotal()*c.p/1000)*1000:0};
 const payable=()=>subtotal()-disc();
@@ -1245,7 +1254,7 @@ const atMin=m=>hm(new Date(Date.now()+m*60000));
 const tLabel=k=>k===3?(S.ctime?'ساعت '+ft(S.ctime):'ساعت دلخواه'):TIMES[k][0];
 const daysTxt=d=>d.length===7?'هر روز':d.join()==='0,1,2,3,4'?'شنبه تا چهارشنبه':d.join()==='0,1,2,3,4,5'?'شنبه تا پنجشنبه':d.map(x=>DAYN[x]).join('، ');
 function addLine(id,add,q=1){const k=key(id,add);S.cart[k]=(S.cart[k]||0)+q;S._bump=1;buzz()}
-function decId(id){const ls=lines().filter(l=>l.id===id);if(!ls.length)return;const l=ls[ls.length-1];S.cart[l.k]--;if(S.cart[l.k]<=0){delete S.cart[l.k];undoable(l)}}
+function decId(id){if(S.rb){const l=S.rb.lines.find(x=>x.id===id);if(l){l.q--;if(l.q<=0)S.rb.lines.splice(S.rb.lines.indexOf(l),1)}return}const ls=lines().filter(l=>l.id===id);if(!ls.length)return;const l=ls[ls.length-1];S.cart[l.k]--;if(S.cart[l.k]<=0){delete S.cart[l.k];undoable(l)}}
 function undoable(l){S._undo=l;toast(`«${P[l.id].n}» از سبد حذف شد`,'بازگردانی')}
 
 /* ---------- shared UI ---------- */
@@ -1268,7 +1277,8 @@ function tabbar(on){
  const c=cartCount();
  return `<nav class="tabbar" aria-label="منوی پایین"><div class="pill">${t('profile','پروفایل','user','userBold')}${t('menu','منوی کافه','menuBoard','menuBoardBold')}${t('home','خانه','home','homeBold')}</div><button class="sbtn${c?' full':''}" data-go="cart" aria-label="سبد خرید${c?'، '+fd(c)+' آیتم':''}">${i('walletBold')}${c?`<span class="badge tn${S._bump?' bump':''}">${fd(c)}</span>`:''}</button></nav>`;
 }
-function cartbar(bottom){const c=cartCount();if(!c)return '';
+function cartbar(bottom){if(S.rb){const n=S.rb.lines.reduce((a,l)=>a+l.q,0);return `<button class="cartbar rbbar" data-rbnext${n?'':' disabled'}><span class="r"><span class="bag tn">${fd(n)}</span><span class="cnt">${n?(S.rb.k!=null?'ذخیره‌ی اقلام سفارش خودکار':'ادامه: انتخاب ساعت و روزها'):'یه آیتم انتخاب کن'}</span></span><span class="tot tn">${i('clock')}</span></button>`}
+ const c=cartCount();if(!c)return '';
  return `<button class="cartbar" data-go="cart"${bottom!=null?` style="bottom:${bottom}px"`:''}><span class="r"><span class="bag tn${S._bump?' bump':''}">${fd(c)}</span><span class="cnt">ادامه و پرداخت</span></span><span class="tot tn">${money(subtotal())}<small>تومان</small></span></button>`}
 
 /* ---------- screens ---------- */
@@ -1347,12 +1357,14 @@ function dcard(id){const p=P[id];return `<div class="pc dpc">${pimg(id)}<span cl
 
 V.menu=()=>{const q=norm(S.q);const all=S.showCats&&!q;
  const list=Object.keys(P).filter(id=>q?norm(P[id].n+' '+P[id].tags).includes(q):(all||P[id].g===S.cat));
- return `${sbar()}<div class="scr"><div class="mtop${all?'':' sc'}"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label><button class="hbtn vt" data-mview aria-label="${S.mview==='list'?'نمایش کارتی':'نمایش لیستی'}">${S.mview==='list'?IGRID:ILIST}</button>${backBtn.replace('data-back','data-tab="home"')}</div>
+ return `${sbar()}<div class="scr">${S.rb?`<div class="rbtop">${i('clock')}<span><b>${S.rb.k!=null?'ویرایش سفارش خودکار':'ساختن سفارش خودکار'}</b>آیتم‌ها به سفارش خودکار اضافه می‌شن، نه سبد خرید</span><button data-rbcancel>انصراف</button></div>`:''}<div class="mtop${all?'':' sc'}"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label><button class="hbtn vt" data-mview aria-label="${S.mview==='list'?'نمایش ترکیبی با عکس':'نمایش فشرده‌ی لیستی'}">${S.mview==='list'?IGRID:ILIST}</button>${backBtn.replace('data-back','data-tab="home"')}</div>
  ${q?'':`<div class="chips${all?' cx':''}"><button class="chip${all?' on':''}" data-cat="all">همه</button>${GORD.map(k=>`<button class="chip${!all&&S.cat===k?' on':''}" data-cat="${k}">${GN[k]}</button>`).join('')}</div>`}</div>
  ${all?`<div class="cgrid cats">${CATS.map(([n,k,c])=>`<button class="cat" data-cat="${c}"><span class="cb"><img src="${IMG[k]}" alt=""></span>${n}</button>`).join('')}</div>
 `:''}
  ${q?`<div class="px" style="padding-top:12px;font-size:13px;color:var(--mute)">${fd(list.length)} نتیجه برای «${S.q}»</div>`:''}
- ${!q&&all?GORD.map(g=>{const L2=list.filter(id=>P[id].g===g);return L2.length?`<h3 class="gsec" id="g_${g}">${GN[g]}<span class="tn">${fd(L2.length)}</span></h3>${S.mview==='list'?`<div class="lst">${L2.map(lrow).join('')}</div>`:`<div class="grid2 gs">${L2.map(gcard).join('')}</div>`}`:''}).join('')+'<div style="height:calc(var(--tbh) + var(--sab) + 80px)"></div>':`<div class="${S.mview==='list'&&list.length?'lst lst1':'grid2'}">${list.length?list.map(S.mview==='list'?lrow:gcard).join(''):`<div class="empty" style="grid-column:1/-1"><span class="eb">${i('search')}</span><b>نتیجه‌ای پیدا نشد</b><p>یه اسم دیگه امتحان کن، مثلاً «قهوه» یا «شیک».</p></div>`}</div>`}</div>${cartbar()}${tabbar('menu')}`};
+ ${!q&&all?GORD.map(g=>{const L2=list.filter(id=>P[id].g===g);return L2.length?`<h3 class="gsec" id="g_${g}">${GN[g]}<span class="tn">${fd(L2.length)}</span></h3>${gm(g)==='list'?`<div class="lst">${L2.map(lrow).join('')}</div>`:`<div class="grid2 gs">${L2.map(gcard).join('')}</div>`}`:''}).join('')+'<div style="height:calc(var(--tbh) + var(--sab) + 80px)"></div>':`<div class="${(q||gm(S.cat)==='list')&&list.length?'lst lst1':'grid2'}">${list.length?list.map(q||gm(S.cat)==='list'?lrow:gcard).join(''):`<div class="empty" style="grid-column:1/-1"><span class="eb">${i('search')}</span><b>نتیجه‌ای پیدا نشد</b><p>یه اسم دیگه امتحان کن، مثلاً «قهوه» یا «شیک».</p></div>`}</div>`}</div>${cartbar()}${tabbar('menu')}`};
+const GMODE={bitter:'list',milk:'list',choc:'list',tea:'list',iced:'list',juice:'list',shake:'card',smoothie:'card',mocktail:'card',icecream:'card',dessert:'card',pack:'card'};
+const gm=g=>S.mview==='list'?'list':(GMODE[g]||'list');
 const IGRID='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>';
 const ILIST='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="4.5" width="5" height="5" rx="1.5"/><rect x="3.5" y="14.5" width="5" height="5" rx="1.5"/><path d="M12 7h8.5M12 17h8.5"/></svg>';
 function lctl(id){if(!avail(id))return '<span class="lna">ناموجود</span>';const q=qtyOfId(id);
@@ -1457,7 +1469,7 @@ function rcard(r,k){const tot=r.lines.reduce((a,l)=>a+unit(l.id,l.add)*l.q,0);
  return `<div class="rcard${r.on?'':' off'}"><div class="h"><span class="tm"><b class="tn">${ft(r.time)}</b><span>${daysTxt(r.days)}</span></span><button class="sw2${r.on?' on':''}" data-rtog="${k}" aria-label="فعال بودن"><i></i></button></div>
  <div class="its"><span class="ths">${r.lines.slice(0,3).map(l=>`<span><img src="${IMG[P[l.id].img]}" alt=""></span>`).join('')}</span><p>${r.lines.map(l=>(l.q>1?fd(l.q)+'× ':'')+P[l.id].n).join('، ')}<br><span class="tn" style="color:var(--mute);font-size:12.5px">${T(tot)} · ${r.method==='car'?'کنار خودرو':'حضوری'} · ${BR[r.branch].n}</span></p></div>
  ${r.on?`<div class="nx">${i('clock')}<span>${r.skip?'فردا رد می‌شه':'سفارش بعدی: فردا ساعت '+ft(r.time)}</span><button data-rskip="${k}">${r.skip?'برگردون':'رد کردن فردا'}</button></div>`:'<div class="nx off">متوقف شده</div>'}
- <div class="ft"><button data-redit="${k}">تغییر ساعت و روزها</button><button class="del" data-rdel="${k}">حذف</button></div></div>`}
+ <div class="ft"><button data-rbedit="${k}">ویرایش اقلام</button><button data-redit="${k}">ساعت و روزها</button><button class="del" data-rdel="${k}">حذف</button></div></div>`}
 V.routines=()=>`${sbar()}<div class="scr">${hdr('سفارش‌های خودکار')}<div class="px" style="display:flex;flex-direction:column;gap:14px;padding-top:12px;padding-bottom:150px">
  <div class="rinfo">${i('clock')}<span>سفارشی که هر روز سر یه ساعت لازم داری رو یه بار تنظیم کن؛ خودش ثبت می‌شه، از کیف پول پرداخت می‌شه و سر ساعت آماده‌ست.</span></div>
  ${S.routines.length?S.routines.map(rcard).join(''):`<div class="empty"><span class="eb">${i('clock')}</span><b>سفارش خودکاری نداری</b><p>از یه سفارش قبلی بساز، یا موقع پرداخت «ساعت دلخواه» و «هر روز تکرار شه» رو بزن.</p></div>`}
@@ -1568,8 +1580,8 @@ function sheetHTML(){
   ${e?`<button class="btn red" data-sheet="confirmCar">${i('trash')}حذف خودرو</button>`:''}
   <button class="btn" data-savecar>ثبت خودرو</button>`;}
  if(sh==='rnew'){b=`<div class="shh"><div><h3>سفارش خودکار جدید</h3><p>از کدوم سفارش بسازیم؟</p></div>${X}</div>
-  <div style="display:flex;flex-direction:column;gap:8px">${S.history.map((h,k)=>`<button class="opt" data-rfrom="${k}"><span class="ths2">${h.lines.slice(0,2).map(l=>`<img src="${IMG[P[l.id].img]}" alt="">`).join('')}</span><span class="grow">${h.lines.map(l=>P[l.id].n).join('، ')}<span class="sub tn">${h.date} · ${T(h.total)}</span></span>${i('chev')}</button>`).join('')}</div>
-  <p class="hint" style="text-align:center">یا از منو سبدت رو بچین و موقع پرداخت «ساعت دلخواه» رو بزن.</p><button class="btn out" data-close data-then2="menu">رفتن به منو</button>`;}
+  <span class="lbl" style="font-size:13px;color:var(--mute)">از سفارش‌های قبلی</span><div style="display:flex;flex-direction:column;gap:8px">${S.history.map((h,k)=>`<button class="opt" data-rfrom="${k}"><span class="ths2">${h.lines.slice(0,2).map(l=>`<img src="${IMG[P[l.id].img]}" alt="">`).join('')}</span><span class="grow">${h.lines.map(l=>P[l.id].n).join('، ')}<span class="sub tn">${h.date} · ${T(h.total)}</span></span>${i('chev')}</button>`).join('')}</div>
+  <button class="btn" data-rbstart>${i('add')}انتخاب آیتم‌ها از منو</button>`;}
  if(sh==='rtime'){const r=S._rt;b=`<div class="shh"><div><h3>ساعت و روزها</h3><p>سفارش خودکار</p></div>${X}</div>
   <label class="trow"><span>ساعت آماده بودن</span><input type="time" id="rtimeIn" value="${r.time}" step="900" aria-label="ساعت"></label>
   <div class="days">${DAYS.map((d,k)=>`<button class="${r.days.includes(k)?'on':''}" data-rtday="${k}" aria-label="${DAYN[k]}">${d}</button>`).join('')}</div>
@@ -1599,13 +1611,13 @@ function histToOrder(h){const ls=h.lines.map(l=>({...l,t:unit(l.id,l.add)*l.q}))
 
 /* ---------- side notes ---------- */
 const NOTES={
- routines:['جدید: سفارشی که هر روز سر یه ساعت خودکار ثبت و از کیف پول پرداخت می‌شه','روشن/خاموش، رد کردن فقط فردا، تغییر ساعت و روزها، حذف با امکان بازگردانی','ساخت از سفارش قبلی یا از صفحه‌ی پرداخت'],
+ routines:['ساختن از منو: آیتم‌ها به سفارش خودکار اضافه می‌شن، نه سبد خرید (نوار آبی بالا و پایین صفحه)','«ویرایش اقلام» برای سفارش‌های خودکار موجود','جدید: سفارشی که هر روز سر یه ساعت خودکار ثبت و از کیف پول پرداخت می‌شه','روشن/خاموش، رد کردن فقط فردا، تغییر ساعت و روزها، حذف با امکان بازگردانی','ساخت از سفارش قبلی یا از صفحه‌ی پرداخت'],
  rtime:['انتخاب ساعت با چرخ ساعت خود گوشی و روزهای هفته'],
  login:['عکس کافه حذف شد؛ وکتور ساده‌ی لیوان با رنگ‌های اپ'],
  otp:['متن‌ها خودمونی‌تر شد؛ ورود خودکار و حالت کد اشتباه حفظ شد'],
  home:['پک‌ها: بدون علاقه‌مندی، با شمارش معکوس تا پایان پیشنهاد','«الان چی می‌چسبه» بدون شمارنده','کارت سفارش تحویل‌شده بدون «ثبت نظر»','خط «سفارش خودکار فردا» با دکمه‌ی رد کردن','نوار پیشرفت تا جایزه‌ی بعدی','بنرهای نهایی و منوی شناور پایین‌تر'],
  branch:['آدرس شعبه حذف شد'],
- menu:['دکمه‌ی افزودن: مربع گرد ملایم با متن «افزودن» به جای دایره','دکمه‌ی + سفید با خط دور مشکی، کم‌تر توی چشم','برچسب «مخصوص اپ» روی پک‌ها','دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
+ menu:['منوی ترکیبی: قهوه‌ها، دمنوش و آب‌میوه لیستی؛ شیک، اسموتی، موکتیل، بستنی، دسر و پک کارتی','دکمه‌ی کنار جست‌وجو: نمایش فشرده‌ی همه‌چیز لیستی','دکمه‌ی افزودن: مربع گرد ملایم با متن «افزودن» به جای دایره','دکمه‌ی + سفید با خط دور مشکی، کم‌تر توی چشم','برچسب «مخصوص اپ» روی پک‌ها','دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
  addons:['+ همیشه مستقیم اضافه می‌کنه؛ افزودنی از داخل سبد زیر همون آیتم انتخاب می‌شه'],
  cart:['ردیف شعبه از بالای سبد حذف شد','امتیاز این خرید طلایی شد'],
  checkout:['ردیف شعبه حذف شد','زمان آماده بودن: ۴ کارت مرتب (۱۰، ۲۰، ۳۰ دقیقه، ساعت دلخواه)','ساعت دلخواه + «هر روز تکرار شه» = سفارش خودکار'],
@@ -1648,6 +1660,7 @@ function back(){S.scr=S.stack.pop()||'home';S.sheet=null;render()}
 function tab(k){S.stack=[];if(k==='profile'&&!S.auth){S.returnTo='profile';S.scr='login';return render()}if(k==='menu'){S.showCats=true;S.q=''}S.scr=k;S.sheet=null;render();window.scrollTo(0,0)}
 let tt;function toast(m,act){S.toast=m;S.toastAct=act||null;render(true);clearTimeout(tt);tt=setTimeout(()=>{S.toast=null;S.toastAct=null;S._undo=null;render(true)},act?3500:2200)}
 function add(id){if(!avail(id))return toast(`«${P[id].n}» امروز در این شعبه موجود نیست`);
+ if(S.rb){const l=S.rb.lines.find(x=>x.id===id);if(l)l.q++;else S.rb.lines.push({id,q:1,add:[]});buzz();return render(true)}
  const ls=lines().filter(l=>l.id===id);if(ls.length){S.cart[ls[ls.length-1].k]++;S._bump=1;buzz()}else addLine(id,[]);render(true)}
 function sampleCart(){if(!cartCount()){addLine('m1',[]);addLine('m5',[0]);addLine('m7',[])}}
 function needLogin(ret){S.returnTo=ret;S.stack=[];S.scr='login';render()}
@@ -1701,10 +1714,14 @@ ph.addEventListener('click',e=>{
  if(d.rtog!=null){const r=S.routines[+d.rtog];r.on=!r.on;return toast(r.on?'سفارش خودکار فعال شد':'سفارش خودکار متوقف شد')}
  if(d.rskip!=null){const r=S.routines[+d.rskip];r.skip=!r.skip;return toast(r.skip?'فردا این سفارش ثبت نمی‌شه':'فردا طبق معمول ثبت می‌شه')}
  if(d.rdel!=null){const r=S.routines.splice(+d.rdel,1)[0];S._rdel=r;return toast('سفارش خودکار حذف شد','بازگردانی')}
+ if('rbstart' in d){S.rb={lines:[],k:null};S.sheet=null;S.cat='bitter';S.q='';S.showCats=true;S.stack=['routines'];S.scr='menu';return render()}
+ if(d.rbedit!=null){const r=S.routines[+d.rbedit];S.rb={lines:JSON.parse(JSON.stringify(r.lines)),k:+d.rbedit};S.q='';S.showCats=true;S.stack=['routines'];S.scr='menu';return render()}
+ if('rbcancel' in d){S.rb=null;S.scr='routines';S.stack=['profile'];return render()}
+ if('rbnext' in d){const rb=S.rb;if(!rb||!rb.lines.length)return;if(rb.k!=null){S.routines[rb.k].lines=rb.lines;S.rb=null;S.scr='routines';S.stack=['profile'];return toast('اقلام سفارش خودکار به‌روز شد')}S._rk=-1;S._rt={time:'08:00',days:[0,1,2,3,4],lines:rb.lines,method:'store',branch:S.branch,on:true,skip:false};S.sheet='rtime';return render(true)}
  if(d.redit!=null){S._rk=+d.redit;S._rt=JSON.parse(JSON.stringify(S.routines[S._rk]));S.sheet='rtime';return render(true)}
  if(d.rfrom!=null){const h=S.history[+d.rfrom];S.routines.unshift({time:'08:00',days:[0,1,2,3,4,5,6],lines:h.lines.map(l=>({id:l.id,q:l.q,add:l.add||[]})),method:'store',branch:h.branch,on:true,skip:false});S._rk=0;S._rt=JSON.parse(JSON.stringify(S.routines[0]));S.sheet='rtime';return render(true)}
  if(d.rtday!=null){const k=+d.rtday,a=S._rt.days;if(a.includes(k)){if(a.length>1)a.splice(a.indexOf(k),1)}else a.push(k);return render(true)}
- if('rtsave' in d){const v=document.getElementById('rtimeIn').value;if(v)S._rt.time=v;S._rt.days.sort();S.routines[S._rk]=S._rt;S.sheet=null;return toast('سفارش خودکار ذخیره شد')}
+ if('rtsave' in d){const v=document.getElementById('rtimeIn').value;if(v)S._rt.time=v;S._rt.days.sort();if(S._rk===-1){S.routines.unshift(S._rt);S.rb=null;S.scr='routines';S.stack=['profile']}else S.routines[S._rk]=S._rt;S.sheet=null;return toast('سفارش خودکار ذخیره شد')}
  if(d.then2){S.sheet=null;tab(d.then2);return}
  if(d.time){S.time=+d.time;if(S.time===3&&!S.ctime)S.ctime='08:00';if(S.time!==3)S.rep=false;return render(true)}
  if('rep' in d){S.rep=!S.rep;if(S.rep)S.pay='wallet';return render(true)}
@@ -1745,7 +1762,7 @@ ph.addEventListener('click',e=>{
  if(d.faq){S.faq=S.faq===+d.faq?-1:+d.faq;return render(true)}
  if(d.br){S.branch=d.br;return render(true)}
  if('brok' in d){const prev=S.stack[S.stack.length-1];if(prev==='checkout'||prev==='cart')return back();S.stack=['home'];S.scr='menu';S.showCats=true;return render()}
- if('mview' in d){S.mview=S.mview==='list'?'card':'list';return render(true)}
+ if('mview' in d){S.mview=S.mview==='list'?'auto':'list';toast(S.mview==='list'?'نمایش فشرده: همه‌ی گروه‌ها لیستی':'نمایش ترکیبی: گروه‌های عکس‌دار کارتی');return render(true)}
  if(d.mgo!=null){const j=+d.mgo;if(j===0)return tab('menu');if(j===1){S.cat='smoothie';S.q='';S.showCats=false;S.stack=['home'];S.scr='menu';return render()}if(j===2)return go('routines');if(j===3)return go('editprofile');if(j===4){const el=ph.querySelector('.cl-inv');el&&el.scrollIntoView({behavior:'smooth',block:'center'});return}}
  if(d.ptab){S.ptab=d.ptab;return render(true)}
  if(d.rwd){S._rw=d.rwd;S.sheet='rwd';return render(true)}
