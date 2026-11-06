@@ -993,6 +993,45 @@ button{cursor:pointer;background:none;border:0;padding:0;text-align:inherit}
 .rbbar[disabled]{opacity:.6}
 .rbbar .tot .ic{width:22px;height:22px;color:#fff}
 
+/* v16 */
+.pill{padding:4px!important}
+.pill .tab{margin:0!important}
+.again3{display:flex;align-items:center;gap:10px;background:var(--soft);border-radius:16px;padding:10px 10px 10px 14px}
+.again3 .m{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.again3 b{font-size:14px;font-weight:600}.again3 .m span{font-size:12px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.again3 button{background:var(--ink);color:#fff;border-radius:12px;height:36px;padding:0 14px;font-size:13px;font-weight:600}
+.hsub{font-size:12.5px;color:var(--mute);margin:-4px 0 -6px}
+.mini{position:relative}
+.mini .freq{position:absolute;top:8px;right:8px;z-index:2;background:var(--paper);border-radius:8px;padding:2px 7px;font-size:11px;font-weight:600;color:var(--ink2)}
+.mini .desc{display:none}
+.addp{position:absolute;bottom:10px;left:10px;z-index:2;height:34px;border-radius:12px;background:var(--paper);color:var(--ink);padding:0 10px 0 12px;display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.addp .ic{width:16px;height:16px}
+.addp::after{content:"";position:absolute;inset:-6px}
+.addp:active{transform:scale(.96)}
+.addw2{width:auto!important;height:34px;border-radius:12px;left:10px;right:auto;bottom:10px;padding:0 3px;gap:2px;background:var(--paper);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.addw2 .yp,.addw2 .ym{width:28px!important;height:28px!important;border-radius:9px!important;background:var(--soft)!important;color:var(--ink)!important}
+.addw2 .q{min-width:22px;font-weight:600}
+.stk{position:absolute;top:10px;left:10px;right:auto!important;z-index:2;display:inline-flex;align-items:center;gap:5px;background:var(--paper)!important;color:var(--ink)!important;font-size:11px;font-weight:600;padding:3px 9px!important;border-radius:8px!important;transform:none!important;box-shadow:0 1px 3px rgba(0,0,0,.08)!important;white-space:nowrap;pointer-events:none}
+.stk::before{display:none!important}
+.stk i{width:6px;height:6px;border-radius:50%;background:#ffb300;display:inline-block}
+.stk.sm{top:-5px!important;left:-6px!important;right:auto!important;font-size:9.5px;padding:2px 6px!important;gap:3px}
+.stk.sm i{width:5px;height:5px}
+.stk.rwst{top:10px;left:10px;transform:none!important}
+.stk.rwst i{background:#13a35a}
+.fr .plus{background:var(--soft)!important;color:var(--ink)!important;border-radius:12px!important}
+.cl-hero2{display:flex;align-items:center;gap:16px;background:var(--soft);border-radius:24px;padding:16px}
+.cl-hero2 .ring{position:relative;width:104px;height:104px;flex:none}
+.cl-hero2 .ring svg{width:100%;height:100%}
+.cl-hero2 .ring>span{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2}
+.cl-hero2 .ring b{font-size:24px;font-weight:600}.cl-hero2 .ring small{font-size:11px;color:var(--mute)}
+.cl-hero2 .inf{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.cl-hero2 .t{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.cl-hero2 .mx{font-size:11.5px;color:var(--mute)}
+.cl-hero2 .nx{font-size:14.5px;font-weight:600;line-height:1.6}
+.cl-hero2 .lvl{display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:var(--mute)}
+.cl-hero2 .lbar{height:4px;border-radius:4px;background:#e2e2e2;overflow:hidden}.cl-hero2 .lbar i{display:block;height:100%;background:var(--ink);border-radius:4px}
+.cl-hero2 .lvb{background:var(--paper)}
+
 /* ===== real-device mode ===== */
 html,body{background:#fff!important;height:100%;overscroll-behavior:none}
 body{padding:0!important;margin:0;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
@@ -1214,8 +1253,8 @@ const CATS=[['قهوه تلخ','c_7b07','bitter'],['قهوه با شیر','c_144
 const MOODS=[['مغزم خاموشه','m_coffee','#7a4810',['m6','m3','m7'],'left:6px;top:39px'],['یه چیز خنک','m_cool','#075a94',['m1','m2','m4'],'left:16px;top:39px'],['یه چیز شیرین','m_sweet','#b8222c',['m5','m10','m9','m4'],'left:12px;top:46px'],['یه طعم<br>متفاوت','m_dice','#b8560d',['m8','m2','m10'],'left:11px;top:34px;text-align:right']];
 const MBG=['#f8ebdc','#e3eef8','#fbe5e8','#fbeadb'];
 const ADDONS=[['یک شات اسپرسو',80000],['سیروپ فندق',45000],['سیروپ کارامل',45000],['سیروپ وانیل',45000],['سیروپ نارگیل',45000],['خامه',45000],['عسل',30000],['کم شیرین',0]];
-const BR={eel:{n:'شعبه ائل‌گلی',a:'تبریز، محدوده ائل‌گلی',full:'ائل‌گلی، خیابان پاسداران، کافه لئو',open:true,prep:'۱۵'},
-          vali:{n:'شعبه ولیعصر',a:'تبریز، محدوده ولیعصر',full:'ولیعصر، خیابان کریم‌خان، نبش کوچه گلستان، کافه لئو',open:false,prep:'۲۰'}};
+const BR={eel:{n:'شعبه ائل‌گلی',a:'تبریز، محدوده ائل‌گلی',full:'ائل‌گلی، خیابان پاسداران، کافه لیو',open:true,prep:'۱۵'},
+          vali:{n:'شعبه ولیعصر',a:'تبریز، محدوده ولیعصر',full:'ولیعصر، خیابان کریم‌خان، نبش کوچه گلستان، کافه لیو',open:false,prep:'۲۰'}};
 const COLORS=[['سفید','#ffffff'],['مشکی','#1b1b1b'],['نقره‌ای','#c9ccd1'],['خاکستری','#7d7f84'],['قرمز','#c0392b'],['آبی','#2d5fa8']];
 const LV=[['تازه‌وارد',0,'#9a9a9a',['۱ امتیاز به ازای هر ۱٬۰۰۰ تومان','هدیه‌ی خوش‌آمد بعد از اولین سفارش']],['همیشگی',1500,'#e26a00',['امتیاز ×۱٫۲ برای هر خرید','نوشیدنی تولد با ۵۰٪ تخفیف','دسترسی به جوایز همیشگی']],['وفادار',4000,'#ffb300',['امتیاز ×۱٫۵ برای هر خرید','نوشیدنی تولد رایگان','جوایز ویژه‌ی وفادارها']],['طلایی',8000,'#1b1b1b',['امتیاز ×۲ برای هر خرید','هر ماه یه نوشیدنی رایگان','اولویت در صف آماده‌سازی']]];
 const lvOf=x=>{let k=0;LV.forEach((l,j)=>{if(x>=l[1])k=j});return k};
@@ -1229,7 +1268,7 @@ const S={busy:false,scr:'login',stack:[],auth:false,returnTo:null,phone:'',otp:'
  code:'',codeOn:null,codeOpen:false,codeErr:'',time:0,pay:'wallet',method:'store',
  cars:[],carDef:0,carForm:null,
  order:null,history:[{id:23288,date:'دیروز، ۱۸:۲۰',branch:'eel',lines:[{id:'m1',q:1,add:[]},{id:'m5',q:1,add:[0]}],total:498000},{id:23140,date:'۳ آبان، ۱۰:۰۵',branch:'eel',lines:[{id:'m6',q:2,add:[]},{id:'m9',q:1,add:[]}],total:750000}],
- fund:500000,fundCustom:'',codesTab:0,faq:0,mview:'auto',rb:null,xp:3540,ptab:'rw',ck:{streak:3,done:false,box:false},myRw:[],inv:{code:'YOUSEF24',joined:2,pending:1},
+ fund:500000,fundCustom:'',codesTab:0,faq:0,mview:'list',rb:null,xp:3540,ptab:'rw',ck:{streak:3,done:false,box:false},myRw:[],inv:{code:'YOUSEF24',joined:2,pending:1},
  ms:[['این هفته ۳ بار سفارش بده',2,3,60,0],['یه اسموتی امتحان کن',0,1,25,0],['یه سفارش خودکار بساز',0,1,40,0],['تاریخ تولدت رو ثبت کن',0,1,30,0],['یه دوست دعوت کن',1,1,50,0]],
  phist:[['خرید از کافه','دیروز',498],['حضور روزانه','دیروز',5],['جایزه: چای و نبات','۲ آبان',-250],['دعوت از دوست','۱ آبان',100],['خرید از کافه','۲۸ مهر',750]],ctime:'',rep:false,rdays:[0,1,2,3,4,5,6],
  routines:[{time:'08:00',days:[0,1,2,3,4],lines:[{id:'m6',q:1,add:[]}],method:'store',branch:'eel',on:true,skip:false}],sheet:null,sd:null,toast:null,toastAct:null,
@@ -1266,11 +1305,11 @@ const avail=id=>P[id].na!==S.branch;
 function addCtl(id,big){
  if(!avail(id)) return '';
  const q=qtyOfId(id);
- if(!q) return `<span class="addw"><button class="yp" data-add="${id}" aria-label="افزودن: ${P[id].n}">${i('plusW')}</button></span>`;
- return `<span class="addw" style="width:${big?100:86}px"><button class="ym" data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button><span class="q tn">${fd(q)}</span><button class="yp" data-add="${id}" aria-label="یکی بیشتر">${i('plusW')}</button></span>`;
+ if(!q) return `<button class="addp" data-add="${id}" aria-label="افزودن: ${P[id].n}">افزودن${i('add')}</button>`;
+ return `<span class="addw addw2"><button class="ym" data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button><span class="q tn">${fd(q)}</span><button class="yp" data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button></span>`;
 }
 const favBtn=id=>`<button class="fav${S.favs[id]?' on':''}" data-fav="${id}" aria-label="${S.favs[id]?'برداشتن از':'افزودن به'} علاقه‌مندی‌ها" aria-pressed="${!!S.favs[id]}">${i('heart')}</button>`;
-const stk=id=>P[id].g==='pack'?'<span class="stk">مخصوص اپ</span>':'';
+const stk=id=>P[id].g==='pack'?'<span class="stk"><i></i>مخصوص اپ</span>':'';
 const pimg=(id,big)=>`<div class="pimg${avail(id)?'':' na'}"><img src="${IMG[P[id].img]}" alt="">${stk(id)}${avail(id)?'':'<span class="na-tag">ناموجود</span>'}${P[id].g==='pack'?'':favBtn(id)}${addCtl(id,big)}</div>`;
 function tabbar(on){
  const t=(k,l,ic,icOn)=>`<button class="tab${on===k?' on':''}" data-tab="${k}">${on===k?i(icOn):i(ic)}${l}</button>`;
@@ -1330,7 +1369,7 @@ function orderCard(full){const o=S.order;if(!o||o.step>=3)return '';
 const hello=()=>{const h=new Date().getHours();return h<12?'صبح بخیر':h<17?'ظهر بخیر':'عصر بخیر'};
 V.home=()=>`${sbar()}<div class="scr">
  <div class="hh">${S.auth?`<button class="pts" data-go="points"><span>${i('star')}</span><span><b class="tn">${fd(S.points)}</b>امتیاز</span></button>`:`<button class="pts" data-gologin style="font-size:14px;font-weight:600">ورود / عضویت</button>`}
-  <div class="brand"><span class="logo">درینگ</span><button class="brline" data-go="branch">${BR[S.branch].n}${i('chev')}</button></div></div>
+  <div class="brand"><span class="logo">درینگ</span><button class="brline" data-go="branch">کافه لیو · ${BR[S.branch].n}${i('chev')}</button></div></div>
  <div class="home-c">
   ${S.auth?`<div class="wstrip"><button class="wl" data-go="wallet"><span class="wbox">${i('walletBold')}</span><span class="wtxt"><span>موجودی کیف پول</span><em><b class="tn">${money(S.wallet)}</b>تومان</em></span></button><button class="charge" data-go="addfund">شارژ${i('add')}</button></div>`
    :`<div class="wstrip"><span class="wl"><span class="wbox">${i('walletBold')}</span><span class="wtxt" style="font-size:13px;color:var(--ink2)">عضو شو، از هر خرید<br>امتیاز بگیر</span></span><button class="charge" data-gologin>ورود</button></div>`}
@@ -1339,14 +1378,18 @@ V.home=()=>`${sbar()}<div class="scr">
   <div class="slider" id="sl">${[`<button class="banner bimg" data-catgo="shake"><img src="${IMG.bn1}" alt="پروتئینه‌ها، بعد تمرین خوشمزه‌ترن. کد تخفیف Liu10"></button>`,`<button class="banner bimg" data-catgo="iced"><img src="${IMG.bn2}" alt="خنک بنوش بیشتر کیف کن! قهوه‌های سرد با تخفیف ویژه. کد تخفیف Liu20"></button>`].join('')}</div>
   <div class="dots" aria-hidden="true"><i class="on"></i><i></i></div>
   <div class="cats">${CATS.map(([n,k,c])=>`<button class="cat" data-catgo="${c}"><span class="cb"><img src="${IMG[k]}" alt=""></span>${n}</button>`).join('')}</div>
-  <div class="sec"><h2>همون همیشگی<button data-tab="menu">همه</button></h2>
-   ${S.auth&&S.history[0]&&!(S.order&&S.order.step<3)?`<div class="again2"><span>سفارش قبلی: ${S.history[0].lines.map(l=>P[l.id].n).join('، ')}</span><button data-reorder="0">تکرار</button></div>`:''}
-   <div class="hs" style="gap:10px">${['m5','m1','m3','m2','m6','m4'].map(mini).join('')}</div></div>
+  ${(()=>{const h=S.auth&&S.history[0];if(!h)return `<div class="sec"><h2>پرفروش‌های درینگ<button data-tab="menu">همه</button></h2><div class="hs" style="gap:10px">${['m6','m5','m3','m1','m2','m4'].map(id=>mini(id)).join('')}</div></div>`;
+   const last=new Set(h.lines.map(l=>l.id));const top=Object.entries(FREQ).filter(([id])=>!last.has(id)).sort((a,b)=>b[1]-a[1]);
+   return `<div class="sec"><h2>همون همیشگی<button data-tab="menu">همه</button></h2>
+   ${!(S.order&&S.order.step<3)?`<div class="again3"><span class="m"><b>سفارش قبلی رو تکرار کن</b><span class="tn">${h.lines.map(l=>(l.q>1?fd(l.q)+'× ':'')+P[l.id].n).join('، ')} · ${T(h.total)}</span></span><button data-reorder="0">تکرار</button></div>`:''}
+   <span class="hsub">پرسفارش‌های تو</span>
+   <div class="hs" style="gap:10px">${top.map(([id,n])=>mini(id,n)).join('')}</div></div>`})()}
   <div class="sec mood2"><h2>الان چی می‌چسبه؟<span class="sub">حالت رو بگو، پیشنهاد با ما</span></h2>
    <div class="mgrid2">${MOODS.map(([t,k,c,ids],n)=>`<button class="mt2" data-mood="${n}" style="--mbg:${MBG[n]};--mink:${c}"><img src="${IMG[k]}" alt=""><span class="mtx"><b>${t.replace('<br>',' ')}</b></span></button>`).join('')}</div></div>
   <div class="sec"><h2>پک های این هفته</h2><div class="hs" style="gap:16px">${['m9','m10'].map(packCard).join('')}</div></div>
  </div></div>${tabbar('home')}`;
-function mini(id){const p=P[id];return `<div class="mini">${pimg(id).replace('class="pimg','class="pimg sm')}<span class="nm">${p.n}</span><span class="desc">${p.d}</span><span class="pr tn">${T(p.p)}</span></div>`}
+const FREQ={m6:12,m5:9,m3:7,m1:6,m2:4,m4:3,m7:2};
+function mini(id,n){const p=P[id];return `<div class="mini">${pimg(id).replace('class="pimg','class="pimg sm')}${n?`<span class="freq tn">${fd(n)} بار</span>`:''}<span class="nm">${p.n}</span><span class="pr tn">${T(p.p)}</span></div>`}
 function vrow(id){const p=P[id],q=qtyOfId(id);return `<div class="vrow"><span class="th"><img src="${IMG[p.img]}" alt=""></span><span class="m"><b>${p.n}</b><span class="desc">${p.d}</span><span class="pr tn">${T(p.p)}</span></span>${q?`<span class="qty"><button class="${q===1?'del':''}" data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button><span class="tn">${fd(q)}</span><button data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button></span>`:`<button class="pl" data-add="${id}" aria-label="افزودن ${p.n}">${i('plusW')}</button>`}</div>`}
 function pcard(id){const p=P[id];return `<div class="pc">${pimg(id)}<span class="nm">${p.n}</span><span class="pr tn">${T(p.p)}</span></div>`}
 const PEND={m9:Date.now()+(2*86400+5*3600+32*60)*1000,m10:Date.now()+(17*3600+48*60)*1000};
@@ -1357,19 +1400,19 @@ function dcard(id){const p=P[id];return `<div class="pc dpc">${pimg(id)}<span cl
 
 V.menu=()=>{const q=norm(S.q);const all=S.showCats&&!q;
  const list=Object.keys(P).filter(id=>q?norm(P[id].n+' '+P[id].tags).includes(q):(all||P[id].g===S.cat));
- return `${sbar()}<div class="scr">${S.rb?`<div class="rbtop">${i('clock')}<span><b>${S.rb.k!=null?'ویرایش سفارش خودکار':'ساختن سفارش خودکار'}</b>آیتم‌ها به سفارش خودکار اضافه می‌شن، نه سبد خرید</span><button data-rbcancel>انصراف</button></div>`:''}<div class="mtop${all?'':' sc'}"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label><button class="hbtn vt" data-mview aria-label="${S.mview==='list'?'نمایش ترکیبی با عکس':'نمایش فشرده‌ی لیستی'}">${S.mview==='list'?IGRID:ILIST}</button>${backBtn.replace('data-back','data-tab="home"')}</div>
+ return `${sbar()}<div class="scr">${S.rb?`<div class="rbtop">${i('clock')}<span><b>${S.rb.k!=null?'ویرایش سفارش خودکار':'ساختن سفارش خودکار'}</b>آیتم‌ها به سفارش خودکار اضافه می‌شن، نه سبد خرید</span><button data-rbcancel>انصراف</button></div>`:''}<div class="mtop${all?'':' sc'}"><div class="mhdr"><label class="sfield">${i('search')}<input id="q" placeholder="دنبال چی میگردی" value="${S.q}" aria-label="جست‌وجو در منو">${S.q?`<button data-clearq aria-label="پاک کردن" style="color:var(--mute)">${i('x')}</button>`:''}</label><button class="hbtn vt" data-mview aria-label="${S.mview==='list'?'نمایش کارتی':'نمایش لیستی'}">${S.mview==='list'?IGRID:ILIST}</button>${backBtn.replace('data-back','data-tab="home"')}</div>
  ${q?'':`<div class="chips${all?' cx':''}"><button class="chip${all?' on':''}" data-cat="all">همه</button>${GORD.map(k=>`<button class="chip${!all&&S.cat===k?' on':''}" data-cat="${k}">${GN[k]}</button>`).join('')}</div>`}</div>
  ${all?`<div class="cgrid cats">${CATS.map(([n,k,c])=>`<button class="cat" data-cat="${c}"><span class="cb"><img src="${IMG[k]}" alt=""></span>${n}</button>`).join('')}</div>
 `:''}
  ${q?`<div class="px" style="padding-top:12px;font-size:13px;color:var(--mute)">${fd(list.length)} نتیجه برای «${S.q}»</div>`:''}
  ${!q&&all?GORD.map(g=>{const L2=list.filter(id=>P[id].g===g);return L2.length?`<h3 class="gsec" id="g_${g}">${GN[g]}<span class="tn">${fd(L2.length)}</span></h3>${gm(g)==='list'?`<div class="lst">${L2.map(lrow).join('')}</div>`:`<div class="grid2 gs">${L2.map(gcard).join('')}</div>`}`:''}).join('')+'<div style="height:calc(var(--tbh) + var(--sab) + 80px)"></div>':`<div class="${(q||gm(S.cat)==='list')&&list.length?'lst lst1':'grid2'}">${list.length?list.map(q||gm(S.cat)==='list'?lrow:gcard).join(''):`<div class="empty" style="grid-column:1/-1"><span class="eb">${i('search')}</span><b>نتیجه‌ای پیدا نشد</b><p>یه اسم دیگه امتحان کن، مثلاً «قهوه» یا «شیک».</p></div>`}</div>`}</div>${cartbar()}${tabbar('menu')}`};
 const GMODE={bitter:'list',milk:'list',choc:'list',tea:'list',iced:'list',juice:'list',shake:'card',smoothie:'card',mocktail:'card',icecream:'card',dessert:'card',pack:'card'};
-const gm=g=>S.mview==='list'?'list':(GMODE[g]||'list');
+const gm=g=>S.mview==='card'?'card':'list';
 const IGRID='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>';
 const ILIST='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="4.5" width="5" height="5" rx="1.5"/><rect x="3.5" y="14.5" width="5" height="5" rx="1.5"/><path d="M12 7h8.5M12 17h8.5"/></svg>';
 function lctl(id){if(!avail(id))return '<span class="lna">ناموجود</span>';const q=qtyOfId(id);
  return q?`<span class="lst-q"><button data-add="${id}" aria-label="یکی بیشتر">${i('add')}</button><span class="tn">${fd(q)}</span><button data-dec="${id}" aria-label="یکی کمتر">${q===1?i('trash'):i('minus')}</button></span>`:`<button class="lst-add" data-add="${id}" aria-label="افزودن ${P[id].n}">${i('add')}افزودن</button>`}
-function lrow(id){const p=P[id];return `<div class="lrow${avail(id)?'':' na'}"><span class="th"><img src="${IMG[p.img]}" alt="" loading="lazy">${p.g==='pack'?'<span class="stk sm">مخصوص اپ</span>':''}</span><span class="m"><b>${p.n}</b>${cd(id)}<span class="pr tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></span>${lctl(id)}</div>`}
+function lrow(id){const p=P[id];return `<div class="lrow${avail(id)?'':' na'}"><span class="th"><img src="${IMG[p.img]}" alt="" loading="lazy">${p.g==='pack'?'<span class="stk sm"><i></i>مخصوص اپ</span>':''}</span><span class="m"><b>${p.n}</b>${cd(id)}<span class="pr tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old">${money(p.old)}</span>`:''}</span></span>${lctl(id)}</div>`}
 function gcard(id){const p=P[id];return `<div class="gc">${pimg(id)}<span class="nm">${p.n}</span>${cd(id)}<span class="pp tn"><b>${money(p.p)}</b><small>تومان</small>${p.old?`<span class="old" style="font-size:12px">${money(p.old)}</span>`:''}</span></div>`}
 
 V.cart=()=>{const L=lines();
@@ -1433,14 +1476,15 @@ V.status=()=>{const o=S.order;const car=S.cars[o.car];const ts=o.ts||[0,0,0,0];
  const cur=o.step+1;
  const sub=o.step===0?(o.time===3?'آماده در ساعت '+ft(o.ct||'08:00'):'حدود '+fd(o.eta)+' دقیقه دیگه آماده‌ست'):o.step===1?(o.method==='car'?'وقتی رسیدی، دکمه‌ی پایین رو بزن':'شماره سفارشت رو به صندوق بگو'):fd(o.earn)+' امتیاز به باشگاهت اضافه شد';
  return `${sbar()}<div class="scr">${hdr('پیگیری سفارش',{left:wchip()})}
- <div class="px" style="padding-top:8px;display:flex;flex-direction:column;gap:18px;padding-bottom:250px">
+ <div class="px" style="padding-top:8px;display:flex;flex-direction:column;gap:18px;padding-bottom:140px">
   <div class="trk"><div class="ringw">${trkRing(o.step)}</div><span class="k tn">سفارش #${fd(o.id)} · ${o.method==='car'?'کنار خودرو':'حضوری'} · ${BR[o.branch].n}</span><h2>${['در حال آماده‌سازی','آماده‌ی تحویله','نوش جان!'][o.step]}</h2><p class="tn">${sub}</p></div>
   ${o.step<2&&o.arrived?`<div class="arrok">${i('checkG')}<span>${arrDone(o,car)}</span></div>`:''}
   ${o.step<2&&!o.arrived&&o.method==='car'&&car?`<div class="arrcar">${i('car32')}<span class="m"><b>${car.m} ${car.c}</b><span class="tn">${car.p[0]} ${car.p[1]} ${car.p[2]} · ایران ${car.p[3]}</span></span></div>`:''}
   <div class="tl">${TL.map(([t,s2],k)=>{const done=k<cur||(k===cur&&o.step===2),now=k===cur&&o.step<2;return `<div class="ti${done?' done':''}${now?' now':''}"><span class="dot">${done?CHECK:''}</span><span class="m"><b>${t}</b><span>${now?s2:done&&ts[k]?'ساعت '+hm(new Date(ts[k])):k===0?s2:''}</span></span></div>`}).join('')}</div>
   ${o.step<2?`<button class="link" data-advance style="font-size:12.5px;color:var(--mute);align-self:center">نسخه نمایشی: مرحله بعد ←</button>`:''}
-  <details class="rdet"><summary>جزئیات سفارش و رسید${i('chev')}</summary>${rcptHTML(o)}</details></div>
- <div class="dock">${o.step===2?`<button class="btn" data-reorderNow>سفارش دوباره</button><button class="link" data-tab="home">بازگشت به صفحه‌ی اول</button>`:o.arrived?`<button class="btn out" data-sheet="support">تماس با شعبه</button>`:`<button class="btn" data-arrive>${arrTxt(o)}</button><button class="link" data-sheet="support">تماس با شعبه</button>`}</div></div>`};
+  <details class="rdet"><summary>جزئیات سفارش و رسید${i('chev')}</summary>${rcptHTML(o)}</details>
+  ${o.step===2?`<button class="link" data-tab="home" style="align-self:center">بازگشت به صفحه‌ی اول</button>`:!o.arrived?`<button class="link" data-sheet="support" style="align-self:center">تماس با شعبه</button>`:''}</div></div>
+ <div class="dock">${o.step===2?`<button class="btn" data-reorderNow>سفارش دوباره</button>`:o.arrived?`<button class="btn out" data-sheet="support">تماس با شعبه</button>`:`<button class="btn" data-arrive>${arrTxt(o)}</button>`}</div>`};
 V.payfail=()=>`${sbar()}<div class="scr">${hdr('',{logo:true})}
  <div class="okc" style="padding-top:40px"><span class="ring bad"><span style="transform:scale(2.4)">${ALERT}</span></span><div><h2>پرداخت انجام نشد</h2><p>سبد خریدت حفظ شده. اگه پولی کم شده<br>تا ۷۲ ساعت برمی‌گرده.</p></div></div>
  <div class="px" style="margin-top:28px"><div class="gw tn"><div class="row"><span>مبلغ سفارش</span><b>${T(payable())}</b></div><div class="row"><span>موجودی کیف پول</span><b>${T(S.wallet)}</b></div></div></div>
@@ -1524,7 +1568,7 @@ V.support=()=>`${sbar()}<div class="scr">${hdr('پشتیبانی')}<div class="p
 
 V.about=()=>`${sbar()}<div class="scr">${hdr('درباره درینگ')}<div class="px" style="display:flex;flex-direction:column;gap:18px;padding-top:12px;padding-bottom:60px">
  <div style="display:grid;place-items:center;height:200px"><svg viewBox="0 0 360 300" class="hero-art" style="width:220px;height:184px" role="img" aria-label="لیوان نوشیدنی"><circle cx="180" cy="160" r="122" fill="#f5f5f5"/><circle cx="292" cy="66" r="20" fill="#f5f5f5"/><circle cx="62" cy="248" r="14" fill="#f5f5f5"/><path d="M150 70c-8 12 8 18 0 30M180 60c-9 14 9 20 0 34M210 70c-8 12 8 18 0 30" stroke="#d6d6d6" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M118 118h124l-14 140a14 14 0 0 1-14 12h-68a14 14 0 0 1-14-12z" fill="#fff" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round"/><rect x="108" y="104" width="144" height="20" rx="10" fill="#1a1a1a"/><rect x="128" y="94" width="104" height="14" rx="7" fill="#1a1a1a"/><path d="M124 168h112l-6 56h-100z" fill="#ffb300"/><circle cx="180" cy="196" r="17" fill="#fff"/><path d="M172 197c4-9 12-9 16 0" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="268" cy="214" r="8" fill="#ffb300"/><circle cx="96" cy="92" r="6" fill="#e26a00" opacity=".7"/></svg></div>
- <p style="margin:0;font-size:15px;line-height:27px">اسم درینگ از «درینک» یعنی نوشیدن و «دینگ» یعنی صدای زنگ اومده: سفارشت رو بده، آماده که شد خبرت می‌کنیم؛ چه بیای تو، چه تو ماشین بمونی.</p><p style="margin:0;font-size:14px;line-height:26px;color:var(--ink2)">الان سفارش‌ها از <b>کافه لئو</b> در تبریز آماده می‌شن.</p>
+ <p style="margin:0;font-size:15px;line-height:27px">اسم درینگ از «درینک» یعنی نوشیدن و «دینگ» یعنی صدای زنگ اومده: سفارشت رو بده، آماده که شد خبرت می‌کنیم؛ چه بیای تو، چه تو ماشین بمونی.</p><p style="margin:0;font-size:14px;line-height:26px;color:var(--ink2)">الان سفارش‌ها از <b>کافه لیو</b> در تبریز آماده می‌شن.</p>
  ${['eel','vali'].map(k=>`<div class="br" style="gap:10px"><span class="h"><b style="font-size:17px">${BR[k].n}</b><span class="op ${BR[k].open?'':'c'}"><i></i>${BR[k].open?'باز است':'بسته است'}</span></span><span class="ln">${i('location')}${BR[k].full}</span><span class="ln">${i('clock')}هر روز ۸:۰۰ تا ۲۳:۰۰</span></div>`).join('')}
  <span style="font-size:12px;color:var(--mute);text-align:center">نسخه ۱٫۰ · شرایط و ضوابط · حریم خصوصی</span></div></div>`;
 
@@ -1538,11 +1582,10 @@ function lvBadge(k,big){const l=LV[k];return `<span class="lvb${big?' big':''}" 
 V.points=()=>{const k=lvOf(S.xp),nx=LV[k+1],lp=nx?Math.min(100,(S.xp-LV[k][1])/(nx[1]-LV[k][1])*100):100,n=nextRw();
  const days=[5,10,15,20,25,30,35];const st=S.ck.streak;
  return `${sbar()}<div class="scr">${hdr('باشگاه درینگ',{left:`<button class="hbtn" data-sheet="howpts" aria-label="راهنما">${i('info')}</button>`})}<div class="px cl" style="padding-top:8px;padding-bottom:70px">
- <div class="cl-hero"><span class="deco"><svg width="170" height="170" viewBox="0 0 24 24" style="left:-40px;bottom:-50px;opacity:.12"><path fill="#ffb300" d="M15.49 7.03c.24.49.88.96 1.42 1.05l3.19.53c2.04.34 2.52 1.82 1.05 3.28l-2.48 2.48c-.42.42-.65 1.23-.52 1.81l.71 3.07c.56 2.43-.73 3.37-2.88 2.1l-2.99-1.77c-.54-.32-1.43-.32-1.98 0l-2.99 1.77c-2.14 1.27-3.44.32-2.88-2.1l.71-3.07c.13-.58-.1-1.39-.52-1.81L2.85 11.89C1.39 10.43 1.86 8.95 3.9 8.61l3.19-.53c.53-.09 1.17-.56 1.41-1.05l1.76-3.52c.96-1.91 2.52-1.91 3.47 0z"/></svg><svg width="70" height="70" viewBox="0 0 24 24" style="right:-14px;top:70px;opacity:.18;transform:rotate(18deg)"><path fill="#ffb300" d="M15.49 7.03c.24.49.88.96 1.42 1.05l3.19.53c2.04.34 2.52 1.82 1.05 3.28l-2.48 2.48c-.42.42-.65 1.23-.52 1.81l.71 3.07c.56 2.43-.73 3.37-2.88 2.1l-2.99-1.77c-.54-.32-1.43-.32-1.98 0l-2.99 1.77c-2.14 1.27-3.44.32-2.88-2.1l.71-3.07c.13-.58-.1-1.39-.52-1.81L2.85 11.89C1.39 10.43 1.86 8.95 3.9 8.61l3.19-.53c.53-.09 1.17-.56 1.41-1.05l1.76-3.52c.96-1.91 2.52-1.91 3.47 0z"/></svg><svg width="34" height="34" viewBox="0 0 24 24" style="left:40%;top:14px;opacity:.22;transform:rotate(-12deg)"><path fill="#e26a00" d="M15.49 7.03c.24.49.88.96 1.42 1.05l3.19.53c2.04.34 2.52 1.82 1.05 3.28l-2.48 2.48c-.42.42-.65 1.23-.52 1.81l.71 3.07c.56 2.43-.73 3.37-2.88 2.1l-2.99-1.77c-.54-.32-1.43-.32-1.98 0l-2.99 1.77c-2.14 1.27-3.44.32-2.88-2.1l.71-3.07c.13-.58-.1-1.39-.52-1.81L2.85 11.89C1.39 10.43 1.86 8.95 3.9 8.61l3.19-.53c.53-.09 1.17-.56 1.41-1.05l1.76-3.52c.96-1.91 2.52-1.91 3.47 0z"/></svg><svg width="120" height="120" viewBox="0 0 120 120" style="right:-30px;bottom:-34px;opacity:.10"><circle cx="60" cy="60" r="52" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-dasharray="4 7"/><circle cx="60" cy="60" r="34" fill="none" stroke="#1b1b1b" stroke-width="2"/></svg></span>
-  <div class="top">${lvBadge(k,1)}<span class="mx tn">${nx?'×'+['۱','۱٫۲','۱٫۵','۲'][k]+' امتیاز':'بالاترین سطح'}</span></div>
-  <div class="cbig"><b class="tn">${fd(S.points)}</b><span>امتیاز قابل خرج</span></div>
-  ${n?`<div class="nx"><span class="tn">${fd(n[3]-S.points)} امتیاز تا ${n[1]}</span><span class="bar"><i style="width:${S.points/n[3]*100}%"></i></span></div>`:''}
-  <div class="lvl"><span class="tn">${nx?`سطح بعدی: <b>${nx[0]}</b> · ${fd(nx[1]-S.xp)} امتیاز دیگه`:'تو در بالاترین سطحی'}</span><span class="lbar"><i style="width:${lp}%"></i></span></div>
+ <div class="cl-hero2">${(()=>{const pr=n?Math.min(1,S.points/n[3]):1,C=2*Math.PI*44;return `<div class="ring"><svg viewBox="0 0 104 104" aria-hidden="true"><circle cx="52" cy="52" r="44" fill="none" stroke="#e6e6e6" stroke-width="7"/><circle cx="52" cy="52" r="44" fill="none" stroke="#ffb300" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C*pr} ${C}" transform="rotate(-90 52 52)"/></svg><span><b class="tn">${fd(S.points)}</b><small>امتیاز</small></span></div>`})()}
+  <div class="inf"><div class="t">${lvBadge(k)}<span class="mx tn">${nx?'امتیاز ×'+['۱','۱٫۲','۱٫۵','۲'][k]:'بالاترین سطح'}</span></div>
+   ${n?`<b class="nx tn">${fd(n[3]-S.points)} امتیاز تا ${n[1]}</b>`:'<b class="nx">همه‌ی جوایز در دسترسه</b>'}
+   <div class="lvl"><span class="tn">${nx?`تا سطح ${nx[0]}: ${fd(nx[1]-S.xp)} امتیاز`:'بالاترین سطح'}</span><span class="lbar"><i style="width:${lp}%"></i></span></div></div>
  </div>
  <div class="cl-ck"><div class="h"><b>حضور روزانه</b><span class="tn">${fd(st)} روز پشت سر هم ${st>=3?'🔥':''}</span></div>
   <div class="days7">${days.map((v,j)=>{const done=j<st,today=j===st&&!S.ck.done;return `<span class="d${done?' done':''}${today?' today':''}${j===6?' gift':''}">${j===6?i('gift'):`<b class="tn">+${fd(v)}</b>`}<small>${['ش','ی','د','س','چ','پ','ج'][j]}</small></span>`}).join('')}</div>
@@ -1553,7 +1596,7 @@ V.points=()=>{const k=lvOf(S.xp),nx=LV[k+1],lp=nx?Math.min(100,(S.xp-LV[k][1])/(
   <div class="row"><span class="tn">${fd(S.inv.joined)} نفر عضو شدن · ${fd(S.inv.pending)} نفر منتظر اولین سفارش</span><button class="btn sm" data-share>${i('add')}دعوت</button></div></div>
  ${S.myRw.length?`<div class="cl-my"><b>جوایز فعال من</b>${S.myRw.map(r=>`<div class="it"><span class="th"><img src="${IMG[r[4]]}" alt=""></span><span class="m"><b>${r[1]}</b><span class="code tn">کد: ${r.code}</span></span><button data-usecode="${r.code}">استفاده</button></div>`).join('')}</div>`:''}
  <div class="cl-tabs">${[['rw','جوایز'],['ms','چالش‌ها'],['lv','سطح‌ها'],['hs','تاریخچه']].map(([t,l])=>`<button class="${S.ptab===t?'on':''}" data-ptab="${t}">${l}${t==='ms'&&S.ms.some(m=>m[1]>=m[2]&&!m[4])?'<i class="dot"></i>':''}</button>`).join('')}</div>
- ${S.ptab==='rw'?`<div class="cl-rw">${RW.map(r=>{const lock=r[5]>k,ok=!lock&&S.points>=r[3];return `<button class="rc${ok?' ok':''}${lock?' lock':''}" data-rwd="${r[0]}"><span class="im"><img src="${IMG[r[4]]}" alt=""></span><b>${r[1]}</b><span class="sub">${r[2]}</span>${ok?'<span class="stk rwst">قابل دریافت</span>':''}<span class="cost">${lock?`مخصوص ${LV[r[5]][0]}`:`${i('star')}<span class="tn">${fd(r[3])}</span>`}</span>${!lock&&!ok?`<span class="pb"><i style="width:${S.points/r[3]*100}%"></i></span>`:''}</button>`}).join('')}</div>`:''}
+ ${S.ptab==='rw'?`<div class="cl-rw">${RW.map(r=>{const lock=r[5]>k,ok=!lock&&S.points>=r[3];return `<button class="rc${ok?' ok':''}${lock?' lock':''}" data-rwd="${r[0]}"><span class="im"><img src="${IMG[r[4]]}" alt=""></span><b>${r[1]}</b><span class="sub">${r[2]}</span>${ok?'<span class="stk rwst"><i></i>قابل دریافت</span>':''}<span class="cost">${lock?`مخصوص ${LV[r[5]][0]}`:`${i('star')}<span class="tn">${fd(r[3])}</span>`}</span>${!lock&&!ok?`<span class="pb"><i style="width:${S.points/r[3]*100}%"></i></span>`:''}</button>`}).join('')}</div>`:''}
  ${S.ptab==='ms'?`<div class="cl-ms">${S.ms.map((m,j)=>{const done=m[1]>=m[2];return `<div class="mc${m[4]?' got':''}"${!done?` role="button" tabindex="0" data-mgo="${j}"`:''}><span class="m"><b>${m[0]}</b><span class="pb"><i style="width:${Math.min(1,m[1]/m[2])*100}%"></i></span><span class="tn">${fd(Math.min(m[1],m[2]))} از ${fd(m[2])}</span></span>${m[4]?`<span class="got">${CHECK}گرفتی</span>`:done?`<button class="btn sm" data-claim="${j}">+${fd(m[3])}</button>`:`<span class="rw tn">+${fd(m[3])}${i('chev')}</span>`}</div>`}).join('')}<p class="hint" style="text-align:center">چالش‌های تازه هر شنبه</p></div>`:''}
  ${S.ptab==='lv'?`<div class="cl-lv">${LV.map((l,j)=>`<div class="lc${j===k?' cur':''}${j<k?' past':''}"><div class="h">${lvBadge(j)}<span class="tn">${j?'از '+fd(l[1])+' امتیاز':'شروع'}</span>${j===k?'<span class="lvme">سطح تو</span>':''}</div><ul>${l[3].map(p=>`<li>${CHECK}${p}</li>`).join('')}</ul></div>`).join('')}<p class="hint">سطح بر اساس امتیازهای جمع‌شده در ۱۲ ماه اخیره و با خرج کردن امتیاز کم نمی‌شه.</p></div>`:''}
  ${S.ptab==='hs'?`<div class="cl-hs">${S.phist.map(([t,d,p])=>`<div class="hr2"><span><b>${t}</b><span>${d}</span></span><span class="p tn ${p<0?'neg':''}" dir="ltr">${p>0?'+':'−'}${fd(Math.abs(p))}</span></div>`).join('')}</div>`:''}
@@ -1615,9 +1658,9 @@ const NOTES={
  rtime:['انتخاب ساعت با چرخ ساعت خود گوشی و روزهای هفته'],
  login:['عکس کافه حذف شد؛ وکتور ساده‌ی لیوان با رنگ‌های اپ'],
  otp:['متن‌ها خودمونی‌تر شد؛ ورود خودکار و حالت کد اشتباه حفظ شد'],
- home:['پک‌ها: بدون علاقه‌مندی، با شمارش معکوس تا پایان پیشنهاد','«الان چی می‌چسبه» بدون شمارنده','کارت سفارش تحویل‌شده بدون «ثبت نظر»','خط «سفارش خودکار فردا» با دکمه‌ی رد کردن','نوار پیشرفت تا جایزه‌ی بعدی','بنرهای نهایی و منوی شناور پایین‌تر'],
+ home:['«همون همیشگی»: نوار «سفارش قبلی رو تکرار کن» + کارت‌های «پرسفارش‌های تو» با برچسب «۱۲ بار»؛ کاربر تازه: «پرفروش‌های درینگ»','دکمه‌ی سفید «افزودن +» روی کارت‌ها؛ برچسب‌ها ساده و سمت چپ','زیر لوگو: «کافه لیو · شعبه ائل‌گلی»','پک‌ها: بدون علاقه‌مندی، با شمارش معکوس تا پایان پیشنهاد','«الان چی می‌چسبه» بدون شمارنده','کارت سفارش تحویل‌شده بدون «ثبت نظر»','خط «سفارش خودکار فردا» با دکمه‌ی رد کردن','نوار پیشرفت تا جایزه‌ی بعدی','بنرهای نهایی و منوی شناور پایین‌تر'],
  branch:['آدرس شعبه حذف شد'],
- menu:['منوی ترکیبی: قهوه‌ها، دمنوش و آب‌میوه لیستی؛ شیک، اسموتی، موکتیل، بستنی، دسر و پک کارتی','دکمه‌ی کنار جست‌وجو: نمایش فشرده‌ی همه‌چیز لیستی','دکمه‌ی افزودن: مربع گرد ملایم با متن «افزودن» به جای دایره','دکمه‌ی + سفید با خط دور مشکی، کم‌تر توی چشم','برچسب «مخصوص اپ» روی پک‌ها','دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
+ menu:['کل منو لیستی؛ دکمه‌ی کنار جست‌وجو نمایش کارتی رو باز می‌کنه','منوی ترکیبی: قهوه‌ها، دمنوش و آب‌میوه لیستی؛ شیک، اسموتی، موکتیل، بستنی، دسر و پک کارتی','دکمه‌ی کنار جست‌وجو: نمایش فشرده‌ی همه‌چیز لیستی','دکمه‌ی افزودن: مربع گرد ملایم با متن «افزودن» به جای دایره','دکمه‌ی + سفید با خط دور مشکی، کم‌تر توی چشم','برچسب «مخصوص اپ» روی پک‌ها','دو نمایش برای مقایسه: لیستی (پیش‌فرض) و کارتی؛ دکمه‌ی کنار جست‌وجو عوضشون می‌کنه','لیستی: عکس کوچیک، قیمت پررنگ، دکمه‌ی + بزرگ ۴۴ پیکسلی مشکی که بعد از زدن «+ ۱ −» می‌شه','کارتی: همون طراحی فعلی','منوی واقعی کافه از فایل اکسل: ۱۵۰+ محصول در ۱۱ گروه با قیمت‌های واقعی (تومان)','دسته‌ها دو ردیف و قابل کشیدن به چپ‌وراست؛ «آب میوه» و «پک‌ها» اضافه شد','نوار دسته‌ها همه‌ی گروه‌ها رو داره؛ در حالت «همه» محصولات بخش‌بندی شده','افزودنی‌ها از تاپینگ‌های واقعی؛ عکس‌ها موقتاً تکراری'],
  addons:['+ همیشه مستقیم اضافه می‌کنه؛ افزودنی از داخل سبد زیر همون آیتم انتخاب می‌شه'],
  cart:['ردیف شعبه از بالای سبد حذف شد','امتیاز این خرید طلایی شد'],
  checkout:['ردیف شعبه حذف شد','زمان آماده بودن: ۴ کارت مرتب (۱۰، ۲۰، ۳۰ دقیقه، ساعت دلخواه)','ساعت دلخواه + «هر روز تکرار شه» = سفارش خودکار'],
@@ -1762,7 +1805,7 @@ ph.addEventListener('click',e=>{
  if(d.faq){S.faq=S.faq===+d.faq?-1:+d.faq;return render(true)}
  if(d.br){S.branch=d.br;return render(true)}
  if('brok' in d){const prev=S.stack[S.stack.length-1];if(prev==='checkout'||prev==='cart')return back();S.stack=['home'];S.scr='menu';S.showCats=true;return render()}
- if('mview' in d){S.mview=S.mview==='list'?'auto':'list';toast(S.mview==='list'?'نمایش فشرده: همه‌ی گروه‌ها لیستی':'نمایش ترکیبی: گروه‌های عکس‌دار کارتی');return render(true)}
+ if('mview' in d){S.mview=S.mview==='list'?'card':'list';return render(true)}
  if(d.mgo!=null){const j=+d.mgo;if(j===0)return tab('menu');if(j===1){S.cat='smoothie';S.q='';S.showCats=false;S.stack=['home'];S.scr='menu';return render()}if(j===2)return go('routines');if(j===3)return go('editprofile');if(j===4){const el=ph.querySelector('.cl-inv');el&&el.scrollIntoView({behavior:'smooth',block:'center'});return}}
  if(d.ptab){S.ptab=d.ptab;return render(true)}
  if(d.rwd){S._rw=d.rwd;S.sheet='rwd';return render(true)}
